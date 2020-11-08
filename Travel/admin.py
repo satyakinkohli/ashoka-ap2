@@ -5,4 +5,4 @@ from .models.hotels import Hotel
 admin.site.register(Hotel)
 
 #trial
-
+#koc

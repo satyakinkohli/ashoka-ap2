@@ -113,14 +113,31 @@ body {font-family: Arial, Helvetica, sans-serif;}
   opacity: 1;
 }
 
-#facebook {
+.facebook {
     border-color: grey;
-
+    border-radius: 5px;
     color:black;
-    
+    background-color:white;
+    margin-left:34%;
+    padding-top:3px;
+    padding-bottom:3px;
+    padding-right:10px;
+    padding-left:10px;
     
 }
 
+.facebook2 {
+    border-color: grey;
+    border-radius: 5px;
+    color:black;
+    background-color:white;
+    margin-left:21%;
+    padding-top:3px;
+    padding-bottom:3px;
+    padding-right:10px;
+    padding-left:10px;
+    
+}
 
 
     </style>
@@ -147,9 +164,29 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <input type="password" placeholder="Enter Password" name="psw" required>
 
     <button type="submit" class="btn">Login</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    <button type="button" class="facebook2" onclick="closeForm()">Back To Main Page</button>
   </form>
 </div>
+
+<div class="form-popup" id="myForm3">
+    <form action="/action_page.php" class="form-container">
+      <h4 style="text-align: center";>Welcome!!</h4>
+
+      <label for="email"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="name" required>
+  
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+  
+      <button type="submit" class="btn">Sign up</button>
+      <button type="button" class="facebook2" onclick="closeForm()">Back To Main Page</button>
+    </form>
+  </div>
+
+
 
 <div class="form-popup" id="myForm2">
     <form action="/action_page.php" class="form-container">
@@ -163,6 +200,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
      <p style="text-align: center;"> -------- or ---------</p>
   
       <button type="button" class="btn cancel" onclick="openForm1()" >Continue with Email</button>
+
+      <p style="text-align: center;"> Don't have an account? </p> 
+      <button type="button" class="facebook" onclick="openForm3()" >Sign up</button> 
     </form>
   </div>
 
@@ -177,8 +217,15 @@ function openForm2() {
   document.getElementById("myForm2").style.display = "block";
 }
 
+function openForm3() {
+  document.getElementById("myForm2").style.display = "none";
+  document.getElementById("myForm3").style.display = "block";
+}
+
 function closeForm() {
   document.getElementById("myForm1").style.display = "none";
+  document.getElementById("myForm2").style.display = "none";
+  document.getElementById("myForm3").style.display = "none";
 }
 </script>
 

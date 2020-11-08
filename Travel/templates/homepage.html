@@ -113,6 +113,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
   opacity: 1;
 }
 
+#facebook {
+    border-color: grey;
+
+    color:black;
+    
+    
+}
+
 
 
     </style>
@@ -125,12 +133,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <body>
 
 
-<button class="open-button" onclick="openForm()">Login</button>
+<button class="open-button" onclick="openForm2()">Login</button>
 
 
-<div class="form-popup" id="myForm">
+<div class="form-popup" id="myForm1">
   <form action="/action_page.php" class="form-container">
-    <h3 style="text-align: center";>Nice to see you!</h3>
+    <h4 style="text-align: center";>Nice to see you!</h4>
 
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" required>
@@ -143,14 +151,34 @@ body {font-family: Arial, Helvetica, sans-serif;}
   </form>
 </div>
 
+<div class="form-popup" id="myForm2">
+    <form action="/action_page.php" class="form-container">
+      <h3 style="text-align: center;"> <img src="emoji.png" height="30px" width="30px"> </h3>
+      <h2> </h2>
+  
+      <button type="button" class="btn" >Continue with Facebook</button>
+
+      <button type="button" class="btn"> Continue with Google </button>
+
+     <p style="text-align: center;"> -------- or ---------</p>
+  
+      <button type="button" class="btn cancel" onclick="openForm1()" >Continue with Email</button>
+    </form>
+  </div>
+
 <script>
 
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
+function openForm1() {
+  document.getElementById("myForm2").style.display = "none";
+  document.getElementById("myForm1").style.display = "block";
+}
+
+function openForm2() {
+  document.getElementById("myForm2").style.display = "block";
 }
 
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+  document.getElementById("myForm1").style.display = "none";
 }
 </script>
 

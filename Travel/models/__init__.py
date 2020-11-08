@@ -1,0 +1,2 @@
+from .hotels import Hotel
+

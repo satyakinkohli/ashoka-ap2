@@ -192,10 +192,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <body>
 
 
-<button class="open-button" onclick="openForm2()">Login</button>
+<button class="open-button" onclick="openForm_Initial()">Login</button>
 
 
-<div class="form-popup" id="myForm1">
+<div class="form-popup" id="Form_Mail">
   <form action="/action_page.php" class="form-container">
     <div class="sameline"> <button type="button" class="facebook5" onclick="goback()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="15px" widht="15px"></button>
      <button type="button" class="facebook3" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
@@ -210,7 +210,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   </form>
 </div>
 
-<div class="form-popup" id="myForm3">
+<div class="form-popup" id="Form_Signup">
     <form action="/action_page.php" class="form-container">
         
     
@@ -234,7 +234,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
-<div class="form-popup" id="myForm2">
+<div class="form-popup" id="Form_Initial">
     <form action="/action_page.php" class="form-container">
     <button type="button" class="facebook4" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button> 
    <h1> </h1>
@@ -245,41 +245,41 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
      <p style="text-align: center;"> -------- or ---------</p>
   
-      <button type="button" class="btn cancel" onclick="openForm1()" >Continue with Email</button>
+      <button type="button" class="btn cancel" onclick="openForm_Mail()" >Continue with Email</button>
 
       <p style="text-align: center;"> Don't have an account? </p> 
-      <button type="button" class="facebook" onclick="openForm3()" >Sign up</button> 
+      <button type="button" class="facebook" onclick="openForm_Signup()" >Sign up</button> 
     </form>
   </div>
 
 <script>
 
-function openForm1() {
-  document.getElementById("myForm2").style.display = "none";
-  document.getElementById("myForm1").style.display = "block";
+function openForm_Mail() {
+  document.getElementById("Form_Initial").style.display = "none";
+  document.getElementById("Form_Mail").style.display = "block";
 }
 
-function openForm2() {
-  document.getElementById("myForm2").style.display = "block";
-  document.getElementById("myForm1").style.display = "none";
-  document.getElementById("myForm3").style.display = "none";
+function openForm_Initial() {
+  document.getElementById("Form_Initial").style.display = "block";
+  document.getElementById("Form_Mail").style.display = "none";
+  document.getElementById("Form_Signup").style.display = "none";
 }
 
-function openForm3() {
-  document.getElementById("myForm2").style.display = "none";
-  document.getElementById("myForm3").style.display = "block";
+function openForm_Signup() {
+  document.getElementById("Form_Initial").style.display = "none";
+  document.getElementById("Form_Signup").style.display = "block";
 }
 
 function closeForm() {
-  document.getElementById("myForm1").style.display = "none";
-  document.getElementById("myForm2").style.display = "none";
-  document.getElementById("myForm3").style.display = "none";
+  document.getElementById("Form_Mail").style.display = "none";
+  document.getElementById("Form_Initial").style.display = "none";
+  document.getElementById("Form_Signup").style.display = "none";
 }
 
 function goback() {
-  document.getElementById("myForm1").style.display = "none";
-  document.getElementById("myForm2").style.display = "block";
-  document.getElementById("myForm3").style.display = "none";
+  document.getElementById("Form_Mail").style.display = "none";
+  document.getElementById("Form_Initial").style.display = "block";
+  document.getElementById("Form_Signup").style.display = "none";
 }
 </script>
 

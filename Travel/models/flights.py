@@ -4,6 +4,7 @@ from datetime import date
 from .location import Location
 from .airlines import Airline
 
+
 class Flight(models.Model):
     airline = models.ForeignKey(Airline, on_delete=models.CASCADE, default=1)
     source = models.ForeignKey(Location, related_name="source", on_delete=models.CASCADE, default=1)
@@ -31,4 +32,10 @@ class Flight(models.Model):
             return Flight.objects.get(destination=destination)
         except:
             return False
-    
+
+    @staticmethod
+    def get_correct_flight(source, destination):
+        try:
+            return Flight.objects.get(source=source, destination=destination)
+        except:
+            return False

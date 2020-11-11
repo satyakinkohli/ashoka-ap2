@@ -6,5 +6,5 @@ from .views.flights_view import Flight_View
 
 urlpatterns = [
     path('', Homepage, name="homepage"),
-    path('flights', Flight_View.as_view(), name="flights"),
+    path('flights', Flight_View, name="flights"),
 ]

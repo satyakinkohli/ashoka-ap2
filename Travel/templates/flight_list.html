@@ -9,16 +9,16 @@
     <style>
         .sizing_image
         {
-            height: 125px;
-            width: 125px;
-            margin-left: 22.5%;
+            height: 100px;
+            width: 100px;
+            margin-left: 25%;
             margin-top: 12.5%;
         }
 
         .curved
         {
             border-radius: 25px;
-            height: 200px;
+            height: 175px;
             width: 700px;
         }
 
@@ -39,14 +39,16 @@
             <div class="row no-gutters">
                 <div class="col-sm-3">
                     <img class="sizing_image card-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/IndiGo_logo.svg/250px-IndiGo_logo.svg.png" alt="Suresh Dasari Card">
-                    <p class="card-text" style="margin-left: 27.5%; margin-top: 7.5%">{{flight.name}}</p>
+                    <p class="card-text" style="margin-left: 25%; margin-top: 7.5%">{{flight.name}}</p>
                 </div>
                 <div class="col-sm-9">
                     <div class="card-body">
                         <h5 class="card-title">{{flight.departure_time}} - {{flight.arrival_time}}</h5>
+                        <h4 class="float-right">{{flight.economy_price}}</h4>
                         <p class="card-text location">{{flight.source}} - {{flight.destination}}</p>
                         
-                        <a href="#" class="btn btn-warning">Book now</a>
+
+                        <a href="#"  style="margin-top: -2%" class="btn btn-warning btn-lg float-right"> Book now </a>
                     </div>
                 </div>
                 </div>

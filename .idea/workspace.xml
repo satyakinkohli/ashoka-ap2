@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b13471f-765d-488e-a1e4-7accc43c520e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Travel/templates/flight_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Travel/templates/flight_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Travel/models/airlines.py" beforeDir="false" afterPath="$PROJECT_DIR$/Travel/models/airlines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

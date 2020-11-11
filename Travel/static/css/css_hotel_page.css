@@ -1,0 +1,112 @@
+
+    
+    .width {
+      height:75px;
+    }
+
+    .space {
+      margin-top:10%;
+    }
+
+    .space2 {
+      margin-top:0.85%;
+    }
+
+    .leave1 {
+      margin-top:7%;
+      text-align: center;
+    }
+
+    .leave2 {
+      margin-top:2%;
+    }
+
+    .shift {
+      height:50%;
+      width:50%;
+      
+    
+    }.sliderWrapper {
+      text-align: center;
+      background-color:white;
+      background-size:cover;
+      padding:15px;
+      margin-left:15%;
+      border-radius: 10px;
+  }   
+
+    .scrolling_left {
+      margin-left:15%;
+      margin-top:10%;
+    }
+
+    .scrolling_right {
+      margin-right:13%;
+      margin-top:10%;
+    }
+
+    .labels {
+      background-color: black ; 
+      padding: 8px; 
+      border: 1px solid green;
+      width:5%;
+      font-size:17px;
+      border-radius:10px;
+      margin-left:47%;
+      color:white;
+    }
+
+    .try1 { 
+      padding: 0px;
+      margin-left:14%;
+    }
+    .try2 {
+      float: left;
+      width: auto;
+      list-style: outside none none;
+      margin-left:5%;
+      margin-top:0.5%;
+    }
+    .try3 {
+      float: left;
+      width: auto;
+      list-style: outside none none;
+      margin-left:33%;
+      margin-top:0.5%;
+    }
+
+    .labels2 {
+      float: left;
+      width: auto;
+      list-style: outside none none;
+      margin-left:3%;
+      background-color: black ; 
+      padding: 5px; 
+      border: 1px solid green;
+      border-radius:10px;
+      color:white;
+    }
+
+    .address {
+      margin-left: 41%;
+      margin-top:3%;
+    }
+
+    .try5 { 
+      padding: 0px;
+      margin-left:14%;
+      margin-top:3%;
+    }
+    .try6 {
+      float: left;
+      width: auto;
+      list-style: outside none none;
+      margin-left:18%;
+      margin-top:2%;
+    }
+    .try7 { 
+      padding: 0px;
+      margin-left:14%;
+      margin-top:3%;
+    }
+

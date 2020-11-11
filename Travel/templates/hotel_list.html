@@ -9,17 +9,17 @@
     <style>
         .sizing_image
         {
-            height: 125px;
-            width: 125px;
-            margin-left: 22.5%;
-            margin-top: 12.5%;
+            height: 250px;
+            width: 250px;
+            margin-left: 12.5%;
+            margin-top: 10.5%;
         }
 
         .curved
         {
-            border-radius: 25px;
-            height: 200px;
-            width: 700px;
+            border-radius: 15px;
+            height: 300px;
+            width: 900px;
         }
 
         .location
@@ -28,25 +28,57 @@
             color: dimgrey;
         }
 
+        .vl {
+  border-left: 3px solid lightblue ;
+  opacity: 50%;
+  height: 175px;
+  margin-top:30%;
+}
+
     </style>
 
 </head>
 
 <body>
 
-    {% for flight in flights %}
+    {% for hotel in hotels %}
         <div class="card curved mx-auto">
             <div class="row no-gutters">
                 <div class="col-sm-3">
-                    <img class="sizing_image card-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/IndiGo_logo.svg/250px-IndiGo_logo.svg.png" alt="Suresh Dasari Card">
-                    <p class="card-text" style="margin-left: 27.5%; margin-top: 7.5%">{{flight.name}}</p>
+                    <img class="sizing_image card-img" src="https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?s=1024x768" alt="Suresh Dasari Card">
+                    
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-4" style="margin-left:5%">
                     <div class="card-body">
-                        <h5 class="card-title">{{flight.departure_time}} - {{flight.arrival_time}}</h5>
-                        <p class="card-text location">{{flight.source}} - {{flight.destination}}</p>
+                        <br>
+                        <h5 class="card-title" style=" margin-left:20%; ">{{Name: Hotel}}</h5>
+                        <p class="card-text location" style="margin-top:7%;margin-left:15%;" > {{Rating of the Hotel}}</p>
+                        <h5 class="card-title" style="margin-top:17%;margin-left:28%;">{{Price}}</h5>
                         
-                        <a href="#" class="btn btn-warning">Book now</a>
+                        <a href="#" class="btn btn-warning" style="margin-top:8%; margin-left:7%; padding-left:25%; padding-right:25%">View Deal</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-1">
+                    <div class="card-body">
+                        <br>
+                        <br>
+                        <div class="vl"></div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="card-body">
+                        
+                        <br>
+                        <br>
+                        <br>
+                        <p class="card-title"><img src="website_logo.png" height="20px" width="20px" >&nbsp;{{Visit Website}}</p>
+                        <p class="card-text"><img src="contact_logo.png" height="20px" width="20px" >&nbsp;{{Number}}</p>
+                        <p class="card-text"><img src="addreess.png" height="25px" width="25px" >&nbsp;DLF Capital Green</p>
+                        <p class="card-text">Reviews ({{count}})</p>
+                        
+        
                     </div>
                 </div>
                 </div>

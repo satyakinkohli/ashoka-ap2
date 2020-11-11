@@ -7,3 +7,4 @@ class Hotel_booking(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     #check_in_date = 
     #check_out_date =
+    #room_type = 

@@ -1,6 +1,7 @@
 from django.db import models
 from .location import Location
 
+
 class Hotel(models.Model):
     name = models.CharField(max_length=50)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, default=1)

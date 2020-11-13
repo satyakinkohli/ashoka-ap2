@@ -8,7 +8,7 @@ class Flight_View(View):
     def get(self, request):
         flight_from = request.GET.get('flight_from')
         print(flight_from)
-        flight_destination = request.session.get('flight_destination')
+        flight_destination = request.GET.get('flight_destination')
         print(flight_destination)
 
         possible_flights = Flight.get_correct_flight(flight_from, flight_destination)

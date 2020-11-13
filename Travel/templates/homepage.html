@@ -115,23 +115,25 @@
 
         <!-- Flights -->
         <div class="container col-mb-4" id="flights_search_bar">
-            <form class="form-inline">
+            <form class="form-inline" action= "/flights" method = "get">
                 <div class="form-row">
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" method = "GET" name="flight_from" placeholder="From">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg"  name="flight_from" placeholder="From">
                         <!-- <input style="border-top-left-radius: 25px; border-bottom-left-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="from" placeholder="From"> -->
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" method = "GET" name="flight_destination" placeholder="Destination">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg"  name="flight_destination" placeholder="Destination">
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" method = "GET" id="departure" placeholder="Departure">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg"  id="departure" placeholder="Departure">
                         <!-- <input style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="departure" placeholder="Departure"> -->
                     </div>
                     <div class="col">
                         <!-- <form action="/flights" method="get" id="form1"style="margin-top:23%;height:47px;border-radius:10px"><button type="submit" form="nameform" value="Submit">Book Flight</button></form> -->
                         <!-- <input type="submit" form="form1" value="Submit" onclick="/flights" style="margin-top:23%;height:47px;border-radius:10px">Book Flight</button> -->
-                        <a href="/flights"><img src="{% static '/images/flight.jpeg' %}" height="49px" width="49px" style="margin-left: 6%;margin-top: 43.5%;border-radius: 2%; border-width: 10px; border-color:black;"></a> 
+                        <button type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
                         <!-- <a href="/flights" role="button" type="submit" style="border-radius: 5px; margin-left: 5px; margin-top: 20px;" id="close-image"><img src="https://e7.pngegg.com/pngimages/193/906/png-clipart-airplane-aircraft-silhouette-computer-icons-cartoon-plane-hand-wikimedia-commons.png"></a> -->
                     </div>
                 </div>

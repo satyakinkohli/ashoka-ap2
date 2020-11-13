@@ -36,6 +36,6 @@ class Flight(models.Model):
     @staticmethod
     def get_correct_flight(source, destination):
         try:
-            return Flight.objects.get(source=source, destination=destination)
+            return Flight.objects.filter(source=source, destination=destination)
         except:
             return False

@@ -8,11 +8,7 @@
     <title>Don'tGoIbobo</title>
 
     {% load static %}
-<<<<<<< HEAD
-    <link href="{% static 'css/css_homepage.css' %}" rel="stylesheet">
-=======
     <link rel="stylesheet" href="{% static 'css/css_homepage.css' %}" >
->>>>>>> 3671fb71eac40723fa62de712c015677a50eed68
 
 </head>
 
@@ -126,14 +122,14 @@
             <form class="form-inline" action= "/flights" method = "get">
                 <div class="form-row">
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg"  name="flight_from" placeholder="From">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="flight_from" placeholder="From" required>
                         <!-- <input style="border-top-left-radius: 25px; border-bottom-left-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="from" placeholder="From"> -->
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg"  name="flight_destination" placeholder="Destination">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="flight_destination" placeholder="Destination" required>
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg"  id="departure" placeholder="Departure">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="flight_date" placeholder="Departure" required>
                         <!-- <input style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="departure" placeholder="Departure"> -->
                     </div>
                     <div style="margin-left: 15px; margin-top: 20px;">

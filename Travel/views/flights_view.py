@@ -2,18 +2,16 @@ from django.shortcuts import render
 from django.views import View
 
 from Travel.models.flights import Flight
+from Travel.models.location import Location
 
 
 class Flight_View(View):
     def get(self, request):
-
-        locations = {'Delhi': 1, 'Mumbai': 2, 'Bangalore': 3, 'Pune': 4, 'Kolkata': 5, 'Jaipur': 6}
-        
         flight_from = request.GET.get('flight_from')
-        flight_from_id=(locations[flight_from])
+        flight_from_id = Location.get_location_through_name(flight_from)
         
         flight_destination = request.GET.get('flight_destination')
-        flight_destination_id = (locations[flight_destination])
+        flight_destination_id = Location.get_location_through_name(flight_destination)
         
         flight_date = request.GET.get('flight_date')
         

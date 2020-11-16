@@ -18,6 +18,9 @@ class Flight_View(View):
         flight_date = request.GET.get('flight_date')
         
         possible_flights = Flight.get_correct_flight_through_location_and_date(flight_from_id, flight_destination_id, flight_date)
+
+        if len(possible_flights) == 0:
+            pass
         
         data = {'possible_flights': possible_flights}
         

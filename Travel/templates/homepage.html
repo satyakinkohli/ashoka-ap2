@@ -8,7 +8,15 @@
     <title>Don'tGoIbobo</title>
 
     {% load static %}
-    <link href="{% static 'css/css_homepage.css' %}" rel="stylesheet">   
+    <link href="{% static 'css/css_homepage.css' %}" rel="stylesheet">
+
+    <style>
+        .submit_button {
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 25px;
+        }
+    </style>
 
 </head>
 
@@ -105,10 +113,14 @@
                         <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" id="check-out" placeholder="Check-out Date">
                         <!-- <input style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="departure" placeholder="Departure"> -->
                     </div>
-                    <div class="col">
-                        <a href="/hotels"><img src="{% static '/images/hut.jpeg' %}" height="49px" width="49px" style="margin-left: 6%;margin-top: 43.5%;border-radius: 2%; border-width: 10px; border-color:black;"></a>
-                        <!-- <button style="border-radius: 5px; margin-left: 5px; margin-top: 20px;" id="close-image"><img src="data:image/png;base64,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"></button> -->
+                    <div style="margin-left: 15px; margin-top: 20px;">
+                        <button class="submit_button" type="submit">
+                            <i class="fa fa-search fa-lg"></i>
+                        </button>
                     </div>
+                    <!-- <div class="col">
+                        <a href="/hotels"><img src="{% static '/images/hut.jpeg' %}" height="49px" width="49px" style="margin-left: 6%;margin-top: 43.5%;border-radius: 2%; border-width: 10px; border-color:black;"></a>
+                    </div> -->
                 </div>
             </form>
         </div>
@@ -128,11 +140,11 @@
                         <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg"  id="departure" placeholder="Departure">
                         <!-- <input style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="departure" placeholder="Departure"> -->
                     </div>
-                    <div class="col">
+                    <div style="margin-left: 15px; margin-top: 20px;">
                         <!-- <form action="/flights" method="get" id="form1"style="margin-top:23%;height:47px;border-radius:10px"><button type="submit" form="nameform" value="Submit">Book Flight</button></form> -->
                         <!-- <input type="submit" form="form1" value="Submit" onclick="/flights" style="margin-top:23%;height:47px;border-radius:10px">Book Flight</button> -->
-                        <button type="submit">
-                            <i class="fa fa-search"></i>
+                        <button class="submit_button" type="submit">
+                            <i class="fa fa-search fa-lg"></i>
                         </button>
                         <!-- <a href="/flights" role="button" type="submit" style="border-radius: 5px; margin-left: 5px; margin-top: 20px;" id="close-image"><img src="https://e7.pngegg.com/pngimages/193/906/png-clipart-airplane-aircraft-silhouette-computer-icons-cartoon-plane-hand-wikimedia-commons.png"></a> -->
                     </div>
@@ -155,10 +167,14 @@
                         <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" id="start-date" placeholder="Start Date">
                         <!-- <input style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="departure" placeholder="Departure"> -->
                     </div>
-                    <div class="col">
-                        <a href="/cabs"><img src="{% static '/images/taxi.jpeg' %}" height="49px" width="49px" style="margin-left: 6%;margin-top: 43.5%;border-radius: 2%; border-width: 10px; border-color:black;"></a>
-                        <!-- <button style="border-radius: 5px; margin-left: 5px; margin-top: 20px;" id="close-image"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSIhHkPLZMVNrsCugf26zOOL-3laGhHawBiMQ&usqp=CAU"></button> -->
+                    <div style="margin-left: 15px; margin-top: 20px;">
+                        <button class="submit_button" type="submit">
+                            <i class="fa fa-search fa-lg"></i>
+                        </button>
                     </div>
+                    <!-- <div class="col">
+                        <a href="/cabs"><img src="{% static '/images/taxi.jpeg' %}" height="49px" width="49px" style="margin-left: 6%;margin-top: 43.5%;border-radius: 2%; border-width: 10px; border-color:black;"></a>
+                    </div> -->
                 </div>
             </form>
         </div>

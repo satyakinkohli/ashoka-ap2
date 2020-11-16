@@ -41,10 +41,10 @@
 <body>
 
     {% for flight in possible_flights %}
-        <div class="card curved mx-auto">
+        <div class="card curved mx-auto" style="margin-bottom:1.5%; margin-top:1.5%">
             <div class="row no-gutters">
                 <div class="col-sm-3">
-                    <img class="sizing_image card-img" src="{{flight.airline.logos}}" alt="Flight Logo">
+                    <img class="sizing_image card-img" src="{{flight.image.url}}" alt="Flight Logo">
                     <p class="card-text" style="margin-left: 23.5%; margin-top: 7.5%">{{flight.airline.name}}</p>
                 </div>
                 <div class="col-sm-9">

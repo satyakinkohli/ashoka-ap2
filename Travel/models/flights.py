@@ -18,7 +18,6 @@ class Flight(models.Model):
     business_price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
 
 
-
     @staticmethod
     def get_flight_through_source(source):
         try:
@@ -34,8 +33,8 @@ class Flight(models.Model):
             return False
 
     @staticmethod
-    def get_correct_flight(source, destination):
+    def get_correct_flight_through_location_and_date(source, destination, date):
         try:
-            return Flight.objects.filter(source=source, destination=destination)
+            return Flight.objects.filter(source=source, destination=destination, date=date)
         except:
             return False

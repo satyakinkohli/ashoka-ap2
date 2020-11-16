@@ -95,14 +95,14 @@
             <form class="form-inline">
                 <div class="form-row">
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="where" placeholder="Where">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="hotel_where" placeholder="Where" required>
                         <!-- <input style="border-top-left-radius: 25px; border-bottom-left-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="from" placeholder="From"> -->
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" id="check-in" placeholder="Check-in Date">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="hotel_check-in" placeholder="Check-in Date" required>
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" id="check-out" placeholder="Check-out Date">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="hotel_check-out" placeholder="Check-out Date" required>
                         <!-- <input style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="departure" placeholder="Departure"> -->
                     </div>
                     <div style="margin-left: 15px; margin-top: 20px;">
@@ -122,14 +122,14 @@
             <form class="form-inline" action= "/flights" method = "get">
                 <div class="form-row">
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg"  name="flight_from" placeholder="From">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="flight_from" placeholder="From" required>
                         <!-- <input style="border-top-left-radius: 25px; border-bottom-left-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="from" placeholder="From"> -->
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg"  name="flight_destination" placeholder="Destination">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="flight_destination" placeholder="Destination" required>
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg"  id="departure" placeholder="Departure">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="flight_date" placeholder="Departure" required>
                         <!-- <input style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="departure" placeholder="Departure"> -->
                     </div>
                     <div style="margin-left: 15px; margin-top: 20px;">
@@ -149,14 +149,14 @@
             <form class="form-inline">
                 <div class="form-row">
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="from_cab" placeholder="From">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="cab_from" placeholder="From" required>
                         <!-- <input style="border-top-left-radius: 25px; border-bottom-left-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="from" placeholder="From"> -->
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="to" placeholder="To">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="cab_to" placeholder="To" required>
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" id="start-date" placeholder="Start Date">
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="cab_start-date" placeholder="Start Date" required>
                         <!-- <input style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="departure" placeholder="Departure"> -->
                     </div>
                     <div style="margin-left: 15px; margin-top: 20px;">

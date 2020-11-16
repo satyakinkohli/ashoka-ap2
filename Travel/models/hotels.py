@@ -28,5 +28,4 @@ class Hotel(models.Model):
         try:
             return Hotel.objects.filter(location=location)
         except:
-            return 0
-            # return False
+            return False

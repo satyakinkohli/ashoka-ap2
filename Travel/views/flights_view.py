@@ -19,9 +19,10 @@ class Flight_View(View):
         
         possible_flights = Flight.get_correct_flight_through_location_and_date(flight_from_id, flight_destination_id, flight_date)
 
+        error_message = None
         if len(possible_flights) == 0:
-            pass
+            error_message = "Sorry, we do not have any available flights as per your requirements!"
         
-        data = {'possible_flights': possible_flights}
+        data = {'possible_flights': possible_flights, 'error_message': error_message}
         
         return render(request, 'flight_list.html', data)

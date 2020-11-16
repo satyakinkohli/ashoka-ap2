@@ -47,7 +47,11 @@
 <body>
 
 
-
+    {% if error_message %}
+        <h3 style="text-align: center;">
+            {{error_message}}
+        </h3>
+    {% endif %}
 
     {% for flight in possible_flights %}
         <div class="card curved mx-auto" style="margin-bottom:1.5%; margin-top:1.5%">

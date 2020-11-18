@@ -9,11 +9,11 @@ class Hotel_View(View):
     def get(self, request):
         hotel_where = request.GET.get('hotel_where')
         hotel_where_id = Location.get_location_through_name(hotel_where)
-        
+
         hotel_check_in = request.GET.get('hotel_check_in')
         hotel_check_out = request.GET.get('hotel_check_out')
         
-        possible_hotels = Hotel.get_hotel_through_location(hotel_where_id)
+        possible_hotels = Hotel.get_correct_hotel_through_location(hotel_where_id)
 
         error_message = None
         if len(possible_hotels) == 0:

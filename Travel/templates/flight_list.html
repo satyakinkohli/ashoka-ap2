@@ -30,8 +30,8 @@
         .curved
         {
             border-radius: 25px;
-            height: 175px;
-            width: 700px;
+            height: 165px;
+            width: 630px;
         }
 
         .location
@@ -57,17 +57,28 @@
             <div class="row no-gutters">
                 <div class="col-sm-3">
                     <img class="sizing_image card-img" src="{{flight.airline.logos.url}}" alt="Flight Logo">
-                    <p class="card-text" style="margin-left: 23.5%; margin-top: 7.5%">{{flight.airline.name}}</p>
+                    <p class="card-text" style="margin-left: 35.5%; margin-top: 6.5%">{{flight.airline.name}}</p>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-6">
                     <div class="card-body">
-                        <h5 class="card-title">{{flight.departure_time}} - {{flight.arrival_time}}</h5>
-                        <h4 class="float-right">{{flight.economy_price}}</h4>
+                        <h5 class="card-title" style="margin-top:5%">{{flight.departure_time}} - {{flight.arrival_time}}</h5>
+                      
                         <p class="card-text location">{{flight.source}} - {{flight.destination}}</p>
                         
-                        <a href="#"  style="margin-top: -2%" class="btn btn-warning btn-lg float-right"> Book now </a>
+                      
                     </div>
                 </div>
+
+                <div class="col-sm-3">
+                    <div class="card-body">
+                        
+                        <h4 class="float-right" style="margin-top:15%;margin-right: 15%">₹{{flight.economy_price}}</h4>
+                        
+                        
+                        <a href="#"  style="margin-top: 15%;margin-right: 5%" class="btn btn-warning btn-lg float-right"> Book now </a>
+                    </div>
+                </div>
+
                 </div>
             </div>
         </div>

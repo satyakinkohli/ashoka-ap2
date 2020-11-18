@@ -74,8 +74,8 @@
                         
                         <h4 class="float-right" style="margin-top:15%;margin-right: 15%">₹{{flight.economy_price}}</h4>
                         
-                        
-                        <a href="#"  style="margin-top: 15%;margin-right: 5%" class="btn btn-warning btn-lg float-right"> Book now </a>
+                        <button class="btn btn-warning btn-lg float-right" style="margin-top: 15%;margin-right: 5%" onclick="openForm_Flight()">Book Now</button>
+                
                     </div>
                 </div>
 
@@ -83,6 +83,33 @@
             </div>
         </div>
     {% endfor %}
+
+
+    <script>
+
+        function openForm_Flight() {
+            document.getElementById("Form_Flight").style.display = "block";
+        }
+    </script>
+
+<div class="form-popup" id="Form_Flight" style="border-radius: 15px;">
+    <form action="/action_page.php" class="form-container" style="border-radius: 10px;">
+    <button type="button" class="facebook4" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
+    <h5> </h5>
+    <button type="button" class="btn"> Continue with Facebook </button>
+
+    <button type="button" class="btn"> Continue with Google </button>
+
+    <p style="text-align: center;"> -------- OR --------- </p>
+
+    <button type="button" class="btn cancel" onclick="openForm_Mail()"> Continue with Email </button>
+
+    <p style="text-align: center;"> Don't have an account? </p> 
+    <button type="button" class="facebook" onclick="openForm_Signup()"> Sign up </button> 
+    </form>
+</div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

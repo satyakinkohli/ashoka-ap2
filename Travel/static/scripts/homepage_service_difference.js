@@ -8,13 +8,14 @@ document.getElementById("flights_search_bar").style.display = "none";
 document.getElementById("hotels_search_bar").style.display = "none";
 document.getElementById("cabs_search_bar").style.display = "none";
 
-window.onload = function hotel_outlook() {
-    document.body.style.backgroundImage = "url('https://i.imgur.com/r58irru.jpeg')";
-    document.getElementById("hotels_search_bar").style.display = "block";
-}
+ window.onload = function hotel_outlook() {
+     document.body.style.backgroundImage = "url('https://i.imgur.com/r58irru.jpeg')";
+     document.getElementById("hotels_search_bar").style.display = "block";
+ }
 
 function hotel_outlook() {
-    document.body.style.backgroundImage = "url('https://i.imgur.com/r58irru.jpeg')";
+     document.body.style.backgroundImage = "url('https://i.imgur.com/r58irru.jpeg')";
+    // document.body.style.backgroundColor = "red";
     var x = document.getElementById("hotels_search_bar");
     document.getElementById("flights_search_bar").style.display = "none";
     document.getElementById("cabs_search_bar").style.display = "none";

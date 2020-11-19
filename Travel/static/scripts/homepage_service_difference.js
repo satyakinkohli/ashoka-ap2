@@ -28,6 +28,7 @@ function flight_outlook() {
     }
 }
 
+
 function cab_outlook() {
     document.body.style.backgroundImage = "url('https://img.etimg.com/thumb/width-1200,height-900,imgsize-673077,resizemode-1,msid-72892426/news/economy/policy/taxi-policy-guidelines-cab-surge-pricing-could-be-capped-at-thrice-the-base-fare.jpg')";
     var x = document.getElementById("cabs_search_bar");

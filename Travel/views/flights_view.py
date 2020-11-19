@@ -21,6 +21,6 @@ class Flight_View(View):
         if len(possible_flights) == 0:
             error_message = "Sorry, we do not have any available flights as per your requirements!"
         
-        data = {'possible_flights': possible_flights, 'error_message': error_message}
+        flight_data = {'possible_flights': possible_flights, 'error_message': error_message}
         
-        return render(request, 'flight_list.html', data)
+        return render(request, 'flight_list.html', flight_data)

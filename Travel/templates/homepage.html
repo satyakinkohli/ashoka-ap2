@@ -92,7 +92,7 @@
 
         <!-- Hotels -->
         <div class="container col-mb-4" id="hotels_search_bar">
-            <form class="form-inline" action= "/hotels" method = "get">
+            <form class="form-inline" action="/hotels" method="get">
                 <div class="form-row">
                     <div class="col">
                         <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="hotel_where" placeholder="Where" required>
@@ -119,7 +119,7 @@
 
         <!-- Flights -->
         <div class="container col-mb-4" id="flights_search_bar">
-            <form class="form-inline" action= "/flights" method = "get">
+            <form class="form-inline" action="/flights" method="get">
                 <div class="form-row">
                     <div class="col">
                         <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="flight_from" placeholder="From" required>
@@ -146,7 +146,7 @@
 
         <!-- Cabs -->
         <div class="container col-mb-4" id="cabs_search_bar">
-            <form class="form-inline">
+            <form class="form-inline" action="/cabs" method="get">
                 <div class="form-row">
                     <div class="col">
                         <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="cab_from" placeholder="From" required>
@@ -156,7 +156,7 @@
                         <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="cab_to" placeholder="To" required>
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="cab_start-date" placeholder="Start Date" required>
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="cab_date" placeholder="Start Date" required>
                         <!-- <input style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="departure" placeholder="Departure"> -->
                     </div>
                     <div style="margin-left: 15px; margin-top: 20px;">

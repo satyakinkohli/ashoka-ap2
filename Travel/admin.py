@@ -10,6 +10,7 @@ from .models.room_type import Room_type
 from .models.airlines import Airline
 from .models.cabs import Cab
 from .models.car_options import Car_options
+from .models.cab_driver import Cab_Driver
 
 admin.site.register(Hotel)
 admin.site.register(Flight)
@@ -21,6 +22,7 @@ admin.site.register(Room_type)
 admin.site.register(Airline)
 admin.site.register(Cab)
 admin.site.register(Car_options)
+admin.site.register(Cab_Driver)
 
 
 

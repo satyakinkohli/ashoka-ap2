@@ -31,10 +31,13 @@
         <b><em>{{cab_from}} - {{cab_to}}</em></b>
         <br>
         <b><em>{{cab_date}}</em></b>
+        <br>
+        <br>
+        <b><em>Please choose the cab you like!</em></b>
     </div>
 
 
-<div style="margin-left: 14.5%; margin-top: 5%; ">
+<div style="margin-left: 14.5%; margin-top: 3%; ">
     {% for car_type in car_types %}
             <button style="padding-left: 25px; padding-right: 25px; cursor: pointer; " type="submit" name="{{car_type.name}}" value="{{car_type.name}}"><img src="{{car_type.type_options.url}}"></button>
     {% endfor %}

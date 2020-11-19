@@ -27,17 +27,16 @@
 
 <body>
 
-    <div style="padding-top: 25px; padding-left: 25px; font-size:25px; text-align: center;">
+    <div style="padding-top: 50px; padding-left: 25px; font-size:25px; text-align: center;">
         <b><em>{{cab_from}} - {{cab_to}}</em></b>
         <br>
         <b><em>{{cab_date}}</em></b>
     </div>
 
 
-<div style="margin-left: 14.5%; margin-top: 4%; ">
+<div style="margin-left: 14.5%; margin-top: 5%; ">
     {% for car_type in car_types %}
-        
-            <button style="padding-left: 25px; padding-right: 25px; cursor: pointer;" type="submit" name="{{car_type.name}}" value="{{car_type.name}}"><img src="{{car_type.type_options.url}}"></button>
+            <button style="padding-left: 25px; padding-right: 25px; cursor: pointer; " type="submit" name="{{car_type.name}}" value="{{car_type.name}}"><img src="{{car_type.type_options.url}}"></button>
     {% endfor %}
     </div>
 

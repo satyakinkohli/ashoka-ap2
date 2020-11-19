@@ -14,7 +14,7 @@ window.onload = function hotel_outlook() {
 }
 
 function hotel_outlook() {
-    document.body.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/0/09/Mumbai_Aug_2018_%2843397784544%29.jpg')";
+    document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80')";
     var x = document.getElementById("hotels_search_bar");
     document.getElementById("flights_search_bar").style.display = "none";
     document.getElementById("cabs_search_bar").style.display = "none";
@@ -24,7 +24,7 @@ function hotel_outlook() {
 }
 
 function flight_outlook() {
-    document.body.style.backgroundImage = "url('https://singularityhub.com/wp-content/uploads/2018/12/airplane-flying-above-clouds_shutterstock_553131187-1068x601.jpg')";
+    document.body.style.backgroundImage = "url('https://i.imgur.com/hOFCrPp.jpg')";
     var x = document.getElementById("flights_search_bar");
     document.getElementById("hotels_search_bar").style.display = "none";
     document.getElementById("cabs_search_bar").style.display = "none";

@@ -32,12 +32,12 @@
         <br>
         <b><em>{{cab_date}}</em></b>
         <br><br>
-        <em>Please choose your preffered cab!</em>
+        <em>Please choose your preferred cab!</em>
     </div>
 
     <div style="margin-left: 9.5%; margin-top: 3%;">
     {% for car_type in car_types %}
-            <button style="border-radius: 25px; padding-left: 25px; padding-right: 25px; cursor: pointer; margin-left:3%" type="submit" name="{{car_type.name}}" value="{{car_type.name}}"><br><figcaption style="font-size: 20px;"><b><em>{{car_type.name}}</em></b></figcaption><br><img src="{{car_type.type_options.url}}"><br><br><figcaption><b>₹ {{car_type.price}}</b></figcaption><br></button>    
+            <button style="border-radius: 25px; padding-left: 25px; padding-right: 25px; cursor: pointer; margin-left:3%" type="submit" name="{{car_type.name}}" value="{{car_type.name}}"><br><figcaption style="font-size: 25px;"><b><em><u>{{car_type.name}}</u></em></b></figcaption><figcaption style="font-size: 15px;"><em>Best for {{car_type.capacity}} people</em></figcaption><br><img src="{{car_type.type_options.url}}"><br><br><figcaption style="font-size: 20px;"><b>₹ {{car_type.price}}</b></figcaption><br></button>    
     {% endfor %}
     </div>    
 

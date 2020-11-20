@@ -16,6 +16,18 @@
             background-color:rgba(255, 0, 255, 0.1);
         }
 
+        .button1:focus {
+            box-shadow: 0 0 0 3.5pt green;
+            border-color: black;
+            border-width: 3px;
+            outline: 0;
+        }
+        .button1 {
+            border-color: black;
+            border-width: 3px;
+            outline: 0;
+        }
+
     </style>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -29,6 +41,13 @@
 
 <body>
 
+    
+    {% if error_message %}
+    <h3 style="text-align: center; margin-top: 10%;">
+        {{error_message}}
+    </h3>
+    
+    {% else %}
     <div style="padding-top: 50px; padding-left: 25px; font-size:25px; text-align: center;">
         <b><em>{{cab_from}} - {{cab_to}}</em></b>
         <br>
@@ -39,9 +58,10 @@
 
     <div style="margin-left: 9.5%; margin-top: 3%;">
     {% for car_type in car_types %}
-            <button style="border-radius: 25px; padding-left: 25px; padding-right: 25px; cursor: pointer; margin-left:3%" type="submit" name="{{car_type.name}}" value="{{car_type.name}}"><br><figcaption style="font-size: 25px;"><b><em><u>{{car_type.name}}</u></em></b></figcaption><figcaption style="font-size: 15px;"><em>Best for {{car_type.capacity}} people</em></figcaption><br><img src="{{car_type.type_options.url}}"><br><br><figcaption style="font-size: 20px;"><b>₹ {{car_type.price|trip_price}}</b></figcaption><br></button>    
+            <button class='button1' style="border-radius: 25px; padding-left: 25px; padding-right: 25px; cursor: pointer; margin-left:3%" type="submit" name="{{car_type.name}}" value="{{car_type.name}}"><br><figcaption style="font-size: 25px;"><b><em><u>{{car_type.name}}</u></em></b></figcaption><figcaption style="font-size: 15px;"><em>Best for {{car_type.capacity}} people</em></figcaption><br><img src="{{car_type.type_options.url}}"><br><br><figcaption style="font-size: 20px;"><b>₹ {{car_type.price|trip_price:distance}}</b></figcaption><br></button>    
     {% endfor %}
-    </div>    
+    </div>
+    {% endif %}  
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -13,9 +13,6 @@ class Cab_Booking_View(View):
         car_type = request.GET.get('car_type')
         print(car_type)
 
-        cab_from = request.GET.get('cab_from')
-        print(cab_from)
-
-        cab_booking_data = {'car_type': car_type, 'cab_from': cab_from}
+        cab_booking_data = {'car_type': car_type}
 
         return render(request, 'cab_list.html', cab_booking_data)

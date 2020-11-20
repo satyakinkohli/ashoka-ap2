@@ -16,7 +16,7 @@
             background-color:rgba(255, 0, 255, 0.1);
         }
 
-        .button1:focus {
+        /* .button1:focus {
             box-shadow: 0 0 0 3.5pt green;
             border-color: black;
             border-width: 3px;
@@ -26,6 +26,31 @@
             border-color: black;
             border-width: 3px;
             outline: 0;
+        } */
+
+        /* HIDE RADIO */
+        [type=radio] { 
+            position: absolute;
+            opacity: 100;
+            width: 0;
+            height: 0;
+        }
+
+        /* IMAGE STYLES */
+        [type=radio] + #car_options {
+            cursor: pointer;
+            border-radius: 25px;
+            padding-left: 25px;
+            padding-right: 25px;
+            margin-left: 50px;
+            border: 2px solid black;
+        }
+
+        /* CHECKED STYLES */
+        [type=radio]:checked + #car_options {
+            box-shadow: 0 0 0 6pt rgb(255, 174, 0);
+            border-color: black;
+            border-width: 2.5px;
         }
 
     </style>
@@ -41,7 +66,6 @@
 
 <body>
 
-    
     {% if error_message %}
     <h3 style="text-align: center; margin-top: 10%;">
         {{error_message}}
@@ -56,17 +80,29 @@
         <em>Please choose your preferred cab!</em>
     </div>
 
-    <div style="margin-left: 9.5%; margin-top: 3%;">
+    <!-- <div style="margin-left: 9.5%; margin-top: 3%;">
         <form action="/cab_booking" method="get">
             {% for car_type in car_types %}
-                    <button class='button1' onblur="disabling_submit_button()" onclick="enabling_submit_button()" style="border-radius: 25px; padding-left: 25px; padding-right: 25px; cursor: pointer; margin-left:3%" type="submit" name="car_type" value="{{car_type.name}}"><br><figcaption style="font-size: 25px;"><b><em><u>{{car_type.name}}</u></em></b></figcaption><figcaption style="font-size: 15px;"><em>Best for {{car_type.capacity}} people</em></figcaption><br><img src="{{car_type.type_options.url}}"><br><br><figcaption style="font-size: 20px;"><b>₹ {{car_type.price|trip_price:distance}}</b></figcaption><br></button>    
+                    <button type="submit" class='button1' onclick="enabling_submit_button()" style="border-radius: 25px; padding-left: 25px; padding-right: 25px; cursor: pointer; margin-left:3%" id="{{car_type.name}}" name="car_type" value="{{car_type.name}}"><br><figcaption style="font-size: 25px;"><b><em><u>{{car_type.name}}</u></em></b></figcaption><figcaption style="font-size: 15px;"><em>Best for {{car_type.capacity}} people</em></figcaption><br><img src="{{car_type.type_options.url}}"><br><br><figcaption style="font-size: 20px;"><b>₹ {{car_type.price|trip_price:distance}}</b></figcaption><br></button>    
             {% endfor %}
             <input class="btn btn-warning" type="submit" id="submit_button" value="Book your cab">
         </form>
+    </div> -->
+
+    <div style="margin-left: 8.5%; margin-top: 3%;">
+        <form action="/cab_booking" method="get">
+            {% for car_type in car_types %}
+            <label>
+                <input onclick="enabling_submit_button()" type="radio" name="car_type" value="{{car_type.name}}">
+                <div id="car_options">
+                    <figcaption style="text-align: center; font-size: 25px;"><b><em><u>{{car_type.name}}</u></em></b></figcaption><figcaption style="text-align: center; font-size: 15px;"><em>Best for {{car_type.capacity}} people</em></figcaption><br><img src="{{car_type.type_options.url}}"><br><br><figcaption style="text-align: center; font-size: 20px;"><b>₹ {{car_type.price|trip_price:distance}}</b></figcaption><br>
+                </div>
+            </label>
+            {% endfor %}
+            <input style="margin-left: 39%; margin-top: 3.5%; padding-left: 25px; padding-right: 25px" class="btn btn-warning btn-lg" type="submit" id="submit_button" value="Book your cab">
+        </form>
     </div>
     {% endif %}
-
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

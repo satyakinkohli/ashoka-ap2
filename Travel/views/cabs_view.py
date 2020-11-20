@@ -19,9 +19,6 @@ class Cab_View(View):
 
         cab_date = request.GET.get('cab_date')
 
-        print(cab_from_id)
-        print(cab_to_id)
-
         error_message = None
         if (cab_from_id == False or cab_to_id == False):
             error_message = "Sorry, we do not have any available cabs as per your requirements!"
@@ -38,8 +35,6 @@ class Cab_View(View):
         car_types = Car_options.get_all_car_types()
 
         distance = random.randint(50, 500)
-
-        print(error_message)
 
         cab_data = {'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'error_message': error_message, 'car_types': car_types, 'distance': distance}
 

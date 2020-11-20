@@ -22,10 +22,25 @@ class Hotel(models.Model):
     suite_price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     
     #boolean facilities
+    wifi = models.BooleanField(default=False)
+    air_conditioning = models.BooleanField(default=True)
+    airport_shuttle = models.BooleanField(default=False)
+    parking_area = models.BooleanField(default=True)
+    pool = models.BooleanField(default=False)
+    fitness_center = models.BooleanField(default=False)
+
 
     @staticmethod
     def get_correct_hotel_through_location(location):
         try:
             return Hotel.objects.filter(location=location)
+        except:
+            return False
+
+
+    @staticmethod
+    def get_hotel_through_id(ids):
+        try:
+            return Hotel.objects.get(id=ids)
         except:
             return False

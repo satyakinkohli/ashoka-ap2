@@ -20,6 +20,12 @@ class Hotel(models.Model):
 
     suite_available = models.BooleanField(default=True)
     suite_price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+
+    image1 = models.ImageField(upload_to = "uploads/hotel_photos", null=True, default=None)
+    image2 = models.ImageField(upload_to = "uploads/hotel_photos", null=True, default=None)
+    image3 = models.ImageField(upload_to = "uploads/hotel_photos", null=True, default=None)
+    image4 = models.ImageField(upload_to = "uploads/hotel_photos", null=True, default=None)
+    image5 = models.ImageField(upload_to = "uploads/hotel_photos", null=True, default=None)
     
     #boolean facilities
     wifi = models.BooleanField(default=False)

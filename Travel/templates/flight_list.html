@@ -40,6 +40,148 @@
             color: dimgrey;
         }
 
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: grey;
+  color: white;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  top: 23px;
+  right: 28px;
+  width: 120px;
+  border-radius: 25px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  top: 150px;
+  left: 40%;
+  width: 300px;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 400px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type="text"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
+
+.facebook {
+  border-color: grey;
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  margin-left: 34%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.facebook2 {
+  border-color: grey;
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  margin-left: 21%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.facebook3 {
+  border-color: white;
+  color: black;
+  background-color: white;
+  margin-left: 3%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.facebook4 {
+  border-color: white;
+  color: black;
+  background-color: white;
+  margin-left: 90%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.facebook5 {
+  border-color: white;
+  color: black;
+  background-color: white;
+  margin-left: 80%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.sameline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 50%;
+  margin-top: 10%;
+}
+
+
     </style>
 
 </head>
@@ -75,6 +217,7 @@
                         <h4 class="float-right" style="margin-top:15%;margin-right: 15%">₹{{flight.economy_price}}</h4>
                         
                         <button class="btn btn-warning btn-lg float-right" style="margin-top: 15%;margin-right: 5%" onclick="openForm_Flight()">Book Now</button>
+                        
                 
                     </div>
                 </div>
@@ -84,6 +227,66 @@
         </div>
     {% endfor %}
 
+    <div class="form-popup" id="Form_Flight">
+        <form action="/action_page.php" class="form-container">
+
+        <div class="sameline"> 
+            <button type="button" class="facebook5" onclick="goback1()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="15px" widht="15px"></button>
+            <button type="button" class="facebook3" onclick="closeForm1()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
+        </div>
+        <br>
+        <label for="rooms">No. of Rooms Required:</label>
+  <select id="rooms" name="rooms">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+
+  <br>
+        <label for="basic" style="margin-left:28.5%">Basic:</label>
+  <select id="basic" name="basic" style="margin-left:18%" >
+    <option value="0" >0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+
+  <br>
+        <label for="suite" style="margin-left:28.5%">Suite:</label>
+  <select id="suite" name="Suite" style="margin-left:18.5%" >
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  
+  <br>
+    
+        <button type="submit" class="btn btn-warning">Book</button>
+        
+        </form>
+    </div>
+
+    <script>
+    function openForm_Flight() {
+        document.getElementById("Form_Flight").style.display = "block";
+    }
+    
+    function closeForm1() {
+        document.getElementById("Form_Flight").style.display = "none";
+    }
+    
+    function goback1() {
+        document.getElementById("Form_Flight").style.display = "none";
+    }
+
+    </script>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

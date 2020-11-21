@@ -46,14 +46,14 @@
     }
 
     .labels {
-      background-color: black ; 
+      
       padding: 8px; 
-      border: 1px solid green;
+      
       width:5%;
       font-size:17px;
       border-radius:10px;
       margin-left:47%;
-      color:white;
+      
     }
 
     .try1 { 

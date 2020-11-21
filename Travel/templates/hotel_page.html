@@ -1,5 +1,10 @@
+{% extends 'base1.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
+
+  {% block content %} 
+
 <head>
   
   <title>Don'tGoIbobo</title>
@@ -29,8 +34,9 @@
     }
 
     .leave1 {
-      margin-top:7%;
+      margin-top:2%;
       text-align: center;
+      width:1500px;
     }
 
     .leave2 {
@@ -95,12 +101,10 @@
       float: left;
       width: auto;
       list-style: outside none none;
-      margin-left:3%;
-      background-color: black ; 
+      margin-left:40%;
+      
       padding: 5px; 
-      border: 1px solid green;
-      border-radius:10px;
-      color:white;
+    
     }
 
     .address {
@@ -126,21 +130,7 @@
       margin-top:3%;
     }
 
-    /* Button used to open the contact form - fixed at the bottom of the page */
-.open-button {
-  background-color: grey;
-  color: white;
-  padding: 8px 10px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  top: 23px;
-  right: 28px;
-  width: 120px;
-  border-radius: 25px;
-}
-
+  
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
@@ -274,19 +264,7 @@
 
 <body style="height:1500px">
 
-  <nav class="navbar navbar-inverse navbar-fixed-top width">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand space" href="#">DontGoIbibo</a>
-      </div>
-      <ul class="nav navbar-nav space2">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Hotels</a></li>
-        <li><a href="#">Flights</a></li>
-        <li><a href="#">Cabs</a></li>
-      </ul>
-    </div>
-  </nav>
+  
   
 
 <meta name="viewport" >
@@ -380,7 +358,7 @@ function showDivs(n) {
   <hr style="width:72%;margin-left:15%;margin-top:4%;border-width: 3px;color:black;">
 
   <ul class="try1"> 
-  <li class="try2"> <a href='#section1'> Location </a> </li> <li class="try2"> <a href='#section2'>Facilities </a> </li><li class="try2">  <a href='#section3'>Reviews </a> </li>  <li class="labels2"> <button onclick="openForm_Flight()"> Book Now </button> </li> </ul>
+  <li class="try2"> <a href='#section1'> Location </a> </li> <li class="try2"> <a href='#section2'>Facilities </a> </li><li class="try2">  <a href='#section3'>Reviews </a> </li>  <li class="labels2"> <button style="background-color:black" onclick="openForm_Flight()"> Book Now </button> </li> </ul> 
 
   <div class="form-popup" id="Form_Flight">
     <form action="/action_page.php" class="form-container">
@@ -457,6 +435,8 @@ function goback1() {
   <li class="try6"> Parking Area</li> <li class="try6">Pool </li><li class="try6"> <img src="https://e7.pngegg.com/pngimages/79/814/png-clipart-fitness-centre-computer-icons-dumbbell-weight-training-gym-physical-fitness-text.png" height="20px" width="15px">Fitness Centre </li> </ul>
   <br>
   <h4 style="margin-left:50%;margin-top:5%;font-style: bold;" id="section3"> REVIEWS </h4>
+
+  {% endblock %}
 
 </body>
 </html>

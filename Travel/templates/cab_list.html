@@ -41,7 +41,7 @@
 
         .curved
         {
-            margin-top: 40px;
+            margin-top: 60px;
             margin-bottom: 100px;
             border-radius: 25px;
             height: 500px;
@@ -76,10 +76,8 @@
     <div class="card curved mx-auto" style="border-radius:5px; border: 2px solid grey;"> 
         <div class="row no-gutters" >
 
-            <!-- src="{{final_car.car_photo.url}}"   -->
-
             <div class="col-sm-4">
-                <img class="sizing_image card-img" style="margin-left:15%; margin-top:15%" src="https://i.pinimg.com/originals/d3/df/f9/d3dff9a5bcf08204108548ea6028fa24.jpg" src="{{final_car.car_photo.url}}"  alt="Car_picture">
+                <img class="sizing_image card-img" style="margin-left:15%; margin-top:15%" src="{{final_car.car_photo.url}}"  alt="Car_picture">
             </div>
 
             <div class="col-sm-3" style="margin-left:2%">
@@ -119,7 +117,7 @@
         </div>
     </div>
 
-    <h4 style="margin-top:-4%;text-align:center; color:maroon"> <em> Thank you for booking with us! {{cab_driver.driver_name}} will soon be on their way to pick you up. </em> </h4>
+    <h4 style="margin-top: -2.5%; text-align:center; color:maroon"> <em> Thank you for booking with us! {{cab_driver.driver_name}} will soon be on their way to pick you up. </em> </h4>
 
     {% endfor %}
     {% endfor %}

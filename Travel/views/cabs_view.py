@@ -20,7 +20,7 @@ class Cab_View(View):
         request.session['cab_to'] = cab_to
 
         error_message = None
-        if (cab_from_id == False or cab_to_id == False):
+        if (cab_from_id == False or cab_to_id == False or ((cab_from_id) == (cab_to_id))):
             error_message = "Sorry, we do not have any available cabs as per your requirements!"
 
         cab_date = request.GET.get('cab_date')

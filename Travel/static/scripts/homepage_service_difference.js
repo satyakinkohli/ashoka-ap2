@@ -9,7 +9,7 @@ document.getElementById("hotels_search_bar").style.display = "none";
 document.getElementById("cabs_search_bar").style.display = "none";
 
 function hotel_outlook() {
-     document.body.style.backgroundImage = "url('https://i.imgur.com/r58irru.jpeg')";
+    document.body.style.backgroundImage = "url('https://i.imgur.com/r58irru.jpeg')";
     var x = document.getElementById("hotels_search_bar");
     document.getElementById("flights_search_bar").style.display = "none";
     document.getElementById("cabs_search_bar").style.display = "none";

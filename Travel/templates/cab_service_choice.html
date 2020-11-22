@@ -64,6 +64,10 @@
         <b><em>{{cab_from}} - {{cab_to}}</em></b>
         <br>
         <b><em>{{cab_date}}</em></b>
+        <br>
+        {% if cab_time %}
+            <b><em>{{cab_date}}</em></b>
+        {% endif %}
     </div>
 
     <div style="margin-left: 8.5%;">

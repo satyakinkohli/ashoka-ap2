@@ -13,15 +13,17 @@ class Cab_View(View):
     def get(self, request):
         cab_from = request.GET.get('cab_from')
         cab_from_id = Location.get_location_through_name(cab_from)
+        request.session['cab_from'] = cab_from
 
         cab_to = request.GET.get('cab_to')
         cab_to_id = Location.get_location_through_name(cab_to)
-
-        cab_date = request.GET.get('cab_date')
+        request.session['cab_to'] = cab_to
 
         error_message = None
         if (cab_from_id == False or cab_to_id == False):
             error_message = "Sorry, we do not have any available cabs as per your requirements!"
+
+        cab_date = request.GET.get('cab_date')
 
         # converting date to required format
         now = date(*map(int, cab_date.split('-')))
@@ -31,15 +33,31 @@ class Cab_View(View):
 
         cab_date_formatted = datetime.strftime(cab_date_adjust, "%A; %d %b. %Y")
         # end conversion
+        request.session['cab_date_formatted'] = cab_date_formatted
+
+        car_types = Car_options.get_all_car_types()
+        distance = random.randint(50, 500)
+
+        print(distance)
+
+        cab_data = {'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'error_message': error_message, 'car_types': car_types, 'distance': distance}
+
+        return render(request, 'cab_service_choice.html', cab_data)
+
+    def post(self, request):
+        
+        car_time = request.POST.get('car_time')
+
+        cab_from = request.session.get('cab_from')
+        cab_to = request.session.get('cab_to')
+        cab_date_formatted = request.session.get('cab_date_formatted')
 
         car_types = Car_options.get_all_car_types()
 
         distance = random.randint(50, 500)
 
-        car_type = None
-        car_type = request.POST.get('car_type')
-        print(car_type)
+        print(distance)
 
-        cab_data = {'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'car_type': car_type, 'error_message': error_message, 'car_types': car_types, 'distance': distance}
+        cab_data_post = {'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'car_time': car_time, 'car_types': car_types, 'distance': distance} 
 
-        return render(request, 'cab_service_choice.html', cab_data)
+        return render(request, 'cab_service_choice.html', cab_data_post)

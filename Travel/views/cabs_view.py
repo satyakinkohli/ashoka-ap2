@@ -47,6 +47,7 @@ class Cab_View(View):
     def post(self, request):
         
         car_time = request.POST.get('car_time')
+        request.session['car_time'] = car_time
 
         cab_from = request.session.get('cab_from')
         cab_to = request.session.get('cab_to')
@@ -55,8 +56,7 @@ class Cab_View(View):
         car_types = Car_options.get_all_car_types()
 
         distance = random.randint(50, 500)
-
-        print(distance)
+        request.session['cab_distance'] = distance
 
         cab_data_post = {'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'car_time': car_time, 'car_types': car_types, 'distance': distance} 
 

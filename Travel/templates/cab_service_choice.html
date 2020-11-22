@@ -41,6 +41,18 @@
             border-width: 2.5px;
         }
 
+        .facebook5 {
+  border-color: white;
+  color: black;
+  background-color: white;
+  margin-left: -5%;
+  margin-top: -20%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
     </style>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -82,7 +94,7 @@
 
                 <div style="font-size: 20px; margin-left: 39.5%;">
                     <label>
-                        <b>Time:</b>
+                        <b>Time: &nbsp;</b>
                         <input onclick="enabling_time_button()" name="car_time" type="time">
                     </label>
                 </div>
@@ -90,7 +102,10 @@
                 <button onclick="change_inputs()" style="margin-left: 39%; margin-top: 3.5%; padding-left: 25px; padding-right: 25px" class="btn btn-warning btn-lg" type="button" id="time_button">Time has been set</button>
             </div>
 
+
+
             <div id="car_typing">
+                <div class="sameline"> <button type="button" class="facebook5" onclick="goback2()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="15px" widht="15px"></button>
                 <div style="padding-top: 50px; font-size: 25px; margin-left: -7.5%; text-align: center;">
                     <em>Please choose your preferred cab!</em>
                     <br><br>
@@ -136,6 +151,11 @@
         }
 
         window.onload = disabling_submit_button();
+
+        function goback2() {
+            document.getElementById("car_typing").style.display = "none";
+            document.getElementById("timing").style.display = "block";
+}
 
     </script>
 

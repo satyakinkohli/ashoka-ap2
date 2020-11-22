@@ -22,6 +22,7 @@ class Cab_Booking_View(View):
         cab_to = request.session.get('cab_to')
         cab_date_formatted = request.session.get('cab_date_formatted')
         car_time = request.session.get('car_time')
+       
         distance = request.session.get('cab_distance')
 
         cab_booking_data = {'cab_drivers': cab_drivers, 'final_cars': final_cars, 'car_type': car_type, 'cab_from': cab_from, 'cab_to': cab_to, 'distance': distance, 'cab_date_formatted': cab_date_formatted, 'car_time': car_time}

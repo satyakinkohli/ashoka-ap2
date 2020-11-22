@@ -36,6 +36,10 @@ class Cab_View(View):
 
         distance = random.randint(50, 500)
 
-        cab_data = {'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'error_message': error_message, 'car_types': car_types, 'distance': distance}
+        car_type = None
+        car_type = request.POST.get('car_type')
+        print(car_type)
+
+        cab_data = {'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'car_type': car_type, 'error_message': error_message, 'car_types': car_types, 'distance': distance}
 
         return render(request, 'cab_service_choice.html', cab_data)

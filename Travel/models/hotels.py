@@ -4,6 +4,7 @@ from .location import Location
 
 class Hotel(models.Model):
     name = models.CharField(max_length=50)
+    description = models.CharField(max_length=250, default="The most comfortable stay", null=True, blank=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, default=1)
     number = models.PositiveSmallIntegerField(default=9999999900)
     website = models.URLField(default="www..com", max_length=50)

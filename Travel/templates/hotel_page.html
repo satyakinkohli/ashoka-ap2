@@ -451,6 +451,7 @@ function goback1() {
 
 
 
+
   <hr style="width:72%;margin-left:15%;margin-top:5%;border-width: 3px;color:black;">
 
   <h4 style="margin-left:50%;margin-top:3%;font-style: bold;"id="section1" class="labels3"> LOCATION </h4>
@@ -459,12 +460,12 @@ function goback1() {
 
   <h4 style="margin-left:50%;margin-top:3%;font-style: bold;" id="section2" class="labels3"> FACILITIES </h4>
   <ul class="try5"> 
-  {% if hotel.wifi == True %}
-  <li class="try6"> <img src="https://www.clipartmax.com/png/middle/89-891081_wifi-icon-png-images-free-download-transparent-background-wifi-icon.png" height="15px" width="25px";> Wifi </li>
-  {% endif %} <li class="try6">Air Conditioning </li><li class="try6"> Airport Shuttle </li> </ul>
+  <li class="try6"> <img src="https://www.clipartmax.com/png/middle/89-891081_wifi-icon-png-images-free-download-transparent-background-wifi-icon.png" height="15px" width="25px";> Wifi {% if hotel.wifi == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li>
+  <li class="try6">Air Conditioning {% if hotel.air_conditioning == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li><li class="try6"> Airport Shuttle {% if hotel.airport_shuttle == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li></ul>
   <br>
   <ul class="try7"> 
-  <li class="try6"> Parking Area</li> <li class="try6">Pool </li><li class="try6"> <img src="https://e7.pngegg.com/pngimages/79/814/png-clipart-fitness-centre-computer-icons-dumbbell-weight-training-gym-physical-fitness-text.png" height="20px" width="15px">Fitness Centre </li> </ul>
+  <li class="try6"> Parking Area{% if hotel.parking_area == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} 
+    <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> <li class="try6">Pool {% if hotel.pool == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> <li class="try6"> <img src="https://e7.pngegg.com/pngimages/79/814/png-clipart-fitness-centre-computer-icons-dumbbell-weight-training-gym-physical-fitness-text.png" height="20px" width="15px">Fitness Centre {% if hotel.fitness_center == True %}  <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> </ul>
   <br>
   <h4 style="margin-left:50%;margin-top:5%;font-style: bold;" id="section3"> REVIEWS </h4>
 

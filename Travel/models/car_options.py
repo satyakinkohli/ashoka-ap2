@@ -13,3 +13,11 @@ class Car_options(models.Model):
     @staticmethod
     def get_all_car_types():
         return Car_options.objects.all()
+
+    @staticmethod
+    def get_car_type(name):
+        try:
+            car = Car_options.objects.get(name=name)
+            return car.id
+        except:
+            return False

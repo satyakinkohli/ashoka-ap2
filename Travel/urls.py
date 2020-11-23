@@ -7,6 +7,7 @@ from .views.flights_view import Flight_View
 from .views.cabs_view import Cab_View
 from .views.detailed_hotel_view import Detailed_Hotel_View
 from .views.cab_booking import Cab_Booking_View
+from .views.flight_summary_view import Flight_Summary_View
 
 urlpatterns = [
     path('', Homepage, name="homepage"),
@@ -14,5 +15,6 @@ urlpatterns = [
     path('flights', Flight_View.as_view(), name="flights"),
     path('cabs', Cab_View.as_view(), name="cabs"),
     path('detailed_hotel', Detailed_Hotel_View.as_view(), name="detailed_hotel"),
-    path('cab_booking', Cab_Booking_View.as_view(), name="cab_booking")
+    path('cab_booking', Cab_Booking_View.as_view(), name="cab_booking"),
+    path('flight_summary', Flight_Summary_View.as_view(), name="flight_summary"),
 ]

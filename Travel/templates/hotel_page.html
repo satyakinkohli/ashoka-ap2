@@ -371,6 +371,7 @@ function showDivs(n) {
     
 
 <br>
+
     <label for="basic" style="margin-left:24.5%">Basic Room:</label>
 <select id="basic" name="basic" style="margin-left:18%" >
 <option value="0" >0</option>
@@ -383,6 +384,7 @@ function showDivs(n) {
 <br>
 
 <br>
+{% if hotel.suite_available == True %}
     <label for="suite" style="margin-left:24.5%">Suite Room:</label>
 <select id="suite" name="Suite" style="margin-left:18.5%" >
 <option value="0">0</option>
@@ -395,7 +397,37 @@ function showDivs(n) {
 
 <br>
 <br>
+{% endif %}
 
+{% if hotel.deluxe_available == True %}
+    <label for="deluxe" style="margin-left:24.5%">Deluxe Room:</label>
+<select id="Deluxe" name="Deluxe" style="margin-left:18.5%" >
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+
+<br>
+<br>
+{% endif %}
+
+{% if hotel.premium_available == True %}
+    <label for="premium" style="margin-left:24.5%">Premium Room:</label>
+<select id="premium" name="Premium" style="margin-left:18.5%" >
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+
+<br>
+<br>
+{% endif %}
     <button type="submit" class="btn btn-warning" " >Book</button>
     
     </form>

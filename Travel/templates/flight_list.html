@@ -203,22 +203,18 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="card-body">
-                        <h5 class="card-title" style="margin-top:5%">{{flight.departure_time}} - {{flight.arrival_time}}</h5>
-                      
-                        <p class="card-text location">{{flight.source}} - {{flight.destination}}</p>
-                        
-                      
+                      <h5 class="card-title" style="margin-top:5%">{{flight.departure_time}} - {{flight.arrival_time}}</h5>
+                      <p class="card-text location">{{flight.source}} - {{flight.destination}}</p>
                     </div>
                 </div>
-
                 <div class="col-sm-3">
                     <div class="card-body">
-                        
-                        <h4 class="float-right" style="margin-top:15%;margin-right: 15%">₹{{flight.economy_price}}</h4>
-                        
-                        <button class="btn btn-warning btn-lg float-right" name = "flight_id" value = "{{flight.id}}" style="margin-top: 15%;margin-right: 5%" onclick="openForm_Flight()">Book Now</button>
-                        
-                
+                      <h4 class="float-right" style="margin-top:15%;margin-right: 15%">₹{{flight.economy_price}}</h4>
+                      <form action="" method="post" class="form-container">
+                        {% csrf_token %}
+                        <input hidden type="text" name ='flight_id' value='{{flight.id}}'>
+                        <input class="btn btn-warning btn-lg float-right" type="submit" style="margin-top: 15%;margin-right: 5%">
+                      </form>
                     </div>
                 </div>
 
@@ -250,6 +246,7 @@
     <option value="5">5</option>
   </select>
   <br>
+  
 
   <br>
         <label for="business" style="margin-left:24.5%">Business:</label>
@@ -271,17 +268,25 @@
     </div>
 
     <script>
-    function openForm_Flight() {
-        document.getElementById("Form_Flight").style.display = "block";
-    }
-    
-    function closeForm1() {
-        document.getElementById("Form_Flight").style.display = "none";
-    }
-    
-    function goback1() {
-        document.getElementById("Form_Flight").style.display = "none";
-    }
+
+      var flight_id = "{{ flight_id }}";  
+      
+      function closeForm1() {
+          document.getElementById("Form_Flight").style.display = "none";
+      }
+      
+      function goback1() {
+          document.getElementById("Form_Flight").style.display = "none";
+      }
+
+      function when_page_loads(flight_id) {
+        if (flight_id)
+        {
+          document.getElementById("Form_Flight").style.display = "block";
+        }
+      }
+
+      window.onload = when_page_loads(flight_id);
 
     </script>
 

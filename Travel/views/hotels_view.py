@@ -12,13 +12,14 @@ class Hotel_View(View):
 
         hotel_check_in = request.GET.get('hotel_check_in')
         hotel_check_out = request.GET.get('hotel_check_out')
-        
+        #print(hotel_check_in)
+        #print(hotel_check_out)
         possible_hotels = Hotel.get_correct_hotel_through_location(hotel_where_id)
 
         error_message = None
         if len(possible_hotels) == 0:
             error_message = "Sorry, we do not have any available hotels as per your requirements!"
         
-        hotel_data = {'possible_hotels': possible_hotels, 'error_message': error_message}
+        hotel_data = {'possible_hotels': possible_hotels, 'error_message': error_message, 'hotel_check_in': hotel_check_in, 'hotel_check_out': hotel_check_out}
         
         return render(request, 'hotel_list.html', hotel_data)

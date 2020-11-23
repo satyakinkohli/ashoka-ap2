@@ -38,3 +38,13 @@ class Flight(models.Model):
             return Flight.objects.filter(source=source, destination=destination, date=date)
         except:
             return False
+
+
+
+
+    @staticmethod
+    def get_flight_through_id(ids):
+        try:
+            return Flight.objects.get(id=ids)
+        except:
+            return False

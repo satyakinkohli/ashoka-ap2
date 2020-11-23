@@ -216,7 +216,7 @@
                         
                         <h4 class="float-right" style="margin-top:15%;margin-right: 15%">₹{{flight.economy_price}}</h4>
                         
-                        <button class="btn btn-warning btn-lg float-right" style="margin-top: 15%;margin-right: 5%" onclick="openForm_Flight()">Book Now</button>
+                        <button class="btn btn-warning btn-lg float-right" name = "flight_id" value = "{{flight.id}}" style="margin-top: 15%;margin-right: 5%" onclick="openForm_Flight()">Book Now</button>
                         
                 
                     </div>
@@ -228,7 +228,9 @@
     {% endfor %}
 
     <div class="form-popup" id="Form_Flight">
-        <form action="/action_page.php" class="form-container">
+        <form action="/flight_summary" method="post" class="form-container">
+          {% csrf_token %}
+          <input hidden type = 'text' name='flight_id' value = '{{flight.id}}'>
 
         <div class="sameline"> 
             <button type="button" class="facebook5" onclick="goback1()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="15px" widht="15px"></button>

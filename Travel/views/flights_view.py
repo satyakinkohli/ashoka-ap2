@@ -34,16 +34,7 @@ class Flight_View(View):
         return render(request, 'flight_list.html', flight_data)
 
     def post(self, request):
-        economy_number = request.POST.get('economy')
-        print(economy_number)
-        request.session['flight_economy_number'] = economy_number
-
-        business_number = request.POST.get('business')
-        print(business_number)
-        request.session['flight_business_number'] = business_number
-
         flight_id = request.POST.get('flight_id')
-        print(flight_id)
         request.session['flight_id'] = flight_id
 
         flight_from = request.session.get('flight_from')

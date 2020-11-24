@@ -224,9 +224,7 @@
     {% endfor %}
 
     <div class="form-popup" id="Form_Flight">
-        <form action="/flight_summary" method="post" class="form-container">
-          {% csrf_token %}
-          <input hidden type = 'text' name='flight_id' value = '{{flight.id}}'>
+        <form action="/flight_summary" method="get" class="form-container">
 
         <div class="sameline"> 
             <button type="button" class="facebook5" onclick="goback1()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="15px" widht="15px"></button>

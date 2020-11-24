@@ -45,7 +45,7 @@ class Detailed_Hotel_View(View):
         hotel_check_out = request.session.get('hotel_check_out')
 
         other_hotel_reviews = Hotel_Rating.get_review_through_hotel(
-            hotel_instance)
+            hotel_instances_to_rate)
 
         hotel_data_post = {'hotel': hotel_instances_to_rate,
                            'hotel_check_in': hotel_check_in, 'hotel_check_out': hotel_check_out, 'other_hotel_reviews': other_hotel_reviews}

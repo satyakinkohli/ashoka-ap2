@@ -99,16 +99,9 @@
       margin-top:0.5%;
     }
 
-    .labels2 {
-      float: left;
-      width: auto;
-      list-style: outside none none;
-      margin-left:40%;
-      padding: 5px; 
-    }
-
+    
     .address {
-      margin-left: 41%;
+      margin-left: 44%;
       margin-top:3%;
     }
 
@@ -121,14 +114,101 @@
       float: left;
       width: auto;
       list-style: outside none none;
-      margin-left:18%;
+      margin-left:8%;
       margin-top:2%;
+      border: 2px solid black;
+      border-radius: 50%;
+      padding:7px;
+      background-color: #FFF8DC;
     }
+
+
+    .try11 {
+      float: left;
+      width: auto;
+      list-style: outside none none;
+      margin-left:20%;
+      margin-top:2%;
+      border: 2px solid black;
+      border-radius: 50%;
+      padding:7px;
+      background-color: #FFF8DC;
+    }
+
+    .try12 {
+      float: left;
+      width: auto;
+      list-style: outside none none;
+      margin-left:17%;
+      margin-top:2%;
+      border: 2px solid black;
+      border-radius: 50%;
+      padding:7px;
+      background-color: #FFF8DC;
+    }
+
+
+    .try13 {
+      float: left;
+      width: auto;
+      list-style: outside none none;
+      margin-left:20%;
+      margin-top:2%;
+      border: 2px solid black;
+      border-radius: 50%;
+      padding:7px;
+      background-color: #FFF8DC;
+    }
+
+
+
     .try7 { 
       padding: 0px;
       margin-left:14%;
       margin-top:3%;
     }
+
+    .review {
+      padding-top:7px;
+      padding-bottom:5px;
+      padding-left:10px;
+      padding-right:10px;
+      border:3px solid orange;
+      border-radius:6px;
+      margin-left:24%;
+      margin-right:20%;
+      text-align:Center;
+      margin-top:3%;
+    
+      background-color:#FFF8DC;
+      font-size:18px;
+      
+    }
+
+    .writer{
+      padding-top:7px;
+      padding-bottom:5px;
+      padding-left:10px;
+      padding-right:10px;
+      border:3px solid black;
+      border-radius:6px;
+      margin-left:24%;
+      margin-right:0.5%;
+      text-align:Center;
+      margin-top:3%;
+      height:50px;
+      margin-bottom:5%;
+      width:650px;
+    
+      background-color:whitw;
+      font-size:18px;
+
+    }
+
+    /* body {
+      background-image: url("https://www.publicdomainpictures.net/pictures/190000/velka/travel-background-1469437944Rbi.jpg");
+    } */
+
 
   
 /* The popup form - hidden by default */
@@ -256,6 +336,10 @@
   margin-top: 10%;
 }
 
+.checked {
+  color: orange;
+}
+
 
 
 </style>
@@ -274,11 +358,11 @@
   <div class="w3-content leave2" style="max-width:1500px">
   
     <div class="sliderWrapper" >
-    <img class="mySlides shift" src="{{hotel.image1.url}}" style="width:1100px;height:600px">
-    <img class="mySlides shift" src="{{hotel.image2.url}}" style="width:1100px;height:600px;display:none">
-    <img class="mySlides shift" src="{{hotel.image3.url}}" style="width:1100px;height:600px;display:none">
-    <img class="mySlides shift" src="{{hotel.image4.url}}" style="width:1100px;height:600px;display:none">
-    <img class="mySlides shift" src="{{hotel.image5.url}}" style="width:1100px;height:600px;display:none">
+    <img class="mySlides shift" src="{{hotel.image1.url}}" style="width:1100px;height:600px;border:2px solid black">
+    <img class="mySlides shift" src="{{hotel.image2.url}}" style="width:1100px;height:600px;display:none;border:2px solid black">
+    <img class="mySlides shift" src="{{hotel.image3.url}}" style="width:1100px;height:600px;display:none;border:2px solid black">
+    <img class="mySlides shift" src="{{hotel.image4.url}}" style="width:1100px;height:600px;display:none;border:2px solid black">
+    <img class="mySlides shift" src="{{hotel.image5.url}}" style="width:1100px;height:600px;display:none;border:2px solid black">
 
     <div class="w3-row-padding w3-section">
       
@@ -351,13 +435,13 @@
 
 </script>
 
-  <hr style="width:72%; margin-left: 15%; margin-top: 4%; border-width: 3px; color: black;">
+  <hr style="width:76.5%; margin-left: 12.5%; margin-top: 4%; border-width: 3px; color: black;">
 
   <ul class="try1"> 
-    <li style="margin-top: 0px;" class="try2"> <a href='#section1'> Location </a> </li>
-    <li style="margin-top: 0px;" class="try2"> <a href='#section2'>Facilities </a> </li>
-    <li style="margin-top: 0px;" class="try2">  <a href='#section3'>Reviews </a> </li>
-    <li style="margin-top: -12.5px;" class="labels2"> <button class="btn btn-warning" onclick="openForm_Flight()"> Book Now </button> </li>
+    <li style="margin-top: 4px;" class="try2"> <a href='#section1'> Location </a> </li>
+    <li style="margin-top: 4px;" class="try2"> <a href='#section2'>Facilities </a> </li>
+    <li style="margin-top: 4px;" class="try2">  <a href='#section3'>Reviews </a> </li>
+    <li style="margin-top: -12.5px; margin-left:75%" > <button class="btn btn-warning" onclick="openForm_Flight()"> Book Now </button> </li>
   </ul> 
 
   <div class="form-popup" id="Form_Flight">
@@ -374,7 +458,7 @@
     <br>
     <br>
 
-<label for="standard" style="margin-left:24.5%">Standard Room:</label>
+<label for="standard" style="margin-left:10.5%">Standard Room:</label>
 <select id="standard" name="standard" style="margin-left:18%" >
   <option value="0" >0</option>
   <option value="1">1</option>
@@ -388,8 +472,8 @@
 <br>
 
 {% if hotel.suite_available == True %}
-<label for="suite" style="margin-left:24.5%">Suite Room:</label>
-<select id="suite" name="suite" style="margin-left:18.5%" >
+<label for="suite" style="margin-left:14.5%">Suite Room:</label>
+<select id="suite" name="suite" style="margin-left:25.5%" >
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -404,7 +488,7 @@
 {% endif %}
 
 {% if hotel.deluxe_available == True %}
-<label for="deluxe" style="margin-left:24.5%">Deluxe Room:</label>
+<label for="deluxe" style="margin-left:15.5%">Deluxe Room:</label>
 <select id="Deluxe" name="deluxe" style="margin-left:18.5%" >
   <option value="0">0</option>
   <option value="1">1</option>
@@ -420,8 +504,8 @@
 {% endif %}
 
 {% if hotel.premium_available == True %}
-<label for="premium" style="margin-left:24.5%">Premium Room:</label>
-<select id="premium" name="premium" style="margin-left:18.5%" >
+<label for="premium" style="margin-left:12.5%">Premium Room:</label>
+<select id="premium" name="premium" style="margin-left:15.5%" >
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -456,43 +540,62 @@
 
 </script>
 
-  <hr style="width:72%;margin-left:15%;margin-top:5%;border-width: 3px;color:black;">
+  <hr style="width:76.5%;margin-left:12.5%;margin-top:0%;border-width: 3px;color:black;">
 
-  <h4 style="margin-left:50%;margin-top:3%;font-style: bold;"id="section1" class="labels3"> <u> LOCATION </u> </h4>
+  <h4 style="margin-left:47%;margin-top:3%;font-style: bold;"id="section1" class="labels3"> <u> LOCATION </u> </h4>
 
   <p class="address"> <img src="https://toppng.com/uploads/preview/vector-location-icon-11569053875gijtj3yvbk.png" width="14px"; height="15px";> {{hotel.street}}, {{hotel.locality}}, {{hotel.location}} </p>
 
-  <h4 style="margin-left:50%;margin-top:3%;font-style: bold;" id="section2" class="labels3"> <u> FACILITIES </u> </h4>
+  <h4 style="margin-left:47%;margin-top:3%;font-style: bold;" id="section2" class="labels3"> <u> FACILITIES </u> </h4>
   <ul class="try5"> 
-  <li class="try6"> <img src="https://www.clipartmax.com/png/middle/89-891081_wifi-icon-png-images-free-download-transparent-background-wifi-icon.png" height="15px" width="25px";> Wifi {% if hotel.wifi == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li>
-  <li class="try6">Air Conditioning {% if hotel.air_conditioning == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li><li class="try6"> Airport Shuttle {% if hotel.airport_shuttle == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li></ul>
+  <li class="try6"> <img src="https://www.clipartmax.com/png/middle/89-891081_wifi-icon-png-images-free-download-transparent-background-wifi-icon.png" height="15px" width="25px";> Wifi 
+    {% if hotel.wifi == True %} <img src="{% static '/tick.png' %}" height="15px" width="15px";> 
+    {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li>
+  <li class="try11">Air Conditioning 
+    {% if hotel.air_conditioning == True %} <img src="{% static '/tick.png' %}" height="15px" width="15px";> 
+    {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li>
+  <li class="try12"> Airport Shuttle 
+    {% if hotel.airport_shuttle == True %} <img src="{% static '/tick.png' %}" height="15px" width="15px";> 
+    {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li>
+  </ul>
   <br>
   <ul class="try7"> 
-  <li class="try6"> Parking Area{% if hotel.parking_area == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} 
-    <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> <li class="try6">Pool {% if hotel.pool == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> <li class="try6"> <img src="https://e7.pngegg.com/pngimages/79/814/png-clipart-fitness-centre-computer-icons-dumbbell-weight-training-gym-physical-fitness-text.png" height="20px" width="15px">Fitness Centre {% if hotel.fitness_center == True %}  <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> </ul>
+  <li class="try6"> Parking Area{% if hotel.parking_area == True %} <img src="{% static '/tick.png' %}" height="15px" width="15px";> 
+    {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="20px";> {% endif %} </li> 
+  <li class="try11">Pool {% if hotel.pool == True %} <img src="{% static '/tick.png' %}" height="15px" width="15px";> 
+    {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> 
+    <li class="try13"> <img src="https://e7.pngegg.com/pngimages/79/814/png-clipart-fitness-centre-computer-icons-dumbbell-weight-training-gym-physical-fitness-text.png" height="20px" width="15px">Fitness Centre 
+      {% if hotel.fitness_center == True %}  <img src="{% static '/tick.png' %}" height="15px" width="15px";> 
+      {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> 
+    </ul>
   <br>
-  <h4 style="margin-left:50%; margin-top:5%;font-style: bold;" id="section3"> <u> REVIEWS </u> </h4>
+  <h4 style="margin-left:47.5%; margin-top:7%;font-style: bold;" id="section3"> <u> REVIEWS </u> </h4>
+
+
+  {% for other_hotel_reviews in other_hotel_reviews %}
+    <div class="review">
+      <p><img src="https://toppng.com/uploads/preview/circled-user-icon-user-pro-icon-11553397069rpnu1bqqup.png" height="23px" width="23px" style="margin-right:9px;">{{other_hotel_reviews.review}}, {{other_hotel_reviews.rating }} 
+    </div>
+  {% endfor %}
+
 
   <form action="" method="post">
     {% csrf_token %}
-    <input style="border-radius: 5px; margin-right: -10px; margin-left: 25%; margin-top: 20px; padding-right: 150px;" type="text" class="form-control-lg" name="hotel_review" placeholder="Write your review" required>
-    <select style="font-size: xx-large; border-radius: 5px; margin-right: -10px; margin-left: 1%; padding-bottom: 5px;" id="hotel_rating" name="hotel_rating" required>
-      <option value="1">1</option>
+    
+    <input class="writer" type="text" class="form-control-lg" name="hotel_review" placeholder="Write your review" required>
+    <select style="font-size: 20px; border-radius: 5px;  padding: 10px; border:2px solid black; text-align:center; margin-top:10px" id="hotel_rating" name="hotel_rating" required>
+      <option value="1">1  </option>
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
-      <option value="5" selected>5</option>
+      <option value="5" selected>5  </option>
     </select>
-    <input type="submit" style="margin-left: 50px; margin-top: -10px;" class="btn btn-success btn-lg">
+    <input type="submit" style="margin-left: 15px; margin-top: -10px; height:50px; width:100px; font-size:20px" class="btn btn-warning" >
   </form>
-
-  {% for other_hotel_reviews in other_hotel_reviews %}
-    <div>
-      <p>{{other_hotel_reviews.review}}, {{other_hotel_reviews.rating}}</p>
-    </div>
-  {% endfor %}
 
   {% endblock %}
 
 </body>
 </html>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

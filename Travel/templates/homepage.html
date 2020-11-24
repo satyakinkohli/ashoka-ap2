@@ -4,12 +4,14 @@
 
 
 
-    <style>
+<style>
 
-        /*the container must be positioned relative:*/
+/*the container must be positioned relative:*/
 .autocomplete {
   position: relative;
   display: inline-block;
+  border-color: black;
+  border-width: 2px;
 }
 
 input {
@@ -17,26 +19,33 @@ input {
   background-color: #f1f1f1;
   padding: 10px;
   font-size: 16px;
+  border-color: black;
+  border-width: 2px;
 }
 
 input[type=text] {
   background-color: #f1f1f1;
   width: 100%;
+  border-color: black;
+  border-width: 2px;
 }
 
 input[type=submit] {
   background-color: DodgerBlue;
   color: #fff;
   cursor: pointer;
+  border-color: black;
+  border-width: 2px;
 }
 
 .autocomplete-items {
   position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
+  border: 2px outset black;
+  border-color: black;
+  border-width: 2px;
   z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
+  border-top: inherit;
   top: 100%;
   left: 0;
   right: 0;
@@ -152,16 +161,7 @@ input[type=submit] {
                 <button class="btn btn-dark" onclick="cab_outlook()" name="cabs" id="cabs" aria-pressed="true">Cabs</button>
             </div>
         </div>
-
         
-
-
-
-        
-
-
-
-
         <!-- Hotels -->
         <div class="container col-mb-4" id="hotels_search_bar">
             <form class="form-inline autocomplete" action="/hotels" method="get">
@@ -340,19 +340,11 @@ input[type=submit] {
         }
         
         /*An array containing all the country names in the world:*/
-        var hotels = [ "Mumbai", "Dard", "Delhi" ];
+        var hotels = [ "Mumbai", "Bangalore", "Delhi", "Pune", "Kolkata", "Jaipur" ];
         
         /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
         autocomplete(document.getElementById("hotels_search"), hotels);
         </script>
-        
-
-
-
-
-
-
-
 
     {% load static %}  
     <script type="text/javascript" src="{% static '/scripts/homepage_service_difference.js' %}"></script>

@@ -34,4 +34,4 @@ class Hotel_Summary_View(View):
         print(total_price)
         summary_data = {'hotel': hotel_instance, 'hotel_check_in': hotel_check_in, 'hotel_check_out': hotel_check_out,
                         'days': days.days, 'price_per_night': price_per_night, 'total_price': total_price}
-        return render(request, "base1.html", summary_data)
+        return render(request, "hotel_final_summary.html", summary_data)

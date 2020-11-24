@@ -7,6 +7,7 @@ DOCTYPE html>
     {% block content %} 
     
     {% load static %}
+    {% load math %}
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><meta charset="UTF-8">
@@ -65,14 +66,14 @@ DOCTYPE html>
         <div class="card curved " style="margin-bottom:1.5%; margin-top:5%; ">
             <div class="row no-gutters">
                 <div class="col-sm-3">
-                    <img class="sizing_image card-img" src="https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?s=1024x768" alt="Hotel Picture">
+                    <img class="sizing_image card-img" src="{{hotel.image1.url}}" alt="Hotel Picture">
                 </div>
                 <div class="col-sm-4" style="margin-left:5%">
                     <div class="card-body">
                         <br>
                         <h3 class="card-title" style=" margin-left:40%;">{{hotel.name}}</h3>
-                        <p class="card-text location" style="margin-top:7%;margin-left:45%;">{{hotel.rating}} <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px></p>
-                        <h5 class="card-title" style="margin-top:17%;margin-left:38%;">₹{{hotel.standard_price}}</h5>
+                        <p class="card-text location" style="margin-top:7%;margin-left:45%;">{{hotel|ratings}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px></p>
+                        <h5 class="card-title" style="margin-top:17%;margin-left:38%;">₹ {{hotel.standard_price}}</h5>
                         <form action = "/detailed_hotel" method = "get">
                             <input hidden type="text" name ='hotel_id' value='{{hotel.id}}'>
                             <input hidden type = "text" name='hotel_check_in' value='{{hotel_check_in}}'>

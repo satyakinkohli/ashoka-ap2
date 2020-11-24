@@ -55,17 +55,17 @@
       background-color:white;
       background-size:cover;
       padding:15px;
-      margin-left:15%;
+      margin-left:11.5%;
       border-radius: 10px;
   }   
 
     .scrolling_left {
-      margin-left:15%;
+      margin-left:8%;
       margin-top:10%;
     }
 
     .scrolling_right {
-      margin-right:13%;
+      margin-right:6%;
       margin-top:10%;
     }
 
@@ -268,34 +268,34 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   <div class="w3-container leave1">
-    <h1>{{hotel.name}}</h1> <h1 class="labels">{{hotel|ratings}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px>
+    <h1 style="margin-left:-5%">{{hotel.name}}</h1> <h1 class="labels" style="margin-left:45%">{{hotel|ratings}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px>
   </div>
 
-  <div class="w3-content leave2" style="max-width:1200px">
+  <div class="w3-content leave2" style="max-width:1500px">
   
-    <div class="sliderWrapper">
-    <img class="mySlides shift" src="{{hotel.image1.url}}" style="width:85%;height:30%">
-    <img class="mySlides shift" src="{{hotel.image2.url}}" style="width:85%;height:30%;display:none">
-    <img class="mySlides shift" src="{{hotel.image3.url}}" style="width:85%;height:30%;display:none">
-    <img class="mySlides shift" src="{{hotel.image4.url}}" style="width:85%;height:30%;display:none">
-    <img class="mySlides shift" src="{{hotel.image5.url}}" style="width:85%;height:30%;display:none">
+    <div class="sliderWrapper" >
+    <img class="mySlides shift" src="{{hotel.image1.url}}" style="width:1100px;height:600px">
+    <img class="mySlides shift" src="{{hotel.image2.url}}" style="width:1100px;height:600px;display:none">
+    <img class="mySlides shift" src="{{hotel.image3.url}}" style="width:1100px;height:600px;display:none">
+    <img class="mySlides shift" src="{{hotel.image4.url}}" style="width:1100px;height:600px;display:none">
+    <img class="mySlides shift" src="{{hotel.image5.url}}" style="width:1100px;height:600px;display:none">
 
     <div class="w3-row-padding w3-section">
       
       <div class="w3-col s2">
-        <img class="demo w3-opacity w3-hover-opacity-off" src="{{hotel.image1.url}}" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+        <img class="demo w3-opacity w3-hover-opacity-off" src="{{hotel.image1.url}}" style="width:215px;height:115px;cursor:pointer;margin-left:-15px " onclick="currentDiv(1)">
       </div>
       <div class="w3-col s2">
-        <img class="demo w3-opacity w3-hover-opacity-off" src="{{hotel.image2.url}}" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+        <img class="demo w3-opacity w3-hover-opacity-off" src="{{hotel.image2.url}}" style="width:215px;height:115px;cursor:pointer; margin-left:2px " onclick="currentDiv(2)">
       </div>
       <div class="w3-col s2">
-        <img class="demo w3-opacity w3-hover-opacity-off" src="{{hotel.image3.url}}" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+        <img class="demo w3-opacity w3-hover-opacity-off" src="{{hotel.image3.url}}" style="width:215px;height:115px;cursor:pointer; margin-left:20px; " onclick="currentDiv(3)">
       </div>
       <div class="w3-col s2">
-        <img class="demo w3-opacity w3-hover-opacity-off" src="{{hotel.image4.url}}" style="width:100%;cursor:pointer" onclick="currentDiv(4)">
+        <img class="demo w3-opacity w3-hover-opacity-off" src="{{hotel.image4.url}}" style="width:215px;height:115px;cursor:pointer; margin-left:40px" onclick="currentDiv(4)">
       </div>
       <div class="w3-col s2">
-        <img class="demo w3-opacity w3-hover-opacity-off" src="{{hotel.image5.url}}" style="width:100%;cursor:pointer" onclick="currentDiv(5)">
+        <img class="demo w3-opacity w3-hover-opacity-off" src="{{hotel.image5.url}}" style="width:215px;height:115px;cursor:pointer;margin-left:55px " onclick="currentDiv(5)">
       </div>
   
     </div>

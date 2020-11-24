@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  {% block content %} 
+{% load math %}
+
+{% block content %} 
 
 <head>
   
@@ -102,9 +104,7 @@
       width: auto;
       list-style: outside none none;
       margin-left:40%;
-      
       padding: 5px; 
-    
     }
 
     .address {
@@ -264,16 +264,12 @@
 
 <body style="height:1500px">
 
-  
-  
-
 <meta name="viewport" >
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   <div class="w3-container leave1">
-    <h1 style="font-family:Brush Script MT;">{{hotel.name}}</h1> <h1 class="labels"> {{hotel.rating}} <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px> </div> 
+    <h1>{{hotel.name}}</h1> <h1 class="labels">{{hotel|ratings}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px>
   </div>
-
 
   <div class="w3-content leave2" style="max-width:1200px">
   
@@ -333,36 +329,39 @@
 
 <script>
 
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
+  function currentDiv(n) {
+    showDivs(slideIndex = n);
+  }
 
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+    }
+    x[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " w3-opacity-off";
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
-  }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " w3-opacity-off";
-}
 
 </script>
 
-  <hr style="width:72%;margin-left:15%;margin-top:4%;border-width: 3px;color:black;">
+  <hr style="width:72%; margin-left: 15%; margin-top: 4%; border-width: 3px; color: black;">
 
   <ul class="try1"> 
-  <li class="try2"> <a href='#section1'> Location </a> </li> <li class="try2"> <a href='#section2'>Facilities </a> </li><li class="try2">  <a href='#section3'>Reviews </a> </li>  <li class="labels2"> <button style="background-color:black" onclick="openForm_Flight()"> Book Now </button> </li> </ul> 
+    <li style="margin-top: 0px;" class="try2"> <a href='#section1'> Location </a> </li>
+    <li style="margin-top: 0px;" class="try2"> <a href='#section2'>Facilities </a> </li>
+    <li style="margin-top: 0px;" class="try2">  <a href='#section3'>Reviews </a> </li>
+    <li style="margin-top: -12.5px;" class="labels2"> <button class="btn btn-warning" onclick="openForm_Flight()"> Book Now </button> </li>
+  </ul> 
 
   <div class="form-popup" id="Form_Flight">
     <form action="/hotel_summary" method="get" class="form-container">
-      
       <input hidden type = 'text' name='hotel_id' value = "{{hotel.id}}">
       <input hidden type = "text" name='hotel_check_in' value='{{hotel_check_in}}'>
       <input hidden type = "text" name='hotel_check_out' value='{{hotel_check_out}}'>
@@ -371,98 +370,99 @@ function showDivs(n) {
         <button type="button" class="facebook5" onclick="goback1()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="15px" widht="15px"></button>
         <button type="button" class="facebook3" onclick="closeForm1()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
     </div>
-    <br>
     
+    <br>
+    <br>
 
-<br>
-
-    <label for="standard" style="margin-left:24.5%">Standard Room:</label>
+<label for="standard" style="margin-left:24.5%">Standard Room:</label>
 <select id="standard" name="standard" style="margin-left:18%" >
-<option value="0" >0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
+  <option value="0" >0</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
 </select>
-<br>
 
 <br>
+<br>
+
 {% if hotel.suite_available == True %}
-    <label for="suite" style="margin-left:24.5%">Suite Room:</label>
+<label for="suite" style="margin-left:24.5%">Suite Room:</label>
 <select id="suite" name="suite" style="margin-left:18.5%" >
-<option value="0">0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
+  <option value="0">0</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
 </select>
 
 <br>
 <br>
+
 {% endif %}
 
 {% if hotel.deluxe_available == True %}
-    <label for="deluxe" style="margin-left:24.5%">Deluxe Room:</label>
+<label for="deluxe" style="margin-left:24.5%">Deluxe Room:</label>
 <select id="Deluxe" name="deluxe" style="margin-left:18.5%" >
-<option value="0">0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
+  <option value="0">0</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
 </select>
 
 <br>
 <br>
+
 {% endif %}
 
 {% if hotel.premium_available == True %}
-    <label for="premium" style="margin-left:24.5%">Premium Room:</label>
+<label for="premium" style="margin-left:24.5%">Premium Room:</label>
 <select id="premium" name="premium" style="margin-left:18.5%" >
-<option value="0">0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
+  <option value="0">0</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
 </select>
 
 <br>
 <br>
+
 {% endif %}
-    <button type="submit" class="btn btn-warning"  >Book</button>
+
+<button type="submit" class="btn btn-warning">Book</button>
     
     </form>
-</div>
+  </div>
 
 <script>
-function openForm_Flight() {
-    document.getElementById("Form_Flight").style.display = "block";
-}
+  
+  function openForm_Flight() {
+      document.getElementById("Form_Flight").style.display = "block";
+  }
 
-function closeForm1() {
-    document.getElementById("Form_Flight").style.display = "none";
-}
+  function closeForm1() {
+      document.getElementById("Form_Flight").style.display = "none";
+  }
 
-function goback1() {
-    document.getElementById("Form_Flight").style.display = "none";
-}
+  function goback1() {
+      document.getElementById("Form_Flight").style.display = "none";
+  }
 
 </script>
 
-
-
-
-
   <hr style="width:72%;margin-left:15%;margin-top:5%;border-width: 3px;color:black;">
 
-  <h4 style="margin-left:50%;margin-top:3%;font-style: bold;"id="section1" class="labels3"> LOCATION </h4>
+  <h4 style="margin-left:50%;margin-top:3%;font-style: bold;"id="section1" class="labels3"> <u> LOCATION </u> </h4>
 
   <p class="address"> <img src="https://toppng.com/uploads/preview/vector-location-icon-11569053875gijtj3yvbk.png" width="14px"; height="15px";> {{hotel.street}}, {{hotel.locality}}, {{hotel.location}} </p>
 
-  <h4 style="margin-left:50%;margin-top:3%;font-style: bold;" id="section2" class="labels3"> FACILITIES </h4>
+  <h4 style="margin-left:50%;margin-top:3%;font-style: bold;" id="section2" class="labels3"> <u> FACILITIES </u> </h4>
   <ul class="try5"> 
   <li class="try6"> <img src="https://www.clipartmax.com/png/middle/89-891081_wifi-icon-png-images-free-download-transparent-background-wifi-icon.png" height="15px" width="25px";> Wifi {% if hotel.wifi == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li>
   <li class="try6">Air Conditioning {% if hotel.air_conditioning == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li><li class="try6"> Airport Shuttle {% if hotel.airport_shuttle == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li></ul>
@@ -471,7 +471,26 @@ function goback1() {
   <li class="try6"> Parking Area{% if hotel.parking_area == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} 
     <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> <li class="try6">Pool {% if hotel.pool == True %} <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> <li class="try6"> <img src="https://e7.pngegg.com/pngimages/79/814/png-clipart-fitness-centre-computer-icons-dumbbell-weight-training-gym-physical-fitness-text.png" height="20px" width="15px">Fitness Centre {% if hotel.fitness_center == True %}  <img src="{% static '/tick.png' %}" height="15px" width="25px";> {% else %} <img src="{% static '/cross1.png' %}" height="15px" width="25px";> {% endif %} </li> </ul>
   <br>
-  <h4 style="margin-left:50%;margin-top:5%;font-style: bold;" id="section3"> REVIEWS </h4>
+  <h4 style="margin-left:50%; margin-top:5%;font-style: bold;" id="section3"> <u> REVIEWS </u> </h4>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <input style="border-radius: 5px; margin-right: -10px; margin-left: 25%; margin-top: 20px; padding-right: 150px;" type="text" class="form-control-lg" name="hotel_review" placeholder="Write your review" required>
+    <select style="font-size: xx-large; border-radius: 5px; margin-right: -10px; margin-left: 1%; padding-bottom: 5px;" id="hotel_rating" name="hotel_rating" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5" selected>5</option>
+    </select>
+    <input type="submit" style="margin-left: 50px; margin-top: -10px;" class="btn btn-success btn-lg">
+  </form>
+
+  {% for other_hotel_reviews in other_hotel_reviews %}
+    <div>
+      <p>{{other_hotel_reviews.review}}, {{other_hotel_reviews.rating}}</p>
+    </div>
+  {% endfor %}
 
   {% endblock %}
 

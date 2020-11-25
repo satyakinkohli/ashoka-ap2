@@ -28,6 +28,7 @@ class Flight_View(View):
         if len(possible_flights) == 0:
             error_message = "Sorry, we do not have any available flights as per your requirements!"
 
+        user = request.user
         if not request.user.is_authenticated:
             user_email = None
         else:

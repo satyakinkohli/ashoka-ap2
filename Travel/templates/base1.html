@@ -1,3 +1,5 @@
+{% load socialaccount %}
+
 <!doctype html>
 <html lang="en">
 
@@ -17,7 +19,7 @@
 
     <style>
 
-.dropdown {
+          .dropdown {
             position: relative;
             display: inline-block;
           }
@@ -44,22 +46,19 @@
             color:black;
           }
 
-          
-
           form.example input[type=text] {
-  padding: 5px;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-radius: 5px;
-  float: left;
-  margin-left:10%;
-  width: 80%;
-  background: #f1f1f1;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-          
-        
+            padding: 5px;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            float: left;
+            margin-left:10%;
+            width: 80%;
+            background: #f1f1f1;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+          }
+
 form.example button {
   border-radius: 5px;
   float: right;
@@ -74,44 +73,61 @@ form.example button {
   cursor: pointer;
 }
 
-
-
 #letsdothis {
   background-color: white;
   animation-name: example;
   animation-duration: 6s;
 }
 
-
-
-
-
-          </style>
     </style>
-  </head>
-
-
+</head>
 
   <body id="letsdothis"> 
 
-
-
     <! - - navbar - ->
+
+    {% if request.user.is_authenticated %}
     
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black">
       <a href= "/" class="navbar-brand" style="color: white">
-         <img src="{% static '/website__logo.jpeg' %}" style="width:50px;margin-top:-15%" height="50" class="d-inline-block align-middle" alt="">
-        </a>
+        <img src="{% static '/website__logo.jpeg' %}" style="width: 50px; margin-top: -15%" height="50" class="d-inline-block align-middle" alt="">
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="dropdown">
+        <span>
+          <p style="float: right; margin-top: 15px; color: white"> Hello, {{request.user.first_name}}</p>
+        </span>
+        <li class="nav-item">
+          <a class="nav-link" colors href="/" style="color: maroon"> My Bookings <span class="sr-only">(current)</span></a>
+        </li>
+        <div class="dropdown-content">
+          <li class="nav-item">
+            <a class="nav-link" colors href="/logout" style="color: maroon">Logout <span class="sr-only">(current)</span></a>
+          </li>
+
+    </nav>
+
+    {% else %}
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black">
+      <a href= "/" class="navbar-brand" style="color: white">
+        <img src="{% static '/website__logo.jpeg' %}" style="width:50px;margin-top:-15%" height="50" class="d-inline-block align-middle" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <li class="nav-item">
+        <a class="nav-link" colors href="{% provider_login_url "google" %}" style="font-size: x-large; color: white">Login </a>
+      </li>
+    </nav>
     
-     
+    {% endif %}
         
           
        
-      </div>
-    </nav>
+
 
         {% block content %} {% endblock %}
 

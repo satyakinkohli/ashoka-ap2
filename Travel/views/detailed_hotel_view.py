@@ -21,6 +21,7 @@ class Detailed_Hotel_View(View):
         # print(hotel_check_in)
         # print(hotel_check_out)
 
+        user = request.user
         if not request.user.is_authenticated:
             user_email = None
         else:

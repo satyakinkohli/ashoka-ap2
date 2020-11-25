@@ -38,6 +38,7 @@ class Cab_View(View):
         car_types = Car_options.get_all_car_types()
         distance = random.randint(50, 500)
 
+        user = request.user
         if not request.user.is_authenticated:
             user_email = None
         else:

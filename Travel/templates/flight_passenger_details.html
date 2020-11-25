@@ -1,0 +1,146 @@
+{% extends 'base1.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+{% block content %} 
+
+<head>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><meta charset="UTF-8">
+
+
+    <style>
+        
+        body
+        {
+            background-color:rgba(255, 0, 255, 0.1);
+        }
+
+        .sizing_image
+        {
+            height: 100px;
+            width: 100px;
+            margin-left: 25%;
+            margin-top: 12.5%;
+        }
+
+        .curved
+        {
+            border-radius: 25px;
+            height: 165px;
+            width: 630px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    {% if error_message %}
+        <h3 style="text-align: center; margin-top: 10%;">
+            {{error_message}}
+        </h3>
+    
+    {% else %}
+
+    {% for flight in flight_instance_usable %}
+        <div class="card curved mx-auto" style="margin-bottom:1.5%; margin-top:3.5%">
+            <div class="row no-gutters">
+                <div class="col-sm-3">
+                    <img class="sizing_image card-img" src="{{flight.airline.logos.url}}" alt="Flight Logo">
+                    <p class="card-text" style="margin-left: 35.5%; margin-top: 6.5%">{{flight.airline.name}}</p>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card-body">
+                      <h5 class="card-title" style="margin-top:5%">{{flight.departure_time}} - {{flight.arrival_time}}</h5>
+                      <p class="card-text location">{{flight.source}} - {{flight.destination}}</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card-body">
+                      <h4 class="float-right" style="font-size: 20px; margin-top:15%; margin-right: 15%">₹ {{flight.economy_price}}</h4>
+                        <h6>Economy: {{economy_number}}</h6>
+                        <h6>Business: {{business_number}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form action="/flight_final_summary" method="get">
+            {% for number in numbers_economy %}
+            <div class="times_economy" id="economy">
+                <button class="btn btn-warning" type="text">Economy</button>
+                <input style="border-radius: 5px; margin-right: -10px; margin-left: 25%; margin-top: 20px; padding-right: 150px;" type="text" class="form-control-lg" name="economy_passenger_name_{{number}}" placeholder="Satyakin Kohli" required>
+                <select style="font-size: xx-large; border-radius: 5px; margin-right: -10px; margin-left: 1%; padding-bottom: 5px;" id="passenger_gender" name="economy_passenger_gender_{{number}}" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <input style="border-radius: 5px; margin-right: -10px; margin-left: 25%; margin-top: 20px;" type="text" class="form-control-lg" name="economy_passenger_age_{{number}}" placeholder="19" required>
+            </div>
+            {% endfor %}
+
+            {% for number in numbers_business %}
+            <div class="times_business" id="business">
+                <button class="btn btn-warning" type="text">Business</button>
+                <input style="border-radius: 5px; margin-right: -10px; margin-left: 25%; margin-top: 20px; padding-right: 150px;" type="text" class="form-control-lg" name="business_passenger_name_{{number}}" placeholder="Satyakin Kohli" required>
+                <select style="font-size: xx-large; border-radius: 5px; margin-right: -10px; margin-left: 1%; padding-bottom: 5px;" id="passenger_gender" name="business_passenger_gender_{{number}}" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <input style="border-radius: 5px; margin-right: -10px; margin-left: 25%; margin-top: 20px;" type="text" class="form-control-lg" name="business_passenger_age_{{number}}" placeholder="19" required>
+            </div>
+            {% endfor %}
+            
+            <input type="submit" style="margin-left: 50px; margin-top: -10px;" class="btn btn-success btn-lg">
+        </form>
+
+    {% endfor %}
+
+    {% endif %}
+
+    <script>
+        
+        var economy_tickets = "{{economy_number}}";
+        var business_tickets = "{{business_number}}";
+
+        // function number_forms(economy_tickets, business_tickets) {
+        //     var i;
+        //     for (i = 0; i < economy_tickets; i++) {
+        //         var insert_time_economy = document.getElementById('muted');
+        //         document.getElementById("show").innerHTML = insert_time_economy;
+        //     }
+
+        //     var j;
+        //     for (j = 0; j < business_tickets; j++) {
+                
+        //     }
+        // }
+
+        function number_times(economy_tickets) {
+            var i;
+            for (i = 0; i < economy_tickets; i++) {
+                $('.times_economy').clone().appendTo('#show'); 
+            }
+        }
+
+        function page_load() {
+            document.getElementById('muted').style.display = "none";
+            number_times(economy_tickets);
+        }
+
+        window.onload = number_times(economy_tickets);
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    {% endblock %}
+
+</body>
+</html>

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from datetime import datetime
 from Travel.models.hotels import Hotel
+from Travel.models.hotel_booking import Hotel_booking
 
 
 class Hotel_Summary_View(View):
@@ -32,6 +33,22 @@ class Hotel_Summary_View(View):
         print(price_per_night)
         total_price = price_per_night*int(days.days)
         print(total_price)
+
+        user = request.user
+        hotel_booking_instance = Hotel_booking(user_email = user.email,
+                                                user_fname = user.first_name,
+                                                user_lname = user.last_name,
+                                                hotel = hotel_instance,
+                                                check_in_date = hotel_check_in_1,
+                                                check_out_date = hotel_check_out_1,
+                                                total_price = total_price,
+                                                standard_number = int(standard_number),
+                                                deluxe_number = int(deluxe_number),
+                                                premium_number = int(premium_number),
+                                                suite_number = int(suite_number))
+        hotel_booking_instance.save()
+        
+
         summary_data = {'hotel': hotel_instance, 'hotel_check_in': hotel_check_in, 'hotel_check_out': hotel_check_out,
                         'days': days.days, 'price_per_night': price_per_night, 'total_price': total_price}
         return render(request, "hotel_final_summary.html", summary_data)

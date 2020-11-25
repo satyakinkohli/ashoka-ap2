@@ -10,6 +10,8 @@ from .views.cab_booking import Cab_Booking_View
 from .views.flight_summary_view import Flight_Summary_View
 from .views.hotel_summary_view import Hotel_Summary_View
 from .views.logout_view import Logout
+from .views.flight_final_summary_view import Flight_Final_Summary_View
+
 urlpatterns = [
     path('', Homepage, name="homepage"),
     path('hotels', Hotel_View.as_view(), name="hotels"),
@@ -19,5 +21,10 @@ urlpatterns = [
     path('cab_booking', Cab_Booking_View.as_view(), name="cab_booking"),
     path('flight_summary', Flight_Summary_View.as_view(), name="flight_summary"),
     path('hotel_summary', Hotel_Summary_View.as_view(), name="hotel_summary"),
+<<<<<<< HEAD
     path('logout', Logout )
+=======
+    path('flight_final_summary', Flight_Final_Summary_View.as_view(),
+         name="flight_final_summary"),
+>>>>>>> cc7cead4579e796840a7d94e954c84918af92646
 ]

@@ -189,9 +189,9 @@ body {
       {% for flight in flight_booked %}
         <div class="card curved mx-auto" style="border-radius:0px; border: 5px solid black;"> 
             <div class="row no-gutters" >
-                <h4 style="margin-left:26%;margin-top:2%"> Thank you for booking with {{flight.airline}}! </h4>
-                <h5 style="margin-top:2%; margin-left:28%"> <b> {{flight.source.name}} - {{flight.destination.name}} 
-              , {{flight_date_formatted}} & {{flight.departure_time}}  </b></h5>
+                <h4> <img src="{{flight.airline.logos.url}}" height="50px" width="50px"> <h4 style="margin-left:26%;margin-top:2%"> Thank you for booking with {{flight.airline}}! </h4> </h4>
+                <h5 style="margin-top:2%; margin-left:22%"> <b> {{flight.source.name}} - {{flight.destination.name}} 
+              , {{flight_date_formatted}} at {{flight.departure_time}}  </b></h5>
 
       {% endfor %}
 

@@ -192,6 +192,14 @@
             {{error_message}}
         </h3>
     {% endif %}
+    <div class="container-fluid mt-3">
+      <div class="row">
+
+        <! - - filter - - >
+
+        <div class="col-lg-3 mx-auto">
+          <div class="list-group mt-3" >
+
 
     {% for flight in possible_flights %}
         <div class="card curved mx-auto" style="margin-bottom:1.5%; margin-top:1.5%">
@@ -221,6 +229,20 @@
             </div>
         </div>
     {% endfor %}
+
+
+    <div id='products' class="col-lg-9 mx-auto">
+    
+
+      
+   
+      <div class="col-lg-9">
+           
+ 
+
+  <img src="https://st2.depositphotos.com/4327059/7728/v/950/depositphotos_77280948-stock-illustration-travel-and-tourism-background.jpg" height="300px"; width="300px">
+
+
 
     <div class="form-popup" id="Form_Flight">
         <form action="/flight_summary" method="get" class="form-container">

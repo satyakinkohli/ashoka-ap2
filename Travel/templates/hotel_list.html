@@ -14,12 +14,125 @@
     <title>Don'tGoIbobo</title>
 
     <style>
-        .sizing_image
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-left:10%;
+  margin-top:7%;
+  height:98%;
+  
+}
+
+
+
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 5px;
+  width: 5px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+
+
+<style>
+   
+    
+    
+
+
+
+    .sizing_image
         {
             height: 250px;
             width: 250px;
-            margin-left: 12.5%;
-            margin-top: 10.5%;
+            margin-left: 8.5%;
+            margin-top: 3.5%;
         }
 
         .curved
@@ -55,10 +168,83 @@
         </h3>
     {% endif %}
 
+    <div class="container-fluid mt-3">
+        <div class="row">
+  
+          <! - - filter - - >
+  
+          <div class="col-lg-3 mx-auto">
+            <div class="list-group mt-3" >
+
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                      <div class="numbertext">1 / 3</div>
+                      <img src="{% static '/4.png' %}" style="width:350px; height:350px; border-radius:10px; margin-left:10px">
+                     
+                      
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <div class="numbertext">2 / 3</div>
+                      <img src="{% static '/2.png' %}" style="width:350px; height:350px; border-radius:10px; margin-left:10px">
+                      
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <div class="numbertext">3 / 3</div>
+                      <img src="{% static '/3.png' %}" style="width:350px; height:350px; border-radius:10px; margin-left:10px">
+                      
+                    </div>
+                    
+                    </div>
+                    <br>
+                    
+                    <div style="text-align:center">
+                        <span class="dot"></span> 
+                        <span class="dot"></span> 
+                        <span class="dot"></span> 
+                      </div>
+                    
+                    <script>
+                    var slideIndex = 0;
+                    showSlides();
+                    
+                    function showSlides() {
+                      var i;
+                      var slides = document.getElementsByClassName("mySlides");
+                      var dots = document.getElementsByClassName("dot");
+                      for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";  
+                      }
+                      slideIndex++;
+                      if (slideIndex > slides.length) {slideIndex = 1}    
+                      for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                      }
+                      slides[slideIndex-1].style.display = "block";  
+                      dots[slideIndex-1].className += " active";
+                      setTimeout(showSlides, 2000); // Change image every 2 seconds
+                    }
+                    </script>
+
+                    
+                   
+                
+
+<img src="{% static '/1.png' %}" style="width:350px; height:350px; border-radius:10px; margin-left:10px">
+                
+  
+              
+            </div>
+          </div>
+  
+        
+ <div id='products' class="col-lg-9 mx-auto">
     
 
     {% for hotel in possible_hotels %}
-    
+ 
     <div class="col-lg-9">
         <!-- <div class="list-group mt-3" ></div> -->
     
@@ -71,7 +257,7 @@
                 <div class="col-sm-4" style="margin-left:5%">
                     <div class="card-body">
                         <br>
-                        <h3 class="card-title" style=" margin-left:40%;">{{hotel.name}}</h3>
+                        <h3 class="card-title" style=" margin-left:40%; margin-top:-7%">{{hotel.name}}</h3>
                         <p class="card-text location" style="margin-top:7%;margin-left:45%;">{{hotel|ratings}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px></p>
                         <h5 class="card-title" style="margin-top:17%;margin-left:38%;">₹ {{hotel.standard_price}}</h5>
                         <form action = "/detailed_hotel" method = "get">
@@ -100,15 +286,15 @@
                         <br>
                         <br>
                         <br>
-                        <p class="card-title"><img src="{% static '/website_logo.png' %}" height="20px" width="20px" >&nbsp;{{hotel.website}}</p>
-                        <p class="card-text"><img src="{% static '/contact_logo.png' %}" height="20px" width="20px" >&nbsp;{{hotel.number}}</p>
-                        <p class="card-text"><img src="{% static '/addreess.png' %}" height="25px" width="25px" >&nbsp;DLF Capital Green</p>
+                        <p class="card-title" style="margin-top:-26%"><img src="{% static '/website_logo.png' %}" height="20px" width="20px" >&nbsp;{{hotel.website}}</p>
+                        <p class="card-text" ><img src="{% static '/contact_logo.png' %}" height="20px" width="20px" >&nbsp;{{hotel.number}}</p>
+                        <p class="card-text" ><img src="{% static '/addreess.png' %}" height="25px" width="25px" >&nbsp;DLF Capital Green</p>
                         <p class="card-text">Reviews ({{count}})</p>
                     </div>
                     
                 </div>
                 
-
+                
             </div>
         </div>
 
@@ -117,19 +303,17 @@
 
        
     </div>
+    
+</div>
 
-    <im
+    <im>
+
+       
      
     {% endfor %}
 
-    <script>
 
-        window.onload = function backgroud_setting() {
-            document.body.style.backgroundColor = "rgba(0, 0, 255, 0.1)";
-            // document.body.style.backgroundColor = "powderblue";
-        }
-
-    </script>
+  
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

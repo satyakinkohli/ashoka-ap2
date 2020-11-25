@@ -186,38 +186,42 @@ body {
     </head>
     <body>
 
+      {% for flight in flight_booked %}
         <div class="card curved mx-auto" style="border-radius:0px; border: 5px solid black;"> 
             <div class="row no-gutters" >
-                <h4 style="margin-left:26%;margin-top:2%"> Thank you for booking with {airline name}! </h4>
-                <h5 style="margin-top:2%; margin-left:28%"> <b> {from} - {to} 
-              ,{Date & Time}  </b>
-              </h5>
+                <h4 style="margin-left:26%;margin-top:2%"> Thank you for booking with {{flight.airline}}! </h4>
+                <h5 style="margin-top:2%; margin-left:28%"> <b> {{flight.source.name}} - {{flight.destination.name}} 
+              , {{flight_date_formatted}} & {{flight.departure_time}}  </b></h5>
+
+      {% endfor %}
 
                 <table style="width:100%; margin-top:2%">
                     <tr>
-                      <th>Lastname</th> 
-                      <th>Firstname</th>
-                      <th>Age</th>
-                      <th>Class</th>
-                    </tr>
+                        <th>Name</th> 
+                        <th>Gender</th>
+                        <th>DOB</th>
+                        <th>Phone Number</th>
+                        <th>Class</th>
+                      </tr>
+                    {% for economy_ticket in economy_tickets %}
                     <tr>
-                      <td style="margin-top:20%;">{last name}</td>
-                      <td style="margin-top:20%;">{first name}</td>
-                      <td style="margin-top:20%;">{Age}</td>
-                      <td style="margin-top:20%;">Class</td>
+                      {% for element in economy_ticket %}
+                      <td style="margin-top:20%;">{{element}}</td>
+                      {% endfor %}
                     </tr>
-                    
-                  </table>
-                
-                    
+                    {% endfor %}
+                    {% for business_ticket in business_tickets %}
+                    <tr>
+                      {% for element_collect in business_ticket %}
+                      <td style="margin-top:20%;">{{element_collect}}</td>
+                      {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+     
+            </div>
+        </div>
 
-                    
-                    </div>
-                </div>
-                </div>
-                    
-
-
-                {% endblock %}
-                </body>
-                </html>
+        {% endblock %}
+</body>
+</html>

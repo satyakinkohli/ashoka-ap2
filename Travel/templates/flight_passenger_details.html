@@ -34,6 +34,11 @@
             width: 630px;
         }
 
+        .extra
+        {
+            pointer-events: none;
+        }
+
     </style>
 
 </head>
@@ -62,40 +67,46 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="card-body">
-                      <h4 class="float-right" style="font-size: 20px; margin-top:15%; margin-right: 15%">₹ {{flight.economy_price}}</h4>
-                        <h6>Economy: {{economy_number}}</h6>
-                        <h6>Business: {{business_number}}</h6>
+                        <h4 class="float-right" style="font-size: 20px; margin-top: 5%; margin-right: 15%">Total Price: ₹ {{total_price}}</h4>
+                        <h6 style="margin-top: 25%; margin-right: 15%">Economy: {{economy_number}}</h6>
+                        <h6 style="margin-top: -5%; margin-right: 15%">Business: {{business_number}}</h6>
                     </div>
                 </div>
             </div>
         </div>
 
+        <br>
+
         <form action="/flight_final_summary" method="get">
             {% for number in numbers_economy %}
             <div class="times_economy" id="economy">
-                <button class="btn btn-warning" type="text">Economy</button>
-                <input style="border-radius: 5px; margin-right: -10px; margin-left: 25%; margin-top: 20px; padding-right: 150px;" type="text" class="form-control-lg" name="economy_passenger_name_{{number}}" placeholder="Satyakin Kohli" required>
-                <select style="font-size: xx-large; border-radius: 5px; margin-right: -10px; margin-left: 1%; padding-bottom: 5px;" id="passenger_gender" name="economy_passenger_gender_{{number}}" required>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                <button class="btn extra btn-warning" style="margin-bottom: 4px; margin-left: 8%;" type="text">Economy</button>
+                <input style="border-radius: 5px; margin-right: -10px; margin-left: 2.5%; margin-top: 20px; padding-right: 150px;" type="text" class="form-control-lg" name="economy_passenger_name_{{number}}" placeholder="Name: Aditya" required>
+                <select style="font-size: 25px; border-radius: 5px; margin-right: -10px; margin-left: 1.5%; padding-bottom: 5px;" id="passenger_gender" name="economy_passenger_gender_{{number}}" required>
+                    <option value="Male" selected>Male</option>
+                    <option value="Female">Female</option>
                 </select>
-                <input style="border-radius: 5px; margin-right: -10px; margin-left: 25%; margin-top: 20px;" type="text" class="form-control-lg" name="economy_passenger_age_{{number}}" placeholder="19" required>
+                <input style="border-radius: 5px; margin-right: -10px; margin-left: 1.5%; margin-top: 20px; padding-right: 0px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="economy_passenger_dob_{{number}}" placeholder="Date of Birth" required>
+                <input style="border-radius: 5px; margin-right: -10px; margin-left: 1.5%; margin-top: 20px; padding-right: 0px;" type="number" class="form-control-lg" name="economy_passenger_phone_{{number}}" placeholder="9823146783" required>
+                <button class="btn extra btn-warning" style="margin-bottom: 7px; margin-left: 4%;" type="text">₹ {{flight.economy_price}}</button>
             </div>
             {% endfor %}
 
             {% for number in numbers_business %}
             <div class="times_business" id="business">
-                <button class="btn btn-warning" type="text">Business</button>
-                <input style="border-radius: 5px; margin-right: -10px; margin-left: 25%; margin-top: 20px; padding-right: 150px;" type="text" class="form-control-lg" name="business_passenger_name_{{number}}" placeholder="Satyakin Kohli" required>
-                <select style="font-size: xx-large; border-radius: 5px; margin-right: -10px; margin-left: 1%; padding-bottom: 5px;" id="passenger_gender" name="business_passenger_gender_{{number}}" required>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                <button class="btn extra btn-info" style="margin-bottom: 4px; margin-left: 8%;" type="text">Business</button>
+                <input style="border-radius: 5px; margin-right: -10px; margin-left: 2.5%; margin-top: 20px; padding-right: 150px;" type="text" class="form-control-lg" name="business_passenger_name_{{number}}" placeholder="Name: Sahana" required>
+                <select style="font-size: 25px; border-radius: 5px; margin-right: -10px; margin-left: 1.5%; padding-bottom: 5px;" id="passenger_gender" name="business_passenger_gender_{{number}}" required>
+                    <option value="Male">Male</option>
+                    <option value="Female" selected>Female</option>
                 </select>
-                <input style="border-radius: 5px; margin-right: -10px; margin-left: 25%; margin-top: 20px;" type="text" class="form-control-lg" name="business_passenger_age_{{number}}" placeholder="19" required>
+                <input style="border-radius: 5px; margin-right: -10px; margin-left: 1.5%; margin-top: 20px; padding-right: 0px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="business_passenger_dob_{{number}}" placeholder="Date of Birth" required>
+                <input style="border-radius: 5px; margin-right: -10px; margin-left: 1.5%; margin-top: 20px; padding-right: 0px;" type="number" class="form-control-lg" name="business_passenger_phone_{{number}}" placeholder="9723502418" required>
+                <button class="btn extra btn-info" style="margin-bottom: 7px; margin-left: 4%;" type="text">₹ {{flight.business_price}}</button>
             </div>
             {% endfor %}
             
-            <input type="submit" style="margin-left: 50px; margin-top: -10px;" class="btn btn-success btn-lg">
+            <input type="submit" style="float: right; margin-right: 7.9%; margin-top: 50px;" class="btn btn-success btn-lg">
         </form>
 
     {% endfor %}

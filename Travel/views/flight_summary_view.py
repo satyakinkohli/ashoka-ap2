@@ -29,12 +29,12 @@ class Flight_Summary_View(View):
             total_price = (int(economy_number)*float(flight_instance.economy_price)) + \
                 (int(business_number)*float(flight_instance.business_price))
 
-<<<<<<< HEAD
+
         print(total_price)
         user = request.user
         print(user)	
-=======
->>>>>>> cc7cead4579e796840a7d94e954c84918af92646
+
+
         flight_instance.save()
         # flight_from = request.session.get('flight_from')
         # flight_from_id = request.session.get('flight_from_id')

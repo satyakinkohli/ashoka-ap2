@@ -21,10 +21,7 @@ urlpatterns = [
     path('cab_booking', Cab_Booking_View.as_view(), name="cab_booking"),
     path('flight_summary', Flight_Summary_View.as_view(), name="flight_summary"),
     path('hotel_summary', Hotel_Summary_View.as_view(), name="hotel_summary"),
-<<<<<<< HEAD
-    path('logout', Logout )
-=======
+    path('logout', Logout ),
     path('flight_final_summary', Flight_Final_Summary_View.as_view(),
          name="flight_final_summary"),
->>>>>>> cc7cead4579e796840a7d94e954c84918af92646
 ]

@@ -27,7 +27,7 @@ class Flight_Final_Summary_View(View):
 
             economy_passenger_dob_formatted = datetime.strftime(economy_passenger_dob_adjust, "%d/%m/%y")
             # end conversion
-            economy_tickets.append((economy_passenger_name, economy_passenger_gender, economy_passenger_dob_formatted, economy_passenger_phone, "economy"))
+            economy_tickets.append((economy_passenger_name, economy_passenger_gender, economy_passenger_dob_formatted, economy_passenger_phone, "Economy"))
 
         business_tickets = []
         for i in range(1, int(business_number) + 1):
@@ -43,7 +43,7 @@ class Flight_Final_Summary_View(View):
 
             business_passenger_dob_formatted = datetime.strftime(business_passenger_dob_adjust, "%d/%m/%y")
             # end conversion
-            business_tickets.append((business_passenger_name, business_passenger_gender, business_passenger_dob_formatted, business_passenger_phone, "business"))
+            business_tickets.append((business_passenger_name, business_passenger_gender, business_passenger_dob_formatted, business_passenger_phone, "Business"))
         
         flight_id = request.session.get('flight_id')
         flight_instance = Flight.get_flight_through_id(flight_id)
@@ -79,6 +79,6 @@ class Flight_Final_Summary_View(View):
         flight_date_formatted = datetime.strftime(flight_date_adjust, "%A; %d %b. %Y")
         # end conversion
 
-        flight_booking_data = {'flight_date_formatted': flight_date_formatted, 'flight_booked': flight_booked, 'economy_tickets': economy_tickets, 'business_tickets': business_tickets, 'economy_number': economy_number, 'business_number': business_number}
+        flight_booking_data = {'total_price': total_price, 'flight_date_formatted': flight_date_formatted, 'flight_booked': flight_booked, 'economy_tickets': economy_tickets, 'business_tickets': business_tickets, 'economy_number': economy_number, 'business_number': business_number}
 
         return render(request, 'flight_final_summary.html', flight_booking_data)

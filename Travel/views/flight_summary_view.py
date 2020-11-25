@@ -24,8 +24,7 @@ class Flight_Summary_View(View):
             error_message = "We do not have as many seats available."
             # reselect number of seats
         else:
-            flight_instance.economy_vacancy -= int(economy_number)
-            flight_instance.business_vacancy -= int(business_number)
+            
             total_price = (int(economy_number)*float(flight_instance.economy_price)) + \
                 (int(business_number)*float(flight_instance.business_price))
 

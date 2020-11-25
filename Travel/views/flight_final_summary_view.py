@@ -5,6 +5,8 @@ from datetime import datetime, date
 
 from Travel.models.flights import Flight
 
+from Travel.models.flight_booking import Flight_booking
+
 
 class Flight_Final_Summary_View(View):
     def get(self, request):
@@ -44,13 +46,33 @@ class Flight_Final_Summary_View(View):
             business_tickets.append((business_passenger_name, business_passenger_gender, business_passenger_dob_formatted, business_passenger_phone, "business"))
         
         flight_id = request.session.get('flight_id')
+        flight_instance = Flight.get_flight_through_id(flight_id)
         flight_booked = Flight.get_flight_through_id_but_queryset(
             flight_id)
 
         flight_date = request.session.get('flight_date')
         # converting date to required format
         now = date(*map(int, flight_date.split('-')))
+
+        total_price = (int(economy_number)*float(flight_instance.economy_price)) + \
+                (int(business_number)*float(flight_instance.business_price))
+
+        user = request.user
+        flight_booking_instance = Flight_booking(user_email=user.email,
+                                               user_fname=user.first_name,
+                                               user_lname=user.last_name,
+                                               flight=flight_instance,
+                                               total_price=total_price,
+                                               economy_number=int(
+                                                   economy_number),
+                                               business_number=int(
+                                                   business_number))
+        flight_booking_instance.save()
         
+        flight_instance.economy_vacancy -= int(economy_number)
+        flight_instance.business_vacancy -= int(business_number)
+        flight_instance.save()
+
         flight_min_time = datetime.min.time()
         flight_date_adjust = datetime.combine(now, flight_min_time)
 

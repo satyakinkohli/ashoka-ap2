@@ -140,7 +140,7 @@ body {
     }
 
 
-    body
+        body
         {
             background-color:rgba(0, 0, 255, 0.1);
         }
@@ -180,11 +180,10 @@ body {
             margin-left: 47%;
         }
 
-
-
     </style>
-    </head>
-    <body>
+</head>
+    
+<body>
 
         <div class="card curved mx-auto" style="border-radius:0px; border: 5px solid black;"> 
             <div class="row no-gutters" >
@@ -195,66 +194,52 @@ body {
     
                         <div class="slideshow-container" style="margin-top:12.25%;margin-left:4%">
                         
-                        <div class="mySlides fade">
+                          <div class="mySlides fade">
+                            
+                            <img src="{{hotel.image1.url}}" style="width:162%; border:5px solid black; border-radius: 10px;" >
+                            
+                          </div>
                           
-                          <img src="{{hotel.image1.url}}" style="width:162%; border:5px solid black; border-radius: 10px;" >
+                          <div class="mySlides fade">
+                            
+                            <img src="{{hotel.image2.url}}"  style="width:162%; border:5px solid black; border-radius: 10px;">
+                            
+                          </div>
                           
-                        </div>
-                        
-                        <div class="mySlides fade">
-                          
-                          <img src="{{hotel.image2.url}}"  style="width:162%; border:5px solid black; border-radius: 10px;">
-                          
-                        </div>
-                        
-                        <div class="mySlides fade">
-                          
-                          <img src="{{hotel.image3.url}}"  style="width:162%; border:5px solid black; border-radius: 10px;">
-                          
-                        </div>
+                          <div class="mySlides fade">
+                            
+                            <img src="{{hotel.image3.url}}"  style="width:162%; border:5px solid black; border-radius: 10px;">
+                            
+                          </div>
                     
                         <br>
-                        
-                    
                         
                         <div style="float:right">
                           <span class="dot"></span> 
                           <span class="dot"></span> 
                           <span class="dot"></span> 
                         </div>
+
+                      </div>
                     
-                    </div>
                     </div>
                 </div>
+            </div>
+        </div>
                     
 
-                    <div class="col-sm-5" >
-                        <div class="card-body" style="">
-
-                            <h4 style=" text-align: center;">HERE'S THE RECEIPT!</h4>
-                            <h6 style="margin-top:12%; text-align: center;" >Hotel Name: <b> {{hotel.name}} </b></h6>
-      <h6 style="margin-top:10%; text-align: center;">Check-In Date:  </h6>
-      <h6 style="margin-top:1%; text-align: center;"><b> {{hotel.hotel_check_in_1} </b> </h6>
-      <h6 style="margin-top:10%; text-align: center;">Check-Out Date:  </h6>
-      <h6 style="margin-top:1%; text-align: center;"><b> {{hotel.hotel_check_out_1} </b> </h6>
-      <h6 style="margin-top:10%; text-align: center;">No. of Rooms: <b>xyz </b></h6>
-      <h6 style="margin-top:10%; text-align: center;">Total Amount Paid: <b> ₹ whatever </b> </h6>
-                           
-
-                            </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-        
-
-
-
-    
-    
-    
+      <div class="col-sm-5" >
+        <div class="card-body">
+          <h4 style=" text-align: center;">HERE'S THE RECEIPT!</h4>
+          <h6 style="margin-top:12%; text-align: center;" >Hotel Name: <b> {{hotel.name}} </b></h6>
+          <h6 style="margin-top:10%; text-align: center;">Check-In Date:  </h6>
+          <h6 style="margin-top:1%; text-align: center;"><b> {{hotel_check_in}} </b> </h6>
+          <h6 style="margin-top:10%; text-align: center;">Check-Out Date:  </h6>
+          <h6 style="margin-top:1%; text-align: center;"><b> {{hotel_check_out}} </b> </h6>
+          <h6 style="margin-top:10%; text-align: center;">No. of Rooms: <b>{{number_of_rooms}} </b></h6>
+          <h6 style="margin-top:10%; text-align: center;">Total Amount Paid: <b> ₹ {{total_price}} </b> </h6>
+        </div>
+      </div>
     
     <script>
     var slideIndex = 0;

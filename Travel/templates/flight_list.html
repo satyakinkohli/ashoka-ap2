@@ -181,7 +181,6 @@
   margin-top: 10%;
 }
 
-
     </style>
 
 </head>
@@ -209,11 +208,11 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="card-body">
-                      <h4 class="float-right" style="margin-top:15%;margin-right: 15%">₹{{flight.economy_price}}</h4>
+                      <h4 class="float-right" style="font-size: 20px; margin-top:15%; margin-right: 15%">₹ {{flight.economy_price}}</h4>
                       <form action="" method="post" class="form-container">
                         {% csrf_token %}
                         <input hidden type="text" name ='flight_id' value='{{flight.id}}'>
-                        <input class="btn btn-warning btn-lg float-right" type="submit" style="margin-top: 15%;margin-right: 5%">
+                        <input class="btn btn-warning btn-lg" value="Book" type="submit" style="font-style: italic; float: right; padding-top: 8px; padding-bottom: 8px; padding-right: 20px; padding-left: 20px; margin-top: 15%; margin-right: 5%">
                       </form>
                     </div>
                 </div>
@@ -260,7 +259,7 @@
   <br>
   <br>
 
-        <button type="submit" class="btn btn-warning">Book</button>
+        <button type="submit" class="btn btn-warning">Continue</button>
         
         </form>
     </div>

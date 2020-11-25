@@ -28,8 +28,13 @@ class Flight_View(View):
         if len(possible_flights) == 0:
             error_message = "Sorry, we do not have any available flights as per your requirements!"
 
+        if not request.user.is_authenticated:
+            user_email = None
+        else:
+            user_email = user.email
+
         flight_data = {'possible_flights': possible_flights,
-                       'error_message': error_message}
+                       'error_message': error_message, 'user_email': user_email}
 
         return render(request, 'flight_list.html', flight_data)
 

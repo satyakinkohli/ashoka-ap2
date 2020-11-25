@@ -356,7 +356,7 @@
     <h1 style="margin-left:-5%">{{hotel.name}}</h1> <h1 class="labels" style="margin-left:45%">{{hotel|ratings}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px>
   </div>
 
-  <div class="w3-content leave2" style="max-width:1500px">
+  <div class="w3-content leave2" style="max-width: 1500px">
   
     <div class="sliderWrapper" >
     <img class="mySlides shift" src="{{hotel.image1.url}}" style="width:1100px;height:600px;border:2px solid black">
@@ -442,7 +442,11 @@
     <li style="margin-top: 4px;" class="try2"> <a href='#section1'> Location </a> </li>
     <li style="margin-top: 4px;" class="try2"> <a href='#section2'>Facilities </a> </li>
     <li style="margin-top: 4px;" class="try2">  <a href='#section3'>Reviews </a> </li>
+    {% if user_email %}
     <li style="margin-top: -12.5px; margin-left:75%" > <button class="btn btn-warning" onclick="openForm_Flight()"> Book Now </button> </li>
+    {% else %}
+    <li style="margin-top: -12.5px; margin-left:75%" > <button class="btn btn-warning" onclick="login_error()"> Book Now </button> </li>
+    {% endif %}
   </ul> 
 
   <div class="form-popup" id="Form_Flight">
@@ -526,6 +530,10 @@
   </div>
 
 <script>
+
+  function login_error() {
+    alert("Please log in to continue");
+  }
   
   function openForm_Flight() {
       document.getElementById("Form_Flight").style.display = "block";
@@ -583,7 +591,11 @@
       <option value="4">4</option>
       <option value="5" selected>5  </option>
     </select>
+    {% if user_email %}
     <input type="submit" style="margin-left: 15px; margin-top: -10px; height:50px; width:100px; font-size:20px" class="btn btn-warning" >
+    {% else %}
+    <input type="button" value="Submit" onclick="login_error()" style="margin-left: 15px; margin-top: -10px; height:50px; width:100px; font-size:20px" class="btn btn-warning" >
+    {% endif %}
   </form>
 
 

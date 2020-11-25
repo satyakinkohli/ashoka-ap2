@@ -127,7 +127,11 @@
                     </div>
                 </label>
                 {% endfor %}
+                {% if user_email %}
                 <input style="margin-left: 39%; margin-top: 2.25%; padding-left: 25px; padding-right: 25px" class="btn btn-warning btn-lg" type="submit" id="submit_button" value="Book my cab">
+                {% else %}
+                <input onclick="login_error()" style="margin-left: 39%; margin-top: 2.25%; padding-left: 25px; padding-right: 25px" class="btn btn-warning btn-lg" type="button" id="submit_button" value="Book my cab">
+                {% endif %}
             </div>
         </form>
     </div>
@@ -151,6 +155,10 @@
         document.getElementById("submit_button").disabled = true;
         document.getElementById("time_button").disabled = true;
         document.getElementById("car_typing").style.display = "none";
+
+        function login_error() {
+            alert("Please log in to continue");
+        }
 
         function enabling_submit_button() {
             document.getElementById("submit_button").disabled = false;

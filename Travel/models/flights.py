@@ -42,6 +42,22 @@ class Flight(models.Model):
         except:
             return False
 
+
+    @staticmethod
+    def get_correct_flight_through_location_and_date_ordered(source, destination, date):
+        try:
+            return Flight.objects.filter(source=source, destination=destination, date=date).order_by('economy_price')
+        except:
+            return False
+
+
+    @staticmethod
+    def get_correct_flight_through_location_and_date_reversed(source, destination, date):
+        try:
+            return Flight.objects.filter(source=source, destination=destination, date=date).order_by('-economy_price')
+        except:
+            return False
+
     @staticmethod
     def get_flight_through_id(ids):
         try:

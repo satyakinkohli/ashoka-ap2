@@ -11,6 +11,7 @@ from .views.flight_summary_view import Flight_Summary_View
 from .views.hotel_summary_view import Hotel_Summary_View
 from .views.logout_view import Logout
 from .views.flight_final_summary_view import Flight_Final_Summary_View
+from .views.my_bookings import My_bookings_view
 
 urlpatterns = [
     path('', Homepage, name="homepage"),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('logout', Logout ),
     path('flight_final_summary', Flight_Final_Summary_View.as_view(),
          name="flight_final_summary"),
+    path('my_bookings', My_bookings_view.as_view()),
 ]

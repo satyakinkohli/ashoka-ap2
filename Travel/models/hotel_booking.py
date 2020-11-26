@@ -16,3 +16,8 @@ class Hotel_booking(models.Model):
     premium_number = models.PositiveIntegerField(default=0)
     suite_number = models.PositiveIntegerField(default=0)
     total_price = models.DecimalField(max_digits=7, decimal_places=2, default=0)
+
+
+    @staticmethod
+    def get_booking_by_user(email):        
+        return Hotel_booking.objects.filter(user_email=email)

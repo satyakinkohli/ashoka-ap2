@@ -17,23 +17,28 @@ from Travel.models.flights import Flight
 
 class Homepage_View(View):
     def get(self, request):
+
         user = request.user
+        if not request.user.is_authenticated:
+            user_email = None
+        else:
+            user_email = user.email
         
         recent_date_1 = datetime.date(1, 1, 1) 
         recent_date_2 = datetime.date(1, 1, 1) 
         recent_date_3 = datetime.date(1, 1, 1) 
 
-        hotel_bookings = Hotel_booking.get_ordered_booking_by_user(user.email)
+        hotel_bookings = Hotel_booking.get_ordered_booking_by_user(user_email)
         if hotel_bookings:
             recent_hotel = hotel_bookings[0].hotel.location
             recent_date_1 = hotel_bookings[0].check_out_date
         
-        flight_bookings = Flight_booking.get_ordered_booking_by_user(user.email)
+        flight_bookings = Flight_booking.get_ordered_booking_by_user(user_email)
         if flight_bookings:
             recent_flight = flight_bookings[0].flight.destination
             recent_date_2 = flight_bookings[0].flight.date
 
-        cab_bookings = Cab_booking.get_ordered_booking_by_user(user.email)
+        cab_bookings = Cab_booking.get_ordered_booking_by_user(user_email)
         if cab_bookings:
             recent_cab = cab_bookings[0].destination
             recent_date_3 = cab_bookings[0].booking_date

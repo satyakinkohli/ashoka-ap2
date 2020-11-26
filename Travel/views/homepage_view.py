@@ -78,6 +78,11 @@ class Homepage_View(View):
         personal_flights_id_list = random.sample(list(personal_flights_id), min(len(personal_flights_id), 4))
         personal_flights = Flight.objects.filter(id__in=personal_flights_id_list)
 
+        # personal_items = personal_hotels + personal_flights
+        # personals = random.shuffle(personal_items)
+
+        print(personal_hotels)
+
         personal_recommendations = {'personal_hotels': personal_hotels, 'personal_flights': personal_flights, 'recent_destination': recent_destination}
 
         return render(request, 'homepage.html', personal_recommendations)

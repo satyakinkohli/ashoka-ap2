@@ -24,6 +24,7 @@ class Cab_View(View):
             error_message = "Sorry, we do not have any available cabs as per your requirements!"
 
         cab_date = request.GET.get('cab_date')
+        request.session['cab_date'] = cab_date
 
         # converting date to required format
         now = date(*map(int, cab_date.split('-')))

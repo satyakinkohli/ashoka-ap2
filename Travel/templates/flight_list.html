@@ -273,32 +273,14 @@ img {vertical-align: middle;}
         <div class="col-lg-3 mx-auto">
           <div class="list-group mt-3" >
 
+            </h5><a href = "/flights?lth=1" class="list-group-item list-group-item-action">Price - Low to High</a>
 
-
-
-            </h5><a href="/menu" class="list-group-item list-group-item-action">Filters</a> 
-
-            {% for category in categories %}
-            <a href="" class="list-group-item list-group-item-action">{category.name}</a>
-            {% endfor %}
           </div>
         </div>
 
         <! - - all products - - >
         <div id='products' class="col-lg-6 mx-auto">
           <div class="row mx-auto" id="life2">
-
-
-
-<!-- 
-    <div class="container-fluid mt-3">
-      <div class="row">
-
-        <! - - filter - - >
-
-        <div class="col-lg-3 mx-auto">
-          <div class="list-group mt-3" > -->
-
 
     {% for flight in possible_flights %}
         <div class="card curved" style="margin-bottom:1.5%; margin-top:1.5%;">
@@ -315,7 +297,7 @@ img {vertical-align: middle;}
                 </div>
                 <div class="col-sm-3">
                     <div class="card-body">
-                      <h4 class="float-right" style="font-size: 20px; margin-top:15%; margin-right: 15%">₹ {{flight.economy_price}}</h4>
+                      <h4 class="float-right" style="font-size: 17.5px; margin-top:15%; margin-right: 15%">₹ {{flight.economy_price}}</h4>
                       <form action="" method="post" class="form-container">
                         {% csrf_token %}
                         <input hidden type="text" name ='flight_id' value='{{flight.id}}'>

@@ -442,7 +442,7 @@
     <li style="margin-top: 4px;" class="try2"> <a href='#section1'> Location </a> </li>
     <li style="margin-top: 4px;" class="try2"> <a href='#section2'>Facilities </a> </li>
     <li style="margin-top: 4px;" class="try2">  <a href='#section3'>Reviews </a> </li>
-    {% if user_email %}
+    {% if user and not user.is_anonymous %}
     <li style="margin-top: -12.5px; margin-left:75%" > <button class="btn btn-warning" onclick="openForm_Flight()"> Book Now </button> </li>
     {% else %}
     <li style="margin-top: -12.5px; margin-left:75%" > <button class="btn btn-warning" onclick="login_error()"> Book Now </button> </li>
@@ -591,7 +591,7 @@
       <option value="4">4</option>
       <option value="5" selected>5  </option>
     </select>
-    {% if user_email %}
+    {% if user and not user.is_anonymous %}
     <input type="submit" style="margin-left: 15px; margin-top: -10px; height:50px; width:100px; font-size:20px" class="btn btn-warning" >
     {% else %}
     <input type="button" value="Submit" onclick="login_error()" style="margin-left: 15px; margin-top: -10px; height:50px; width:100px; font-size:20px" class="btn btn-warning" >

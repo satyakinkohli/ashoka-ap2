@@ -127,7 +127,7 @@
                     </div>
                 </label>
                 {% endfor %}
-                {% if user_email %}
+                {% if user and not user.is_anonymous %}
                 <input style="margin-left: 39%; margin-top: 2.25%; padding-left: 25px; padding-right: 25px" class="btn btn-warning btn-lg" type="submit" id="submit_button" value="Book my cab">
                 {% else %}
                 <input onclick="login_error()" style="margin-left: 39%; margin-top: 2.25%; padding-left: 25px; padding-right: 25px" class="btn btn-warning btn-lg" type="button" id="submit_button" value="Book my cab">

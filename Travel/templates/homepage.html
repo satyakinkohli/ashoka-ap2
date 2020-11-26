@@ -106,21 +106,6 @@ input[type=submit] {
         <li><a class="nav-link" style="color: maroon; text-align: center;" href="/logout">Logout <span class="sr-only">(current)</span> </a></li>
       </ul>
     </div>
-    
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="dropdown"> -->
-      <!-- <span>
-        <p style="float: right; margin-top: 15px; color: white"> Hello, {{request.user.first_name}}</p>
-      </span> -->
-      <!-- <div class="dropdown-content">
-        <li class="nav-item">
-          <a class="nav-link" colors href="/logout" style="color: maroon">Logout <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" colors href="/" style="color: maroon"> My Bookings <span class="sr-only">(current)</span></a>
-        </li> -->
 
     {% else %}
 
@@ -128,11 +113,11 @@ input[type=submit] {
     <button class="open-button" onclick="openForm_Initial()">Login</button>
     {% endif %}
 
-    <div class="form-popup" id="Form_Mail">
+    <div class="form-popup" id="Form_Mail" style="border-color: black;">
         <form action="/action_page.php" class="form-container">
         
-        <div class="sameline"> <button type="button" class="facebook5" onclick="goback()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="15px" widht="15px"></button>
-            <button type="button" class="facebook3" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
+        <div class="sameline"> <button type="button" class="facebook5" style="border-color: black;" onclick="goback()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="15px" widht="15px"></button>
+            <button type="button" class="facebook3" style="border-color: black;" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
         </div>
             
         <label for="email"><b>Email</b></label>
@@ -146,12 +131,12 @@ input[type=submit] {
         </form>
     </div>
 
-    <div class="form-popup" id="Form_Signup">
+    <div class="form-popup" id="Form_Signup" style="border-color: black;">
         <form action="/action_page.php" class="form-container">
 
         <div class="sameline"> 
-            <button type="button" class="facebook5" onclick="goback()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="15px" widht="15px"></button>
-            <button type="button" class="facebook3" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
+            <button type="button" class="facebook5" style="border-color: black;" onclick="goback()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="15px" widht="15px"></button>
+            <button type="button" class="facebook3" style="border-color: black;" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
         </div>
         
         <label for="email"><b>Name</b></label>
@@ -168,9 +153,9 @@ input[type=submit] {
         </form>
     </div>
 
-    <div class="form-popup" id="Form_Initial" style="border-radius: 15px;">
+    <div class="form-popup" id="Form_Initial" style="border-color: black; border-radius: 15px;">
         <form action="/action_page.php" class="form-container" style="border-radius: 10px;">
-        <button type="button" class="facebook4" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
+        <button type="button" class="facebook4" style="border-color: black;" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
         <h5> </h5>
         <a style="color: white;" href="{% provider_login_url "google" %}"> <button type="button" class="btn">  Continue with Google </button> </a>
 

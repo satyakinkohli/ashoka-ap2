@@ -21,3 +21,7 @@ class Hotel_booking(models.Model):
     @staticmethod
     def get_booking_by_user(email):        
         return Hotel_booking.objects.filter(user_email=email)
+
+    @staticmethod
+    def get_ordered_booking_by_user(email):        
+        return Hotel_booking.objects.filter(user_email=email).order_by('-check_out_date')

@@ -59,6 +59,13 @@ class Flight(models.Model):
             return False
 
     @staticmethod
+    def get_correct_flight_through_source_and_date(source, date):
+        try:
+            return Flight.objects.filter(source=source, date=date)
+        except:
+            return False
+
+    @staticmethod
     def get_flight_through_id(ids):
         try:
             return Flight.objects.get(id=ids)

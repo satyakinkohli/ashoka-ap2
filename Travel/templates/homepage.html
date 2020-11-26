@@ -263,6 +263,14 @@ input[type=submit] {
 
     </div>
 
+    <div style="margin-top: 10%;">
+      {% if user and not user.is_anonymous %}
+
+      This is a slider.
+
+      {% endif %}
+    </div>
+
 
     <script>
         function autocomplete(inp, arr) {

@@ -25,17 +25,13 @@ class Cab_Booking_View(View):
         for cab in final_cars:
             car = cab.name
             car_type_price = cab.car.price * distance
-        print(car)
-        print (car_type_price)
-        
         #
         cab_drivers_id = Cab_Driver.objects.filter().values_list('id', flat=True)
         cab_drivers_id_list = random.sample(list(cab_drivers_id), min(len(cab_drivers_id), 1))
         cab_drivers = Cab_Driver.objects.filter(id__in=cab_drivers_id_list)
         for drivers in cab_drivers:
             driver = drivers.driver_name
-        print (driver)
-                    #
+        #
 
         cab_from = request.session.get('cab_from')
         cab_to = request.session.get('cab_to')

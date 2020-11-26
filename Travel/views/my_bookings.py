@@ -9,12 +9,9 @@ class My_bookings_view(View):
         user = request.user
         
         hotel_bookings = Hotel_booking.get_booking_by_user(user.email)
-        print(hotel_bookings)
 
         flight_bookings = Flight_booking.get_booking_by_user(user.email)
-        print(flight_bookings)
 
         cab_bookings = Cab_booking.get_booking_by_user(user.email)
-        print(cab_bookings)
 
         return render(request , 'my_bookings.html',{'hotel_bookings':hotel_bookings, 'flight_bookings':flight_bookings,'cab_bookings':cab_bookings})

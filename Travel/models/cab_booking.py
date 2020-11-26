@@ -13,9 +13,10 @@ class Cab_booking(models.Model):
     car = models.CharField(max_length=50, default='')
     driver = models.CharField(max_length=50, default='')
 
-
-
-
     @staticmethod
     def get_booking_by_user(email):        
         return Cab_booking.objects.filter(user_email=email)
+
+    @staticmethod
+    def get_ordered_booking_by_user(email):        
+        return Cab_booking.objects.filter(user_email=email).order_by('-booking_date')

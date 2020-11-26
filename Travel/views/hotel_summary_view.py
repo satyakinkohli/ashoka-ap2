@@ -28,7 +28,7 @@ class Hotel_Summary_View(View):
         hotel_check_in_adjust = datetime.combine(now, hotel_min_time)
 
         hotel_check_in_formatted = datetime.strftime(
-            hotel_check_in_adjust, "%A; %d %b. %Y")
+        hotel_check_in_adjust, "%A; %d %b. %Y")
         # end conversion
 
         # converting date to required format
@@ -38,7 +38,7 @@ class Hotel_Summary_View(View):
         hotel_check_out_adjust = datetime.combine(now, hotel_min_time)
 
         hotel_check_out_formatted = datetime.strftime(
-            hotel_check_out_adjust, "%A; %d %b. %Y")
+        hotel_check_out_adjust, "%A; %d %b. %Y")
         # end conversion
 
         standard_number = request.GET.get('standard')

@@ -4,8 +4,6 @@
 <html lang="en">
 <head>
 
-
-
 <style>
 
 /*the container must be positioned relative:*/
@@ -70,7 +68,18 @@ input[type=submit] {
   background-color: DodgerBlue !important; 
   color: #ffffff; 
 }
-    </style>
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+</style>
 
     <!-- Add JQuery to your base.html template -->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" /> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"> </script> <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
@@ -88,8 +97,30 @@ input[type=submit] {
 
 <body>
     {% if user and not user.is_anonymous %}
-    <p>Welcome, {{ user.email }} !</p>
-    <p><a href="/logout">Logout</a>
+
+    <div class="dropdown">
+      <button class="open-button" id="bordering" type="button" data-toggle="dropdown">Hello, {{request.user.first_name}}
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu dropdown-content">
+        <li><a class="nav-link" style="color: maroon; text-align: center;" href="/"> My Bookings <span class="sr-only">(current)</span> </a></li>
+        <li><a class="nav-link" style="color: maroon; text-align: center;" href="/logout">Logout <span class="sr-only">(current)</span> </a></li>
+      </ul>
+    </div>
+    
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="dropdown"> -->
+      <!-- <span>
+        <p style="float: right; margin-top: 15px; color: white"> Hello, {{request.user.first_name}}</p>
+      </span> -->
+      <!-- <div class="dropdown-content">
+        <li class="nav-item">
+          <a class="nav-link" colors href="/logout" style="color: maroon">Logout <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" colors href="/" style="color: maroon"> My Bookings <span class="sr-only">(current)</span></a>
+        </li> -->
 
     {% else %}
 
@@ -141,9 +172,7 @@ input[type=submit] {
         <form action="/action_page.php" class="form-container" style="border-radius: 10px;">
         <button type="button" class="facebook4" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
         <h5> </h5>
-        <button type="button" class="btn"> Continue with Facebook </button>
-
-        <a href="{% provider_login_url "google" %}"> Continue with Google </a>
+        <a style="color: white;" href="{% provider_login_url "google" %}"> <button type="button" class="btn">  Continue with Google </button> </a>
 
         <p style="text-align: center;"> -------- OR --------- </p>
     

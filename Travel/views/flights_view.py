@@ -52,7 +52,13 @@ class Flight_View(View):
         possible_flights = Flight.get_correct_flight_through_location_and_date(
             flight_from_id, flight_destination_id, flight_date)
 
-        flight_data_post = {
+        user = request.user
+        if not request.user.is_authenticated:
+            user_email = None
+        else:
+            user_email = user.email
+
+        flight_data_post = {'user_email': user_email, 
             'possible_flights': possible_flights, 'flight_id': flight_id}
 
         return render(request, "flight_list.html", flight_data_post)

@@ -21,10 +21,16 @@ class Detailed_Hotel_View(View):
         # print(hotel_check_in)
         # print(hotel_check_out)
 
+        user = request.user
+        if not request.user.is_authenticated:
+            user_email = None
+        else:
+            user_email = user.email
+
         other_hotel_reviews = Hotel_Rating.get_review_through_hotel(
             hotel_instance)
 
-        hotel_data = {'hotel': hotel_instance,
+        hotel_data = {'hotel': hotel_instance, 'user_email': user_email,
                       'hotel_check_in': hotel_check_in, 'hotel_check_out': hotel_check_out, 'other_hotel_reviews': other_hotel_reviews}
 
         return render(request, 'hotel_page.html', hotel_data)

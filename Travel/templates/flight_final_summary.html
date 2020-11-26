@@ -160,8 +160,8 @@ body {
         {
             margin-top: 120px;
             margin-bottom: 100px;
-            border-radius: 0px;
-            height: 300px;
+            border-radius: 15px;
+            height: 350px;
             width: 1000px;
         }
 
@@ -187,21 +187,22 @@ body {
     <body>
 
       {% for flight in flight_booked %}
-        <div class="card curved mx-auto" style="border-radius:0px; border: 5px solid black;"> 
+        <div class="card curved mx-auto" style="border-radius: 15px; border: 5px solid black;"> 
             <div class="row no-gutters" >
-                <h4> <img src="{{flight.airline.logos.url}}" height="50px" width="50px"> <h4 style="margin-left:26%;margin-top:2%"> Thank you for booking with {{flight.airline}}! </h4> </h4>
-                <h5 style="margin-top:2%; margin-left:22%"> <b> {{flight.source.name}} - {{flight.destination.name}} 
-              , {{flight_date_formatted}} at {{flight.departure_time}}  </b></h5>
-
+                <h4> <img src="{{flight.airline.logos.url}}" height="125px" width="125px"> <h4 style="text-align: center; margin-left: 17.5%; margin-top:1%"> Thank you for booking with {{flight.airline}}! </h4> </h4>
+                <h6 style="margin-left: 46%; margin-top: -9%;"> Price: <em><b> ₹ {{total_price}} </b></em> </h6>
+                <h5 style="margin-left: 42.5%; margin-top: -6%;"> <b> {{flight.source.name}} - {{flight.destination.name}} </b></h5>
+                <br><br>
+                <h6 style="margin-left: 38%; margin-top: -8.5%;"> {{flight_date_formatted}} @ {{flight.departure_time}} </h6>
       {% endfor %}
 
-                <table style="width:100%; margin-top:2%">
+                <table style="width: 100%; margin-top: -3.5%">
                     <tr>
-                        <th>Name</th> 
-                        <th>Gender</th>
-                        <th>DOB</th>
-                        <th>Phone Number</th>
-                        <th>Class</th>
+                        <th><u>Name</u></th> 
+                        <th><u>Gender</u></th>
+                        <th><u>DOB</u></th>
+                        <th><u>Phone Number</u></th>
+                        <th><u>Class</u></th>
                       </tr>
                     {% for economy_ticket in economy_tickets %}
                     <tr>
@@ -218,7 +219,6 @@ body {
                     </tr>
                     {% endfor %}
                 </table>
-     
             </div>
         </div>
 

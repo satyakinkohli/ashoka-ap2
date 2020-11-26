@@ -39,9 +39,13 @@ class Cab_View(View):
         car_types = Car_options.get_all_car_types()
         distance = random.randint(50, 500)
 
-        print(distance)
+        user = request.user
+        if not request.user.is_authenticated:
+            user_email = None
+        else:
+            user_email = user.email
 
-        cab_data = {'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'error_message': error_message, 'car_types': car_types, 'distance': distance}
+        cab_data = {'user_email': user_email, 'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'error_message': error_message, 'car_types': car_types, 'distance': distance}
 
         return render(request, 'cab_service_choice.html', cab_data)
 

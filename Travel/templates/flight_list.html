@@ -220,7 +220,7 @@
                       <form action="" method="post" class="form-container">
                         {% csrf_token %}
                         <input hidden type="text" name ='flight_id' value='{{flight.id}}'>
-                        {% if user_email %}
+                        {% if user and not user.is_anonymous %}
                         <input class="btn btn-warning btn-lg" value="Book" type="submit" style="font-style: italic; float: right; padding-top: 8px; padding-bottom: 8px; padding-right: 20px; padding-left: 20px; margin-top: 15%; margin-right: 5%">
                         {% else %}
                         <input class="btn btn-warning btn-lg" value="Book" type="button" onclick="login_error()" style="font-style: italic; float: right; padding-top: 8px; padding-bottom: 8px; padding-right: 20px; padding-left: 20px; margin-top: 15%; margin-right: 5%">

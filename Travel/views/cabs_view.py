@@ -24,6 +24,7 @@ class Cab_View(View):
             error_message = "Sorry, we do not have any available cabs as per your requirements!"
 
         cab_date = request.GET.get('cab_date')
+        request.session['cab_date'] = cab_date
 
         # converting date to required format
         now = date(*map(int, cab_date.split('-')))
@@ -62,6 +63,12 @@ class Cab_View(View):
         distance = random.randint(50, 500)
         request.session['cab_distance'] = distance
 
-        cab_data_post = {'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'car_time': car_time, 'car_types': car_types, 'distance': distance} 
+        user = request.user
+        if not request.user.is_authenticated:
+            user_email = None
+        else:
+            user_email = user.email
+
+        cab_data_post = {'user_email': user_email, 'cab_from': cab_from, 'cab_to': cab_to, 'cab_date': cab_date_formatted, 'car_time': car_time, 'car_types': car_types, 'distance': distance} 
 
         return render(request, 'cab_service_choice.html', cab_data_post)

@@ -60,7 +60,7 @@ body {
 .form-popup {
   display: none;
   position: fixed;
-  border: 3px solid #f1f1f1;
+  border: 3px solid #000000;
   z-index: 9;
   top: 100px;
   left: 40%;

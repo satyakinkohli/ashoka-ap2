@@ -15,6 +15,7 @@ class Hotel_Summary_View(View):
 
         hotel_check_in = request.GET.get('hotel_check_in')
         hotel_check_out = request.GET.get('hotel_check_out')
+        
 
         hotel_check_in_1 = datetime.strptime(hotel_check_in, '%Y-%m-%d')
         hotel_check_out_1 = datetime.strptime(hotel_check_out, '%Y-%m-%d')

@@ -1,0 +1,170 @@
+{% extends 'base1.html' %}
+
+
+{% block content %}
+
+
+
+
+<style>
+
+#life9 {
+    margin-right: 50%;
+    width:80px;
+    height: 24px;
+    padding-bottom: 10px;
+    background-color: bisque;
+    text-align: center;
+    }
+
+    .life9 {
+    width:80px;
+    height: 24px;
+    background-color: bisque;
+    text-align: center;
+    }
+</style>
+
+<div class="container">
+    <div class="border rounded p-1 m-1">
+        <p class="display-4 text-center">Hotel Bookings</p>
+        <table class="table mx-auto">
+            
+            <thead>
+                <tr class="text-center">
+                    <th>Hotel</th>
+                    <th>Check In</th>
+                    <th>Check out</th>
+                    <th>Standard Rooms</th>
+                    <th>Deluxe Rooms</th>
+                    <th>Premium Rooms</th>
+                    <th>Suite Rooms</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for booking in hotel_bookings %}
+                
+                <tr class="text-center">
+                    <td>{{booking.hotel.name}}({{booking.hotel.location.name}})</td>
+                    <td>{{booking.check_in_date}}</td>
+                    <td>{{booking.check_out_date}}</td>
+                    <td>{{booking.standard_number}}</td>
+                    <td>{{booking.deluxe_number}}</td>
+                    <td>{{booking.premium_number}}</td>
+                    <td>{{booking.suite_number}}</td>
+                    <td>{{booking.total_price}}</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="border rounded p-1 m-1">
+        <p class="display-4 text-center">Flight Bookings</p>
+        <table class="table mx-auto">
+            
+            <thead>
+                <tr class="text-center">
+                    <th>Airline</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Date</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Economy Tickets</th>
+                    <th>Business Tickets</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for booking in flight_bookings %}
+                
+                <tr class="text-center">
+                    <td>{{booking.flight.airline.name}}</td>
+                    <td>{{booking.flight.source.name}}</td>
+                    <td>{{booking.flight.destination.name}}</td>
+                    <td>{{booking.flight.date}}</td>
+                    <td>{{booking.flight.departure_time}}</td>
+                    <td>{{booking.flight.arrival_time}}</td>
+                    <td>{{booking.economy_number}}</td>
+                    <td>{{booking.business_number}}</td>
+                    <td>{{booking.total_price}}</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="border rounded p-1 m-1">
+        <p class="display-4 text-center">Cab Bookings</p>
+        <table class="table mx-auto">
+            
+            <thead>
+                <tr class="text-center">
+                    <th>Car</th>
+                    <th>Driver</th>
+                    <th>From</th>
+                    <th>To</th>                    
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for booking in cab_bookings %}
+                
+                <tr class="text-center">
+                    <td>{{booking.car}}</td>
+                    <td>{{booking.driver}}</td>
+                    <td>{{booking.source}}</td>
+                    <td>{{booking.destination}}</td>
+                    <td>{{booking.booking_date}}</td>
+                    <td>{{booking.booking_time}}</td>
+                    <td>{{booking.total_price}}</td>
+                    
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

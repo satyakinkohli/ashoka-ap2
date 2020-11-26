@@ -20,6 +20,6 @@ class Hotel_View(View):
         if len(possible_hotels) == 0:
             error_message = "Sorry, we do not have any available hotels as per your requirements!"
         
-        hotel_data = {'possible_hotels': possible_hotels, 'error_message': error_message, 'hotel_check_in': hotel_check_in, 'hotel_check_out': hotel_check_out}
+        hotel_data = {'hotel_where': hotel_where, 'possible_hotels': possible_hotels, 'error_message': error_message, 'hotel_check_in': hotel_check_in, 'hotel_check_out': hotel_check_out}
         
         return render(request, 'hotel_list.html', hotel_data)

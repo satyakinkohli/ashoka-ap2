@@ -7,22 +7,42 @@ from Travel.models.location import Location
 
 class Flight_View(View):
     def get(self, request):
-        flight_from = request.GET.get('flight_from')
-        flight_from_id = Location.get_location_through_name(flight_from)
-        request.session['flight_from'] = flight_from
-        request.session['flight_from_id'] = flight_from_id
+        categoryID = request.GET.get('lth')
 
-        flight_destination = request.GET.get('flight_destination')
-        flight_destination_id = Location.get_location_through_name(
+        if not categoryID:
+
+            flight_from = request.GET.get('flight_from')
+            flight_from_id = Location.get_location_through_name(flight_from)
+            request.session['flight_from'] = flight_from
+            request.session['flight_from_id'] = flight_from_id
+
+            flight_destination = request.GET.get('flight_destination')
+            flight_destination_id = Location.get_location_through_name(
             flight_destination)
-        request.session['flight_destination'] = flight_destination
-        request.session['flight_destination_id'] = flight_destination_id
+            request.session['flight_destination'] = flight_destination
+            request.session['flight_destination_id'] = flight_destination_id
 
-        flight_date = request.GET.get('flight_date')
-        request.session['flight_date'] = flight_date
+            flight_date = request.GET.get('flight_date')
+            request.session['flight_date'] = flight_date
 
-        possible_flights = Flight.get_correct_flight_through_location_and_date(
+        else:
+            flight_from_id = request.session.get('flight_from_id')        
+            flight_destination_id = request.session.get('flight_destination_id')        
+            flight_date = request.session.get('flight_date')
+
+        
+
+        if categoryID:
+            print(flight_from_id)
+            possible_flights = Flight.get_correct_flight_through_location_and_date_ordered(
             flight_from_id, flight_destination_id, flight_date)
+            print (possible_flights)
+        else:
+            print(flight_from_id)
+            possible_flights = Flight.get_correct_flight_through_location_and_date(
+            flight_from_id, flight_destination_id, flight_date)
+
+        
 
         error_message = None
         if len(possible_flights) == 0:

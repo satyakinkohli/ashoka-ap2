@@ -10,13 +10,11 @@ from datetime import datetime, date
 class Hotel_Summary_View(View):
     def get(self, request):
         hotel_id = request.GET.get('hotel_id')
-        # print(hotel_id)
         hotel_instance = Hotel.get_hotel_through_id(hotel_id)
 
         hotel_check_in = request.GET.get('hotel_check_in')
         hotel_check_out = request.GET.get('hotel_check_out')
         
-
         hotel_check_in_1 = datetime.strptime(hotel_check_in, '%Y-%m-%d')
         hotel_check_out_1 = datetime.strptime(hotel_check_out, '%Y-%m-%d')
         days = hotel_check_out_1 - hotel_check_in_1

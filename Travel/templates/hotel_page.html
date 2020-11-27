@@ -583,7 +583,7 @@
   <form action="" method="post">
     {% csrf_token %}
     
-    <input class="writer" type="text" class="form-control-lg" name="hotel_review" placeholder="Write your review" required>
+    <input class="writer" autocomplete="off" type="text" class="form-control-lg" name="hotel_review" placeholder="Write your review" required>
     <select style="font-size: 20px; border-radius: 5px;  padding: 10px; border:2px solid black; text-align:center; margin-top:10px" id="hotel_rating" name="hotel_rating" required>
       <option value="1">1  </option>
       <option value="2">2</option>

@@ -19,24 +19,28 @@
 
     <style>
 
-          .dropdown {
-            position: relative;
-            display: inline-block;
-          }
-          
-          .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 120px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            padding: 12px 16px;
-            z-index: 1;
-          }
-          
-          .dropdown:hover .dropdown-content {
-            display: block;
-          }
+.dropdown {
+  /* position: relative; */
+  display: inline-block;
+  float:right;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 6px 10px;
+  z-index: 1;
+  border-radius:5px;
+  border:2px solid black;
+  color:black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
           .dropdown-content a:hover {background-color: white;}
           
@@ -95,9 +99,18 @@ form.example button {
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="dropdown">
+        <span style="text-align:right; margin-top: 15px; color: white"> Hello, {{request.user.first_name}}</span>
+        <div class="dropdown-content">
+        <p><a class="nav-link" colors href="/my_bookings" style="color: black"> My Bookings <span class="sr-only">(current)</span></a></p>
+        <p> <a class="nav-link" colors href="/logout" style="color: black">Logout <span class="sr-only">(current)</span></a> </p>
+        </div>
+      </div>
+
+      <!-- <div class="dropdown">
         <span>
-          <p style="float: right; margin-top: 15px; color: white"> Hello, {{request.user.first_name}}</p>
+          <p style="margin-right:5%; margin-top: 15px; color: white"> Hello, {{request.user.first_name}}</p>
         </span>
         <li class="nav-item">
           <a class="nav-link" colors href="/my_bookings" style="color: maroon"> My Bookings <span class="sr-only">(current)</span></a>
@@ -105,7 +118,7 @@ form.example button {
         <div class="dropdown-content">
           <li class="nav-item">
             <a class="nav-link" colors href="/logout" style="color: maroon">Logout <span class="sr-only">(current)</span></a>
-          </li>
+          </li> -->
 
     </nav>
 
@@ -118,9 +131,9 @@ form.example button {
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <li class="nav-item">
-        <a class="nav-link" colors href="{% provider_login_url "google" %}" style="font-size: x-large; color: white">Login </a>
-      </li>
+      
+      <h6 style="font-size:10px;"> <a class="nav-link" colors href="{% provider_login_url "google" %}" style="font-size: 16px; color: white">Login </a></h6>
+      
     </nav>
     
     {% endif %}

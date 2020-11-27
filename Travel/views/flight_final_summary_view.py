@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 
 from datetime import datetime, date, timedelta
+import random
 
 from Travel.models.flights import Flight
 from Travel.models.flight_booking import Flight_booking
@@ -80,15 +81,18 @@ class Flight_Final_Summary_View(View):
 
         recent_destination = flight_instance.destination
         recent_destination_id = flight_instance.destination.id
-        # recent_date = flight_instance.date
+
         recent_date_early = request.session.get('flight_date')
         recent_date = datetime.strptime(recent_date_early, '%Y-%m-%d')
         final_date = recent_date + timedelta(days=4)
         recent_date = recent_date.strftime('%Y-%m-%d')
         final_date = final_date.strftime('%Y-%m-%d')
-        hotel_possible = Hotel.get_correct_hotel_through_location(recent_destination_id)
-        
-        # hotel_possible = Hotel.get_all_hotels()
+
+        # hotel_possible = Hotel.get_correct_hotel_through_location(recent_destination_id)
+
+        hotel_possible_id = Hotel.objects.filter(location=recent_destination_id).values_list('id', flat=True)
+        hotel_possible_id_list = random.sample(list(hotel_possible_id), min(len(hotel_possible_id), 3))
+        hotel_possible = Hotel.objects.filter(id__in=hotel_possible_id_list)
         
         flight_booking_data = {'hotel_possible': hotel_possible, 'recent_date': recent_date, 'final_date': final_date, 'total_price': total_price, 'flight_date_formatted': flight_date_formatted, 'flight_booked': flight_booked, 'economy_tickets': economy_tickets, 'business_tickets': business_tickets, 'economy_number': economy_number, 'business_number': business_number}
 

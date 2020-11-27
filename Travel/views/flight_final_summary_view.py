@@ -82,7 +82,8 @@ class Flight_Final_Summary_View(View):
         recent_destination = flight_instance.destination
         recent_destination_id = flight_instance.destination.id
         recent_date = flight_instance.date
-        hotel_possible = Hotel.get_correct_hotel_through_location(recent_destination_id)
+        hotel_possible = Hotel.get_all_hotels()
+        
 
         flight_booking_data = {'hotel_possible': hotel_possible, 'recent_date': recent_date, 'total_price': total_price, 'flight_date_formatted': flight_date_formatted, 'flight_booked': flight_booked, 'economy_tickets': economy_tickets, 'business_tickets': business_tickets, 'economy_number': economy_number, 'business_number': business_number}
 

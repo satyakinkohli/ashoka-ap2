@@ -53,3 +53,9 @@ class Hotel(models.Model):
             return Hotel.objects.get(id=ids)
         except:
             return False
+
+
+    @staticmethod
+    def get_all_hotels():
+        return Hotel.objects.all()
+

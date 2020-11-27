@@ -352,9 +352,9 @@ img {vertical-align: middle;}
                       <div class="col-sm-4" style="margin-left:2%">
                           <div class="card-body">
                               <br>
-                              <h3 class="card-title" style=" margin-left:40%; margin-top:-7%">{{hotel.name}}</h3>
-                              <p class="card-text location" style="margin-top:7%;margin-left:45%;">{{hotel|ratings}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px></p>
-                              <h5 class="card-title" style="margin-top:17%;margin-left:38%;">₹ {{hotel.standard_price}}</h5>
+                              <h3 class="card-title" style=" margin-left:28%; margin-top:-7%">{{hotel.name}}</h3>
+                              <p class="card-text location" style="margin-top:7%; margin-left:31%;">{{hotel|ratings}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px></p>
+                              <h5 class="card-title" style="margin-top:17%; margin-left:30%;">₹ {{hotel.standard_price}}</h5>
                               <form action = "/detailed_hotel" method = "get">
                                   <input hidden type="text" name ='hotel_id' value='{{hotel.id}}'>
                                   <input hidden type = "text" name='hotel_check_in' value='{{recent_date}}'>

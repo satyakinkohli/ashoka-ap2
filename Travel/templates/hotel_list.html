@@ -250,8 +250,8 @@ img {vertical-align: middle;}
 
  
 
-  <h5 style="text-align:center;"> <em> {State} </em></h5>
-  <h5 style="text-align:center"> <em> {Dates} </em></h5>
+  <h5 style="text-align:center;"> <em> Location: <b>{{hotel_where}}</b> </em></h5>
+  <h5 style="text-align:center"> <em> Your home from <b>{{hotel_check_in}}</b> to <b>{{hotel_check_out}}</b> </em></h5>
     
 
     {% for hotel in possible_hotels %}
@@ -268,14 +268,14 @@ img {vertical-align: middle;}
                 <div class="col-sm-4" style="margin-left:2%">
                     <div class="card-body">
                         <br>
-                        <h3 class="card-title" style=" margin-left:40%; margin-top:-7%">{{hotel.name}}</h3>
-                        <p class="card-text location" style="margin-top:7%;margin-left:45%;">{{hotel|ratings}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px></p>
-                        <h5 class="card-title" style="margin-top:17%;margin-left:38%;">₹ {{hotel.standard_price}}</h5>
+                        <h3 class="card-title" style=" margin-left:28%; margin-top:-7%">{{hotel.name}}</h3>
+                        <p class="card-text location" style="margin-top:7%; margin-left:31%;">{{hotel|ratings}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=15px; width=15px></p>
+                        <h5 class="card-title" style="margin-top:17%; margin-left:30%;">₹ {{hotel.standard_price}}</h5>
                         <form action = "/detailed_hotel" method = "get">
                             <input hidden type="text" name ='hotel_id' value='{{hotel.id}}'>
                             <input hidden type = "text" name='hotel_check_in' value='{{hotel_check_in}}'>
                             <input hidden type = "text" name='hotel_check_out' value='{{hotel_check_out}}'>
-                            <input type = submit class="btn btn-warning" style="margin-left:30%; margin-top:10%;padding-left:20px;padding-right:20px;padding-top:10px;padding-bottom:10px;" value = "View Deal">
+                            <input type = submit class="btn btn-warning" style="margin-left:30%; margin-top:10%; padding-left:20px; padding-right:20px;padding-top:10px;padding-bottom:10px;" value = "View Deal">
                         </form>
                         
                     </div>
@@ -299,8 +299,7 @@ img {vertical-align: middle;}
                         <br>
                         <p class="card-title" style="margin-top:-26%"><img src="{% static '/website_logo.png' %}" height="20px" width="20px" >&nbsp;<a href="{{hotel.website}}">{{hotel.website}}</a></p>
                         <p class="card-text" ><img src="{% static '/contact_logo.png' %}" height="20px" width="20px" >&nbsp;{{hotel.number}}</p>
-                        <p class="card-text" ><img src="{% static '/addreess.png' %}" height="25px" width="25px" >&nbsp;DLF Capital Green</p>
-                        <p class="card-text">Reviews ({{count}})</p>
+                        <p class="card-text" ><img src="{% static '/addreess.png' %}" height="25px" width="25px" >&nbsp;{{hotel.locality}}, {{hotel.street}}</p>
                     </div>
                     
                 </div>

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from .views.homepage_view import Homepage_View
+from .views.homepage_view import Homepage
 from .views.hotels_view import Hotel_View
 from .views.flights_view import Flight_View
 from .views.cabs_view import Cab_View
@@ -14,7 +14,7 @@ from .views.flight_final_summary_view import Flight_Final_Summary_View
 from .views.my_bookings import My_bookings_view
 
 urlpatterns = [
-    path('', Homepage_View.as_view(), name="homepage"),
+    path('', Homepage, name="homepage"),
     path('hotels', Hotel_View.as_view(), name="hotels"),
     path('flights', Flight_View.as_view(), name="flights"),
     path('cabs', Cab_View.as_view(), name="cabs"),

@@ -4,8 +4,8 @@ from django.views import View
 from datetime import datetime, date
 
 from Travel.models.flights import Flight
-
 from Travel.models.flight_booking import Flight_booking
+from Travel.models.hotels import Hotel
 
 
 class Flight_Final_Summary_View(View):
@@ -79,6 +79,11 @@ class Flight_Final_Summary_View(View):
         flight_date_formatted = datetime.strftime(flight_date_adjust, "%A; %d %b. %Y")
         # end conversion
 
-        flight_booking_data = {'total_price': total_price, 'flight_date_formatted': flight_date_formatted, 'flight_booked': flight_booked, 'economy_tickets': economy_tickets, 'business_tickets': business_tickets, 'economy_number': economy_number, 'business_number': business_number}
+        recent_destination = flight_instance.destination
+        recent_destination_id = flight_instance.destination.id
+        recent_date = flight_instance.date
+        hotel_possible = Hotel.get_correct_hotel_through_location(recent_destination_id)
+
+        flight_booking_data = {'hotel_possible': hotel_possible, 'recent_date': recent_date, 'total_price': total_price, 'flight_date_formatted': flight_date_formatted, 'flight_booked': flight_booked, 'economy_tickets': economy_tickets, 'business_tickets': business_tickets, 'economy_number': economy_number, 'business_number': business_number}
 
         return render(request, 'flight_final_summary.html', flight_booking_data)

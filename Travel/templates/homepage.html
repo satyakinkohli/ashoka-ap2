@@ -319,7 +319,7 @@ input[type=submit] {
         
         <!-- Hotels -->
         <div class="container col-mb-4" id="hotels_search_bar">
-            <form class="form-inline autocomplete" action="/hotels" method="get">
+            <form autocomplete="off" class="form-inline autocomplete" action="/hotels" method="get">
                 <div class="form-row">
                     <div class="col">
                         <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" id="hotels_search"  type="text" class="form-control-lg" name="hotel_where" placeholder="Where" required>
@@ -346,14 +346,14 @@ input[type=submit] {
 
         <!-- Flights -->
         <div class="container col-mb-4" id="flights_search_bar">
-            <form class="form-inline" action="/flights" method="get">
+            <form autocomplete="off" class="form-inline autocomplete " action="/flights" method="get">
                 <div class="form-row">
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="flight_from" placeholder="From" required>
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" id="flight_from" class="form-control-lg" name="flight_from" placeholder="From" required>
                         <!-- <input style="border-top-left-radius: 25px; border-bottom-left-radius: 25px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" id="from" placeholder="From"> -->
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="flight_destination" placeholder="Destination" required>
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" id="flight_to" class="form-control-lg" name="flight_destination" placeholder="Destination" required>
                     </div>
                     <div class="col">
                         <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="flight_date" placeholder="Departure" required>
@@ -373,13 +373,13 @@ input[type=submit] {
 
         <!-- Cabs -->
         <div class="container col-mb-4" id="cabs_search_bar">
-            <form class="form-inline" action="/cabs" method="get">
+            <form  autocomplete="off" class="form-inline autocomplete" action="/cabs" method="get">
                 <div class="form-row">
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="cab_from" placeholder="From" required>
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" id="cab_from" class="form-control-lg" name="cab_from" placeholder="From" required>
                     </div>
                     <div class="col">
-                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" class="form-control-lg" name="cab_to" placeholder="To" required>
+                        <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" id="cab_to" class="form-control-lg" name="cab_to" placeholder="To" required>
                     </div>
                     <div class="col">
                         <input style="border-radius: 5px; margin-right: -10px; margin-top: 20px;" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control-lg" name="cab_date" placeholder="Start Date" required>
@@ -498,6 +498,10 @@ input[type=submit] {
         
         /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
         autocomplete(document.getElementById("hotels_search"), hotels);
+        autocomplete(document.getElementById("flight_to"), hotels);
+        autocomplete(document.getElementById("flight_from"), hotels);
+        autocomplete(document.getElementById("cab_to"), hotels);
+        autocomplete(document.getElementById("cab_from"), hotels);
         </script>
 
     {% load static %}  

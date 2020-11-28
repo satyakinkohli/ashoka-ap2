@@ -402,6 +402,13 @@ input[type=submit] {
     </div>
 
     <script>
+
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementsByName("cab_date")[0].setAttribute('min', today);
+        document.getElementsByName("flight_date")[0].setAttribute('min', today);
+        document.getElementsByName("hotel_check_in")[0].setAttribute('min', today);
+        document.getElementsByName("hotel_check_out")[0].setAttribute('min', today);
+
         function autocomplete(inp, arr) {
           /*the autocomplete function takes two arguments,
           the text field element and an array of possible autocompleted values:*/

@@ -99,15 +99,15 @@ body {
   top: 50%;
   width: auto;
   padding: 16px;
-  margin-top: 522px;
+  margin-top: 552px;
   color: white;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
-  margin-left:260px;
-  margin-right:260px;
+  margin-left:270px;
+  margin-right:270px;
 }
 
 /* Position the "next button" to the right */
@@ -183,10 +183,10 @@ body {
         
         .sizing_image
         {
-            height: 400px;
-            width: 300px;
-            margin-left: 11%;
-            margin-top: -12%;
+            height: 150px;
+            width: 150px;
+            margin-left: 5%;
+            margin-top: 5%;
             border-radius: 5px;
             border: 5px solid black;
         }
@@ -197,9 +197,24 @@ body {
             margin-top: 60px;
             margin-bottom: 100px;
             border-radius: 0px;
-            height: 500px;
-            width: 1000px;
+            height: 200px;
+            width: 800px;
+            border:2px solid black;
+            border-radius:10px;
+            
         }
+
+
+        .curved1
+        {
+            margin-top: 60px;
+            margin-bottom: 100px;
+            border-radius: 0px;
+            height: 200px;
+            width: 1000px;
+            
+        }
+
 
         .location
         {
@@ -352,7 +367,7 @@ body {
     
 <body>
 
-        <div class="card curved mx-auto" style="border-radius:0px; border: 5px solid black;"> 
+        <div class="card curved1 mx-auto" style="border-radius:0px; border: 5px solid black;"> 
             <div class="row no-gutters" >
     
                 <div class="col-sm-6">
@@ -418,7 +433,7 @@ body {
     {% for flight in flight_possible %}
     <div class="mySlides fade">
 
-      <div class="card curved" style="margin-bottom:1.5%; margin-top:1.5%;">
+      <div class="card curved" style="margin-bottom:1.5%; margin-top:1.5%;margin-left:39%;">
         <div class="row no-gutters">
             <div class="col-sm-3">
                 <img class="sizing_image card-img" src="{{flight.airline.logos.url}}" alt="Flight Logo">
@@ -438,7 +453,7 @@ body {
                     <input hidden type="text" name ='flight_from' value='{{recent_destination}}'>
                     <input hidden type="text" name='flight_destination' value='{{flight.destination.name}}'>
                     <input hidden type="text" name='flight_date' value='{{recent_date}}'>
-                    <input class="btn" value="Book" type="submit" style=" float: right; background-color:black; padding-top: 8px; padding-bottom: 8px; padding-right: 20px; padding-left: 20px; margin-top: 15%; margin-right: 5%">
+                    <input class="btn" value="Book" type="submit" style=" float: right; background-color:black; padding-top: 8px; padding-bottom: 8px; padding-right: 20px; padding-left: 20px; margin-top: 15%; margin-right: 5%; color:white;">
                     {% else %}
                     <input class="btn" value="Book" type="button" onclick="login_error()" style="background-color:black; float: right; padding-top: 8px; padding-bottom: 8px; padding-right: 20px; padding-left: 20px; margin-top: 15%; margin-right: 5%">
                     {% endif %}

@@ -54,7 +54,7 @@ class Hotel_Summary_View(View):
         price_per_night = (int(standard_number)*float(hotel_instance.standard_price)) + (int(deluxe_number)*float(hotel_instance.deluxe_price)
                                                                                          ) + (int(premium_number)*float(hotel_instance.premium_price)) + (int(suite_number)*float(hotel_instance.suite_price))
         print(price_per_night)
-        total_price = price_per_night*int(days.days)
+        total_price = int(price_per_night)*int(days.days)
         print(total_price)
 
         user = request.user

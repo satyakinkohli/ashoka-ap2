@@ -11,9 +11,7 @@ class Flight_View(View):
         htl = request.GET.get('htl')
         earliest = request.GET.get('earliest')
         latest = request.GET.get('latest')
-
-
-
+        
         if not lth and not htl and not earliest and not latest:
 
             flight_from = request.GET.get('flight_from')

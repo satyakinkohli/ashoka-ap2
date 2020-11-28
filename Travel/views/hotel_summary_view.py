@@ -3,9 +3,11 @@ from django.views import View
 from datetime import datetime
 from Travel.models.hotels import Hotel
 from Travel.models.hotel_booking import Hotel_booking
+from Travel.models.flights import Flight
 
 from datetime import datetime, date
 
+import random
 
 class Hotel_Summary_View(View):
     def get(self, request):
@@ -54,7 +56,7 @@ class Hotel_Summary_View(View):
         price_per_night = (int(standard_number)*float(hotel_instance.standard_price)) + (int(deluxe_number)*float(hotel_instance.deluxe_price)
                                                                                          ) + (int(premium_number)*float(hotel_instance.premium_price)) + (int(suite_number)*float(hotel_instance.suite_price))
         print(price_per_night)
-        total_price = price_per_night*int(days.days)
+        total_price = int(price_per_night)*int(days.days)
         print(total_price)
 
         user = request.user
@@ -74,6 +76,16 @@ class Hotel_Summary_View(View):
                                                suite_number=int(suite_number))
         hotel_booking_instance.save()
 
-        summary_data = {'number_of_rooms': number_of_rooms, 'hotel': hotel_instance, 'hotel_check_in': hotel_check_in_formatted, 'hotel_check_out': hotel_check_out_formatted,
+        recent_destination = hotel_booking_instance.hotel.location
+        recent_destination_id = hotel_booking_instance.hotel.location.id
+        print(recent_destination_id)
+        recent_date = hotel_check_out
+        print(recent_date)
+
+        flight_possible_id = Flight.objects.filter(source=recent_destination_id, date=recent_date).values_list('id', flat=True)
+        flight_possible_id_list = random.sample(list(flight_possible_id), min(len(flight_possible_id), 3))
+        flight_possible = Flight.objects.filter(id__in=flight_possible_id_list)
+
+        summary_data = {'recent_date': recent_date, 'recent_destination': recent_destination, 'flight_possible': flight_possible, 'number_of_rooms': number_of_rooms, 'hotel': hotel_instance, 'hotel_check_in': hotel_check_in_formatted, 'hotel_check_out': hotel_check_out_formatted,
                         'days': days.days, 'price_per_night': price_per_night, 'total_price': total_price}
         return render(request, "hotel_final_summary.html", summary_data)

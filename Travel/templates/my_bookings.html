@@ -33,6 +33,7 @@
             <thead>
                 <tr class="text-center">
                     <th>Hotel</th>
+                    <th>Location</th>
                     <th>Check In</th>
                     <th>Check out</th>
                     <th>Standard Rooms</th>
@@ -47,7 +48,8 @@
                 {% for booking in hotel_bookings %}
                 
                 <tr class="text-center">
-                    <td>{{booking.hotel.name}}({{booking.hotel.location.name}})</td>
+                    <td>{{booking.hotel.name}}</td>
+                    <td> {{booking.hotel.location.name}}</td>
                     <td>{{booking.check_in_date}}</td>
                     <td>{{booking.check_out_date}}</td>
                     <td>{{booking.standard_number}}</td>

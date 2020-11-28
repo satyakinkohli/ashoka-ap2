@@ -7,9 +7,12 @@ from Travel.models.location import Location
 
 class Flight_View(View):
     def get(self, request):
-        categoryID = request.GET.get('lth')
-
-        if not categoryID:
+        lth = request.GET.get('lth')
+        htl = request.GET.get('htl')
+        earliest = request.GET.get('earliest')
+        latest = request.GET.get('latest')
+        
+        if not lth and not htl and not earliest and not latest:
 
             flight_from = request.GET.get('flight_from')
             flight_from_id = Location.get_location_through_name(flight_from)
@@ -32,14 +35,34 @@ class Flight_View(View):
 
         
 
-        if categoryID:
+        if lth:
             print(flight_from_id)
             possible_flights = Flight.get_correct_flight_through_location_and_date_ordered(
             flight_from_id, flight_destination_id, flight_date)
             print (possible_flights)
+
+        elif htl:
+            print(flight_from_id)
+            possible_flights = Flight.get_correct_flight_through_location_and_date_reversed(
+            flight_from_id, flight_destination_id, flight_date)
+            print (possible_flights)
+
+        elif earliest:
+            print(flight_from_id)
+            possible_flights = Flight.get_correct_flight_through_location_and_date_earliest(
+            flight_from_id, flight_destination_id, flight_date)
+            print (possible_flights)
+
+
+        elif latest:
+            print(flight_from_id)
+            possible_flights = Flight.get_correct_flight_through_location_and_date_latest(
+            flight_from_id, flight_destination_id, flight_date)
+            print (possible_flights)
+
         else:
             print(flight_from_id)
-            possible_flights = Flight.get_correct_flight_through_location_and_date(
+            possible_flights = Flight.get_correct_flight_through_location_and_date_ordered(
             flight_from_id, flight_destination_id, flight_date)
 
         

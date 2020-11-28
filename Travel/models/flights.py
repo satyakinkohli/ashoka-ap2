@@ -58,6 +58,22 @@ class Flight(models.Model):
         except:
             return False
 
+
+    @staticmethod
+    def get_correct_flight_through_location_and_date_earliest(source, destination, date):
+        try:
+            return Flight.objects.filter(source=source, destination=destination, date=date).order_by('departure_time')
+        except:
+            return False
+
+
+    @staticmethod
+    def get_correct_flight_through_location_and_date_latest(source, destination, date):
+        try:
+            return Flight.objects.filter(source=source, destination=destination, date=date).order_by('-departure_time')
+        except:
+            return False
+
     @staticmethod
     def get_correct_flight_through_source_and_date(source, date):
         try:

@@ -132,11 +132,26 @@ form.example button {
         <span class="navbar-toggler-icon"></span>
       </button>
       
-      <h6 style="font-size:10px;"> <a class="nav-link" colors href="{% provider_login_url "google" %}" style="font-size: 16px; color: white">Login </a></h6>
+      <button class="open-button" onclick="openForm_Initial()">Login</button>
       
     </nav>
     
     {% endif %}
+
+    <div class="form-popup" id="Form_Initial" style="border-color: black; border-radius: 15px; width:300px">
+      <form action="/action_page.php" class="form-container" style="border-radius: 10px;">
+      <button type="button" class="facebook4" style="border-color: black;" onclick="closeForm()"><img src="https://www.pinclipart.com/picdir/middle/35-356107_close-button-icon-png-clipart.png" height="15px" widht="15px"></button>
+      <h5> </h5>
+      <a style="color: white;" href="{% provider_login_url "google" %}"> <button type="button" class="btn">  Continue with Google </button> </a>
+
+      <p style="text-align: center;"> -------- OR --------- </p>
+  
+      <button type="button" class="btn cancel" onclick="login_not_available()"> Continue with Email </button>
+
+      <p style="text-align: center;"> Don't have an account? </p> 
+      <button type="button" class="facebook" onclick="login_not_available()"> Sign up </button> 
+      </form>
+    </div>
         
           
        
@@ -150,5 +165,23 @@ form.example button {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  <script>
+
+      document.getElementById("Form_Initial").style.display = "none";
+      document.getElementById("Form_Mail").style.display = "none";
+      document.getElementById("Form_Signup").style.display = "none";
+
+    function login_not_available() {
+      alert("Please login using Google. Login using email has been disabled temporarily.");
+    };
+
+    function openForm_Initial() {
+      document.getElementById("Form_Initial").style.display = "block";
+      document.getElementById("Form_Mail").style.display = "none";
+      document.getElementById("Form_Signup").style.display = "none";
+    }
+  </script>
+
   </body>
 </html>

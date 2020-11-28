@@ -299,10 +299,10 @@ input[type=submit] {
 
         <p style="text-align: center;"> -------- OR --------- </p>
     
-        <button type="button" class="btn cancel" onclick="openForm_Mail()"> Continue with Email </button>
+        <button type="button" class="btn cancel" onclick="login_not_available()"> Continue with Email </button>
 
         <p style="text-align: center;"> Don't have an account? </p> 
-        <button type="button" class="facebook" onclick="openForm_Signup()"> Sign up </button> 
+        <button type="button" class="facebook" onclick="login_not_available()"> Sign up </button> 
         </form>
     </div>
 
@@ -408,6 +408,10 @@ input[type=submit] {
         document.getElementsByName("flight_date")[0].setAttribute('min', today);
         document.getElementsByName("hotel_check_in")[0].setAttribute('min', today);
         document.getElementsByName("hotel_check_out")[0].setAttribute('min', today);
+
+        function login_not_available() {
+          alert("Please login using Google. Login using email has been disabled temporarily.");
+        };
 
         function autocomplete(inp, arr) {
           /*the autocomplete function takes two arguments,

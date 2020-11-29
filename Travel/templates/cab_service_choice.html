@@ -112,20 +112,21 @@
         <form action="/cab_booking" method="get">
 
             <div id="car_typing">
-                <div class="sameline"> <button type="button" class="back_button" onclick="goback2()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="35px" widht="20px"></button>
+                <button type="button" class="back_button" onclick="goback2()"><img src="https://img.favpng.com/11/18/20/left-arrow-png-favpng-MXKqBe6jLNdwFDffKJLEwF1NU.jpg" height="35px" widht="20px"></button>
                 <div style="padding-top: 10px; font-size: 25px; margin-left: -7.5%; text-align: center;">
                     <em>Please choose your preferred cab!</em>
                     <br><br>
                 </div>
 
                 {% for car_type in car_types %}
-                <label >
+                <label>
                     <input onclick="enabling_submit_button()" type="radio" name="car_type" value="{{car_type.name}}">
-                    <div id="car_options" style="opacity:100%">
-                        <figcaption style="text-align: center; font-size: 25px;"><b><em><u>{{car_type.name}}</u></em></b></figcaption><figcaption style="text-align: center; font-size: 15px;"><em>Best for {{car_type.capacity}} people</em></figcaption><br><img src="{{car_type.type_options.url}}"  ><br><br><figcaption style="text-align: center; font-size: 20px; color:whitesmoke"><b>₹ {{car_type.price|trip_price:distance}}</b></figcaption><br>
+                    <div id="car_options">
+                        <figcaption style="text-align: center; font-size: 25px;"><b><em><u>{{car_type.name}}</u></em></b></figcaption><figcaption style="text-align: center; font-size: 15px;"><em>Best for {{car_type.capacity}} people</em></figcaption><br><img src="{{car_type.type_options.url}}"><br><br><figcaption style="text-align: center; font-size: 20px; color:whitesmoke"><b>₹ {{car_type.price|trip_price:distance}}</b></figcaption><br>
                     </div>
                 </label>
                 {% endfor %}
+                
                 {% if user and not user.is_anonymous %}
                 <input style="margin-left: 39%; margin-top: 2.25%; padding-left: 25px; padding-right: 25px" class="btn btn-warning btn-lg" type="submit" id="submit_button" value="Book my cab">
                 {% else %}

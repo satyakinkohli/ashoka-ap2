@@ -118,8 +118,7 @@
                 <div class="col-sm-3">
                     <h4 style="margin-left:27%; margin-top:26%"> <u> Driver Details: </u></h4>
                     <img class="sizing_image_driver card-img" style="margin-left:17%; margin-top:7%; border:3px solid black" src="{{cab_driver.driver_photo.url}}" alt="Driver_picture">     
-                    <h5 class="card-title" style="margin-top:4%;margin-left:52%;">{{cab_driver.driver_rating}}<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Antu_rating.svg/1024px-Antu_rating.svg.png" height=20px; width=20px; style="margin-bottom:5.5%;"></h5>
-                    <h5 class="card-title" style=" margin-left:23%;margin-top:9%">{{cab_driver.driver_name}}</h5>
+                    <h5 class="card-title" style=" margin-left:27.5%;margin-top:9%">{{cab_driver.driver_name}}</h5>
                     <h5 class="card-title" style=" margin-left:21%;margin-top:2%"> <img src="{% static '/phone.png' %}" height="35px" width="35px"; style="margin-top:-2%"> {{cab_driver.driver_number}} </h5>
                 </div>
 
@@ -128,7 +127,7 @@
         </div>
     </div>
 
-    <h4 style="margin-top: -4.5%; border:2pxsolid white; border-radius:10px; text-align:center; color:maroon; border:2px solid black; padding-top:8px; padding-bottom:6px; margin-left:15%; margin-right:15%; color:black; background:#44bcd8"> <em> Thank you for booking with us! {{cab_driver.driver_name}} will soon be on their way to pick you up. </em> </h4>
+    <h4 style="margin-top: -4.5%; border-radius:10px; text-align:center; border:2px solid black; padding-top:8px; padding-bottom:6px; margin-left:15%; margin-right:15%; color: black; background:#44bcd8"> <em> Thank you for booking with us! {{cab_driver.driver_name}} will soon be on their way to pick you up. </em> </h4>
 
     {% endfor %}
     {% endfor %}

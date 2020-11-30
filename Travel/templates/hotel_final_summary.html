@@ -424,6 +424,8 @@ body {
 </head>
 <body>
 
+  {% if flight_possible %}
+
   <h4 style="text-align:center; margin-bottom:20px; background-color:black; color:white; margin-left:37%; margin-right:37%; padding:10px; border-radius:10px; ">  RECOMMENDED FOR YOU </h4>
 <div>
   <div class="slideshow-container" style="padding-bottom:100px;">
@@ -437,7 +439,7 @@ body {
         <div class="row no-gutters">
             <div class="col-sm-3">
                 <img class="sizing_image card-img" src="{{flight.airline.logos.url}}" alt="Flight Logo">
-                <p class="card-text" style="margin-left: 35.5%; margin-top: 6.5%">{{flight.airline.name}}</p>
+                <p class="card-text" style="margin-left: 12.5%; margin-top: 6.5%">{{flight.airline.name}}</p>
             </div>
             <div class="col-sm-6">
                 <div class="card-body">
@@ -474,7 +476,7 @@ body {
     
   </div>
     
-    
+    {% endif %}
     <script>
     var slideIndex = 1;
     showSlides(slideIndex);

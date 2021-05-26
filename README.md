@@ -6,4 +6,4 @@ Citations:
 1. Referred to https://www.w3schools.com/howto/howto_js_autocomplete.asp for autocomplete
 2. https://www.w3schools.com/html/html_css.asp
 
-Youtube link for video: https://youtu.be/hABQaZUaRRI
+Youtube link for project video: https://youtu.be/hABQaZUaRRI

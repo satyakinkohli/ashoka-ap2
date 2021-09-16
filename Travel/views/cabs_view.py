@@ -29,8 +29,8 @@ class Cab_View(View):
         # converting date to required format
         now = date(*map(int, cab_date.split('-')))
         
-        cab_min_time = datetime.min.time()
-        cab_date_adjust = datetime.combine(now, cab_min_time)
+        cab_min_times = datetime.min.time()
+        cab_date_adjust = datetime.combine(now, cab_min_times)
 
         cab_date_formatted = datetime.strftime(cab_date_adjust, "%A; %d %b. %Y")
         # end conversion
